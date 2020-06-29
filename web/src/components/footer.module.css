@@ -1,0 +1,10 @@
+footer {
+    padding: 20px 0;
+    background-color: #4e5355;
+    display: flex;
+    justify-content: center;
+}
+
+.copyright {
+    color: white
+}

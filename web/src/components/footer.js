@@ -1,11 +1,10 @@
 import React from 'react'
+import styles from './footer.module.css'
 
 const Footer = () => (
     <footer>
-        <div>
-            <div>
-                &copy; {new Date().getFullYear()}{' '}Powiatowe Centrum Pomocy Rodzinie w Żyrardowie
-            </div>
+        <div className={styles.copyright}>
+            &copy; {new Date().getFullYear()}{' '}Powiatowe Centrum Pomocy Rodzinie w Żyrardowie
         </div>
     </footer>
 );

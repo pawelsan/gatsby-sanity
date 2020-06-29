@@ -6,7 +6,6 @@ import {
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
 import NewsPostPreviewList from '../components/news/news-post-preview-list'
-import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
@@ -96,17 +95,17 @@ const IndexPage = props => {
         description={site.description}
         keywords={site.keywords}
       />
-      <Container>
-        <h1>Welcome to {site.title}</h1>
-        <p>{site.subtitle}</p>
-        {postNodes && (
-          <NewsPostPreviewList
-            title='Latest blog posts'
-            nodes={postNodes}
-            browseMoreHref='/archive/'
-          />
-        )}
-      </Container>
+
+      <h1>{site.subtitle} - witamy na naszej stronie </h1>
+      <p>Powiatowe Centrum Pomocy Rodzinie sprawuję wszechstronne funkcje pomocy</p>
+      {postNodes && (
+        <NewsPostPreviewList
+          title='Latest blog posts'
+          nodes={postNodes}
+          browseMoreHref='/archive/'
+        />
+      )}
+
     </Layout>
   )
 }

@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    margin: 30px 0;
+}
+
+img {
+    padding: 10px 30px;
+    height: 100px;
+}
+
+.logo {
+    padding: 0 30px 0 0;
+}
+
+.navbar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav_item {
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.nav_item[aria-current="page"] {
+    background-color: #4e5355;
+    color: white;
+}
+
+/* .logo_container{
+    width: 200px;
+    height: 200px;
+} */
