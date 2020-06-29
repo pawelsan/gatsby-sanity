@@ -1,8 +1,8 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import BlogPostPreview from './blog-post-preview'
+import NewsPostPreview from './news-post-preview'
 
-function BlogPostPreviewGrid(props) {
+function NewsPostPreviewGrid(props) {
   return (
     <div>
       {props.title && <h2>{props.title}</h2>}
@@ -10,7 +10,7 @@ function BlogPostPreviewGrid(props) {
         {props.nodes &&
           props.nodes.map(node => (
             <li key={node.id}>
-              <BlogPostPreview {...node} />
+              <NewsPostPreview {...node} isInList />
             </li>
           ))}
       </ul>
@@ -23,10 +23,10 @@ function BlogPostPreviewGrid(props) {
   )
 }
 
-BlogPostPreviewGrid.defaultProps = {
+NewsPostPreviewGrid.defaultProps = {
   title: '',
   nodes: [],
   browseMoreHref: ''
 }
 
-export default BlogPostPreviewGrid
+export default NewsPostPreviewGrid

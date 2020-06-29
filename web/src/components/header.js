@@ -3,16 +3,12 @@ import React from 'react'
 import { cn } from '../lib/helpers'
 
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
+const Header = () => (
   <div>
-    <div>
-      <div>
-        <Link to='/'>{siteTitle}</Link>
-      </div>
-      <nav>
-        <Link to='/archive/'>Archiwum aktualności</Link>
-      </nav>
-    </div>
+    <nav>
+      <Link to='/'>Stron główna</Link>
+      <Link to='/archive/'>Archiwum aktualności</Link>
+    </nav>
   </div>
 )
 

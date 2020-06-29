@@ -1,12 +1,12 @@
 import { format } from 'date-fns'
 import { Link } from 'gatsby'
 import React from 'react'
-import { buildImageObj, cn, getBlogUrl } from '../lib/helpers'
-import { imageUrlFor } from '../lib/image-url'
-import PortableText from './portableText'
+import { buildImageObj, cn, getBlogUrl } from '../../lib/helpers'
+import { imageUrlFor } from '../../lib/image-url'
+import PortableText from '../portableText'
 
 
-function BlogPostPreview(props) {
+function NewsPostPreview(props) {
   return (
     <Link
       to={getBlogUrl(props.publishedAt, props.slug.current)}
@@ -36,4 +36,4 @@ function BlogPostPreview(props) {
   )
 }
 
-export default BlogPostPreview
+export default NewsPostPreview

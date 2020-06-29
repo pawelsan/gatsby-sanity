@@ -1,11 +1,11 @@
 import { format, distanceInWords, differenceInDays } from 'date-fns'
 import React from 'react'
-import { buildImageObj } from '../lib/helpers'
-import { imageUrlFor } from '../lib/image-url'
-import PortableText from './portableText'
-import Container from './container'
+import { buildImageObj } from '../../lib/helpers'
+import { imageUrlFor } from '../../lib/image-url'
+import PortableText from '../portableText'
+import Container from '../container'
 
-function BlogPost(props) {
+function NewsPost(props) {
   const { _rawBody, title, mainImage, publishedAt } = props
   return (
     <article>
@@ -43,4 +43,4 @@ function BlogPost(props) {
   )
 }
 
-export default BlogPost
+export default NewsPost

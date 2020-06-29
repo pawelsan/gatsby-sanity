@@ -5,7 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
-import BlogPostPreviewList from '../components/blog-post-preview-list'
+import NewsPostPreviewList from '../components/news/news-post-preview-list'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
@@ -100,7 +100,7 @@ const IndexPage = props => {
         <h1>Welcome to {site.title}</h1>
         <p>{site.subtitle}</p>
         {postNodes && (
-          <BlogPostPreviewList
+          <NewsPostPreviewList
             title='Latest blog posts'
             nodes={postNodes}
             browseMoreHref='/archive/'
