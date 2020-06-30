@@ -10,8 +10,8 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <Container>
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
     <main className={styles.main}>
-      <Aside></Aside>
-      <div>{children}</div>
+      <Aside subSiteTitle={children[0] ? children[0].props.title : null} ></Aside>
+      <div className={styles.page}>{children}</div>
     </main>
     <Footer />
   </Container>
