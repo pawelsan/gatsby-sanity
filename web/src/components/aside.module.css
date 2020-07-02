@@ -1,6 +1,7 @@
 aside {
     width: 250px;
     padding-top: 20px;
+    flex-shrink: 0;
     overflow: hidden;
 }
 

@@ -1,0 +1,39 @@
+.button {
+    height: 40px;
+    width: 50px;
+    margin: 5px;
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.button:focus {
+    outline: none;
+}
+
+.line {
+    width: 46px;
+    height: 3px;
+    background: black;
+    transition: all 0.4s;
+}
+
+.line1 {
+    transform: rotate(-45deg) translate(-8px, 9px);
+  }
+
+  .line2 {
+    opacity: 0;
+  }
+
+  .line3 {
+    transform: rotate(45deg) translate(-8px, -9px);
+  }
+
+  @media (min-width: 768px) {
+    .button {
+        display: none;
+    }
+  }
