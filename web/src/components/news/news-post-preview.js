@@ -1,15 +1,16 @@
 import { format } from 'date-fns'
 import { Link } from 'gatsby'
 import React from 'react'
-import { buildImageObj, cn, getBlogUrl } from '../../lib/helpers'
+import { buildImageObj, cn, getNewsUrl } from '../../lib/helpers'
 import { imageUrlFor } from '../../lib/image-url'
 import PortableText from '../portableText'
 
 
 function NewsPostPreview(props) {
+  console.log(props)
   return (
     <Link
-      to={getBlogUrl(props.publishedAt, props.slug.current)}
+      to={getNewsUrl(props.publishedAt, props.slug.current)}
     >
       <div>
         {props.mainImage && props.mainImage.asset && (

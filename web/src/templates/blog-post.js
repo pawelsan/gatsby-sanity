@@ -8,7 +8,7 @@ import Layout from '../containers/layout'
 import { toPlainText } from '../lib/helpers'
 
 export const query = graphql`
-  query BlogPostTemplateQuery($id: String!) {
+  query NewsPostTemplateQuery($id: String!) {
     post: sanityPost(id: {eq: $id}) {
       id
       publishedAt
