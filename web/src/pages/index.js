@@ -5,7 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
-import NewsPostPreviewList from '../components/news/news-post-preview-list'
+import NewsPostPreviewGrid from '../components/news/news-post-preview-grid'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
@@ -41,7 +41,6 @@ export const query = graphql`
       keywords
     }
     posts: allSanityPost(
-      limit: 6
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
@@ -97,12 +96,10 @@ const IndexPage = props => {
       />
 
       <h1>{site.subtitle} - witamy na naszej stronie </h1>
-      <p>Powiatowe Centrum Pomocy Rodzinie sprawuję wszechstronne funkcje pomocy</p>
+      <p>Aktualności</p>
       {postNodes && (
-        <NewsPostPreviewList
-          title='Latest blog posts'
+        <NewsPostPreviewGrid
           nodes={postNodes}
-          browseMoreHref='/archive/'
         />
       )}
 

@@ -17,11 +17,11 @@ const Header = ({ click, asideOpen }) => {
       </div>
       <Toggler click={click} asideOpen={asideOpen} />
       <nav className={styles.navbar}>
-        <Link className={styles.nav_item} to='/'>Stron główna</Link>
-        <Link className={styles.nav_item} to='/archiwum/'>Aktualności</Link>
-        <Link className={styles.nav_item} to='/deklaracja/'>Deklaracja dostępności</Link>
-        <Link className={styles.nav_item} to='/dokumenty/'>Dokumenty</Link>
-        <Link className={styles.nav_item} to='/kontakt/'>Kontakt</Link>
+        <Link className={styles.nav_item} to='/'><div>Strona</div><div>główna</div></Link>
+        <Link className={styles.nav_item} to='/o-nas/'><div>Informacje o</div><div>PCPR</div></Link>
+        <Link className={styles.nav_item} to='/deklaracja/'><div>Deklaracja</div><div>dostępności</div></Link>
+        <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div><div>do pobranie</div></Link>
+        <Link className={styles.nav_item} to='/kontakt/'><div>Skontaktuj się</div><div>z nami</div></Link>
       </nav>
     </header>
   )
