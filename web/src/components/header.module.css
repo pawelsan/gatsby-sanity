@@ -4,6 +4,15 @@ header {
     border-bottom: 5px solid #f25a78;
 }
 
+
+@media (max-width: 1023px) {
+    header {
+       position: fixed;
+        top: 0;
+        left: 0
+    }
+  }
+
 .logo_wrapper {
     width: 250px;
     display: flex;

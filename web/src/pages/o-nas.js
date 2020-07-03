@@ -6,6 +6,8 @@ import React from 'react'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
+import logo_red from '../images/logo_red.png'
+
 // export const query = graphql`
 //   query ArchivePageQuery {
 //     posts: allSanityPost(

@@ -3,6 +3,9 @@ import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
+import logo_orange from '../images/logo_orange.png'
+
+
 const Assistance = () => (
     <Layout>
         <SEO title='Pomoc instytucjonalna' />

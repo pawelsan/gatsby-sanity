@@ -1,5 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box
+:root {
+    --blue: #44c5f2;
+    --green: #6abf1f;
+    --orange: #ff9843;
+    --red: #f25a78;
 }
