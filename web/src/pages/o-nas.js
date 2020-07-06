@@ -5,7 +5,7 @@ import React from 'react'
 // import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-
+import styles from './pages.module.css'
 import logo_red from '../images/logo_red.png'
 
 // export const query = graphql`
@@ -48,8 +48,11 @@ const About = props => {
 
   return (
     <Layout>
-      <SEO title='O PCPR' />
-      <h1>O PCPR</h1>
+      <SEO title='Informacje ogólne' />
+      <div className={styles.page_header}>
+        <div><img src={logo_red} alt="Czerwona część loga PCPR" /></div>
+        <h1>O PCPR</h1>
+      </div>
       <p>Powiatowe Centrum Pomocy Rodzinie sprawuję wszechstronne funkcje pomocy</p>
     </Layout>
   )

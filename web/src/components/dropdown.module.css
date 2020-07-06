@@ -1,0 +1,37 @@
+@import url("../styles/index.css");
+
+
+.dropdown {
+    position: absolute;
+    bottom: -170%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 10px 10px #555;
+    z-index: 2;
+}
+
+.drop_item {
+    padding: 5px;
+    margin-top: 2px;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    transition: .2s;
+
+}
+.drop_item[aria-current="page"], .drop_item:hover {
+    color: white;
+    background-color: var(--green);
+    margin-right: 0;
+}
+.drop_item[aria-current="page"]:first-child, .drop_item:first-child:hover  {
+    background-color: var(--red);
+}
+.drop_item[aria-current="page"]:nth-child(2), .drop_item:nth-child(2):hover  {
+    background-color: var(--blue);
+}
+.drop_item[aria-current="page"]:last-child, .drop_item:last-child:hover {
+    background-color: var(--orange)
+}

@@ -1,7 +1,25 @@
+@import url("../styles/index.css");
+
 header {
     display: flex;
     padding: 20px;
-    border-bottom: 5px solid #f25a78;
+    border-bottom: 5px solid;
+}
+
+.header_border_blue {
+    border-bottom-color: var(--blue);
+}
+
+.header_border_green {
+    border-bottom-color: var(--green);
+}
+
+.header_border_orange {
+    border-bottom-color: var(--orange);
+}
+
+.header_border_red {
+    border-bottom-color: var(--red);
 }
 
 
@@ -34,8 +52,12 @@ img {
     justify-content: space-evenly;
     align-items: center;
 }
+.navbar >div:hover {
+    cursor: pointer;
+}
 
 .nav_item {
+    position: relative;
     height: 100%;
     flex-grow: 1;
     display: flex;
@@ -47,12 +69,27 @@ img {
     transition: .2s;
 }
 
-.nav_item[aria-current="page"] {
-    background-color: #f25a78;
+.nav_item[aria-current="page"], .active {
+    background-color: var(--red);
     color: white;
 }
 
-/* .logo_container{
-    width: 200px;
-    height: 200px;
-} */
+.arrow {
+    position: relative;
+    top: 0;
+    padding: 10px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    transition: .5s;
+}
+
+.arrow_up {
+    transform: rotate(-135deg);
+    top: 15px;
+    transition: .5s;
+}
+
+.arrow_active {
+    border-color: white;
+}

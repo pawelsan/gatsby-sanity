@@ -1,12 +1,12 @@
 import React from "react";
 import styles from './toggler.module.css'
-const Toggler = ({ click, asideOpen }) => {
+const Toggler = ({ click, open }) => {
     // console.log(click);
     return (
-        <button className={styles.button} onClick={() => click()}>
-            <div className={asideOpen ? `${styles.line1} ${styles.line}` : styles.line} />
-            <div className={asideOpen ? `${styles.line2} ${styles.line}` : styles.line} />
-            <div className={asideOpen ? `${styles.line3} ${styles.line}` : styles.line} />
+        <button className={styles.button} onClick={click}>
+            <div className={open ? `${styles.line1} ${styles.line}` : styles.line} />
+            <div className={open ? `${styles.line2} ${styles.line}` : styles.line} />
+            <div className={open ? `${styles.line3} ${styles.line}` : styles.line} />
         </button>
     );
 };
