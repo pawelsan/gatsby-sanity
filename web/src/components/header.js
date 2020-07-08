@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 // import Navbar from './navbar/navbar'
 import logo from '../images/logo.png'
 import coatOfArms from '../images/herb_powiatu.jpg'
+import bip from '../images/bip.png'
 import Toggler from './toggler'
 import DropdownMenu from './dropdown'
 import styles from './header.module.css'
@@ -41,15 +42,23 @@ const Header = ({ subSiteTitle }) => {
       <Toggler click={() => setOpen(!open)} open={open} />
       <nav className={styles.navbar}>
         <Link className={styles.nav_item} to='/'><div>Strona</div><div>główna</div></Link>
-        <div className={active ? `${styles.nav_item} ${styles.active}` : styles.nav_item} onClick={() => setOpen(!open)}>
-          <div>Nasza praca</div>
-          <div className={open && active ? `${styles.arrow} ${styles.arrow_up} ${styles.arrow_active}` : open ? `${styles.arrow} ${styles.arrow_up}` : active ? `${styles.arrow_active} ${styles.arrow} ` : styles.arrow}></div>
+        <div className={styles.nav_item} onClick={() => setOpen(!open)}>
+          <div className={
+            active && subSiteTitle === "Rodziny zastępcze" ? `${styles.nav_item_dropdown} ${styles.active_blue}` :
+              active && subSiteTitle === "Osoby z niepełnosprawnością" ? `${styles.nav_item_dropdown} ${styles.active_green}` :
+                active && subSiteTitle === "Pomoc instytucjonalna" ? `${styles.nav_item_dropdown} ${styles.active_orange}` :
+                  active ? `${styles.nav_item_dropdown} ${styles.active}` : styles.nav_item_dropdown
+          }>
+            <div>Nasza<br />praca</div>
+            <div className={open && active ? `${styles.arrow} ${styles.arrow_up} ${styles.arrow_active}` : open ? `${styles.arrow} ${styles.arrow_up}` : active ? `${styles.arrow_active} ${styles.arrow} ` : styles.arrow}></div>
+          </div>
           {open && <DropdownMenu />}
         </div>
         <Link className={styles.nav_item} to='/deklaracja/'><div>Deklaracja</div><div>dostępności</div></Link>
         <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div><div>do pobranie</div></Link>
         <Link className={styles.nav_item} to='/kontakt/'><div>Skontaktuj się</div><div>z nami</div></Link>
       </nav>
+      <a href="http://www.pcprzyrardow.naszbip.pl/"><img style={{ width: "50px", height: "50px" }} src={bip} alt="Logo bip" /></a>
     </header>
   )
 }
