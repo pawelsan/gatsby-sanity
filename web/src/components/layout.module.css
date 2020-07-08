@@ -4,7 +4,8 @@
     position: relative;
     overflow: hidden;
 }
-/* 
-.page {
-    padding: 20px;
-} */
+@media (max-width: 767px) {
+    .main {
+        margin-top: 100px;
+    }
+  }

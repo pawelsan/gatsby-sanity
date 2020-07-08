@@ -22,15 +22,6 @@ header {
     border-bottom-color: var(--red);
 }
 
-
-@media (max-width: 1023px) {
-    header {
-       position: fixed;
-        top: 0;
-        left: 0
-    }
-  }
-
 .logo_wrapper {
     width: 250px;
     display: flex;
@@ -78,6 +69,9 @@ img {
     width: 50%;
     text-align: center;
 }
+.nav_item:hover {
+    background-color: rgba(78, 83, 85, .2);
+}
 
 .nav_item[aria-current="page"], .active {
     background-color: var(--red);
@@ -102,19 +96,79 @@ img {
 .arrow {
     position: relative;
     top: 0;
-    padding: 10px;
+    margin-left: 5px;
+    padding: 8px;
     border: solid black;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 2px 0;
     transform: rotate(45deg);
     transition: .5s;
 }
 
 .arrow_up {
     transform: rotate(-135deg);
-    top: 10px;
+    top: 8px;
     transition: .5s;
 }
 
 .arrow_active {
     border-color: white;
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 10px;
+    }
+    .logo_wrapper {
+        width: 150px;
+    }
+    img {
+        height: 70px;
+    }
+    .arrow {
+        padding:5px;
+    }
+    .arrow_up {
+        top: 5px;
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        width: 100%;
+        height: 100px;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: white;
+        z-index: 999;
+    }
+    .navbar {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-color: white;
+        z-index: -100;
+        box-shadow: 0 0 5px #777;
+        opacity: 0;
+        
+    }
+    .open {
+        opacity: 1
+    }
+  }
+
+
+@media (max-width: 529px) {
+    .navbar {
+        flex-wrap: wrap;
+        height: 200px;
+    }
+    .nav_item {
+        flex-basis: 30%;
+        height: 100px;
+    }
 }

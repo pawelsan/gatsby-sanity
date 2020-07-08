@@ -10,7 +10,9 @@ import styles from './header.module.css'
 
 
 const Header = ({ subSiteTitle }) => {
-  const [open, setOpen] = useState(false);
+  const [openNav, setOpenNav] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
+
 
   // const togglerHandler = () => {
   //   console.log("clicked");
@@ -35,14 +37,14 @@ const Header = ({ subSiteTitle }) => {
           subSiteTitle === "Pomoc instytucjonalna" ? styles.header_border_orange :
             styles.header_border_red
     }>
+      <Toggler click={() => setOpenNav(!openNav)} open={openNav} />
       <div className={styles.logo_wrapper}>
         <a href="https://www.powiat-zyrardowski.pl/"><img src={coatOfArms} alt="Herb powiatu" /></a>
         <Link to='/'><img className={styles.logo} src={logo} alt="Logo PCPR" /></Link>
       </div>
-      <Toggler click={() => setOpen(!open)} open={open} />
-      <nav className={styles.navbar}>
+      <nav className={openNav ? `${styles.navbar} ${styles.open}` : styles.navbar}>
         <Link className={styles.nav_item} to='/'><div>Strona</div><div>główna</div></Link>
-        <div className={styles.nav_item} onClick={() => setOpen(!open)}>
+        <div className={styles.nav_item} onClick={() => setOpenDropdown(!openDropdown)}>
           <div className={
             active && subSiteTitle === "Rodziny zastępcze" ? `${styles.nav_item_dropdown} ${styles.active_blue}` :
               active && subSiteTitle === "Osoby z niepełnosprawnością" ? `${styles.nav_item_dropdown} ${styles.active_green}` :
@@ -50,13 +52,13 @@ const Header = ({ subSiteTitle }) => {
                   active ? `${styles.nav_item_dropdown} ${styles.active}` : styles.nav_item_dropdown
           }>
             <div>Nasza<br />praca</div>
-            <div className={open && active ? `${styles.arrow} ${styles.arrow_up} ${styles.arrow_active}` : open ? `${styles.arrow} ${styles.arrow_up}` : active ? `${styles.arrow_active} ${styles.arrow} ` : styles.arrow}></div>
+            <div className={openDropdown && active ? `${styles.arrow} ${styles.arrow_up} ${styles.arrow_active}` : openDropdown ? `${styles.arrow} ${styles.arrow_up}` : active ? `${styles.arrow_active} ${styles.arrow} ` : styles.arrow}></div>
           </div>
-          {open && <DropdownMenu />}
+          {openDropdown && <DropdownMenu />}
         </div>
         <Link className={styles.nav_item} to='/deklaracja/'><div>Deklaracja</div><div>dostępności</div></Link>
         <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div><div>do pobranie</div></Link>
-        <Link className={styles.nav_item} to='/kontakt/'><div>Skontaktuj się</div><div>z nami</div></Link>
+        <Link className={styles.nav_item} to='/kontakt/'><div>Dane</div><div>kontaktowe</div></Link>
       </nav>
       <a href="http://www.pcprzyrardow.naszbip.pl/"><img style={{ width: "50px", height: "50px" }} src={bip} alt="Logo bip" /></a>
     </header>

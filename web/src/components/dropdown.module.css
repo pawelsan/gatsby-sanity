@@ -35,3 +35,14 @@
 .drop_item[aria-current="page"]:last-child, .drop_item:last-child:hover {
     background-color: var(--orange)
 }
+
+@media (max-width: 991px) {
+    .dropdown {
+        bottom: -250%
+    }
+}
+@media (max-width: 767px) {
+    .dropdown {
+        bottom: -170%
+    }
+}
