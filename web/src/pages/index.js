@@ -5,10 +5,12 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
-import NewsPostPreviewGrid from '../components/news/news-post-preview-grid'
+import NewsPostPreview from '../components/news/news-post-preview'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+
+import styles from './pages.module.css'
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -97,11 +99,19 @@ const IndexPage = props => {
 
       <h1>{site.subtitle} - witamy na naszej stronie </h1>
       <p>Aktualności</p>
-      {postNodes && (
-        <NewsPostPreviewGrid
+      <ul className={styles.post_container}>
+        {postNodes &&
+          postNodes.map(node => (
+            <li key={node.id}>
+              <NewsPostPreview {...node} />
+            </li>
+          ))}
+      </ul>
+      {/* {postNodes && (
+        <NewsPostPreview
           nodes={postNodes}
         />
-      )}
+      )} */}
 
     </Layout>
   )

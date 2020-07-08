@@ -20,3 +20,15 @@
 h1 {
 align-self: center;
 }
+
+.post_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    list-style: none;
+    flex-basis: 33%;
+    flex-grow: 1;
+}

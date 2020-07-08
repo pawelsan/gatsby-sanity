@@ -1,0 +1,8 @@
+.post_link {
+    text-decoration: none;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+}

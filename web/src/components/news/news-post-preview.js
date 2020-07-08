@@ -5,34 +5,40 @@ import { buildImageObj, cn, getNewsUrl } from '../../lib/helpers'
 import { imageUrlFor } from '../../lib/image-url'
 import PortableText from '../portableText'
 
+import styles from "./news-post-preview.module.css"
 
 function NewsPostPreview(props) {
   console.log(props)
   return (
     <Link
       to={getNewsUrl(props.publishedAt, props.slug.current)}
+      className={styles.post_link}
     >
-      <div>
-        {props.mainImage && props.mainImage.asset && (
-          <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
-              .auto('format')
-              .url()}
-            alt={props.mainImage.alt}
-          />
-        )}
-      </div>
-      <div>
-        <h3>{props.title}</h3>
+      <div className={styles.post}>
+        <div>
+          <h3>{props.title}</h3>
+          <div>{format(props.publishedAt, 'DD.MM.YYYY')}</div>
+        </div>
+        <div>
+          {props.mainImage && props.mainImage.asset && (
+            <img
+              src={imageUrlFor(buildImageObj(props.mainImage))
+                .width(600)
+                .height(Math.floor((9 / 16) * 600))
+                .auto('format')
+                .url()}
+              alt={props.mainImage.alt}
+            />
+          )}
+        </div>
         {props._rawExcerpt && (
           <div>
             <PortableText blocks={props._rawExcerpt} />
           </div>
         )}
-        <div>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>
       </div>
+
+
     </Link>
   )
 }
