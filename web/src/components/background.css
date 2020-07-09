@@ -1,19 +1,19 @@
 @import url("../styles/index.css");
 
 .background_container {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     opacity: 0.6;
-    position: fixed;
+    position: absolute;
     z-index: -1;
 }
 
 .puzzle_container {
-    position: fixed;
+    position: absolute;
     left: 30px;
     bottom: 100px;
-    width: 300px;
-    height: 400px;
+    width: 200px;
+    height: 300px;
     display: flex;
     flex-direction: column-reverse;
 }
@@ -33,38 +33,38 @@
     position: relative;
     /* top: 30px;
     left: 30px; */
-    width: 100px;
-    height: 100px;
+    width: 67px;
+    height: 67px;
     background-color: var(--orange);
     /* transform: rotate(45deg); */
 }
 
 .connector {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background-color: white;
 }
 .connector_1 {
-    top: -3px;
+    top: -2px;
     left: 50%;
     transform: translateX(-50%)
 }
 .connector_2 {
     top: 50%;
-    right: -3px;
+    right: -2px;
     transform: translateY(-50%)
 }
 
 .connector_3 {
-    bottom: -27px;
+    bottom: -18px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .connector_4 {
-    left: -27px;
+    left: -18px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -96,10 +96,9 @@
 
 .loose_puzzle_1 {
     position: absolute;
-    top: 5%;
-    right: 10%;
+    top: 25%;
+    right: 5%;
     transform: rotate(35deg);
-    opacity: 0.5;
 }
 .loose_puzzle_2 {
     position: absolute;
@@ -109,7 +108,7 @@
 }
 .loose_puzzle_3 {
     position: absolute;
-    top: -2px;
+    top: 12%;
     transform: rotate(4deg);
     background-color: var(--red);
 }
@@ -120,7 +119,7 @@
 .loose_puzzle_4 {
     position: absolute;
     bottom: 40%;
-    right: 0;
+    right: 10px;
     transform: rotate(-5deg);
     background-color: var(--green) !important;
 }

@@ -21,8 +21,8 @@ function NewsPostPreview(props) {
           {props.mainImage && props.mainImage.asset && (
             <img
               src={imageUrlFor(buildImageObj(props.mainImage))
-                .width(600)
-                .height(600)
+                .width(100)
+                .height(100)
                 .auto('format')
                 .url()}
               alt={props.mainImage.alt}

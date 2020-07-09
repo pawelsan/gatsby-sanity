@@ -40,7 +40,7 @@ const Header = ({ subSiteTitle }) => {
       <div className={styles.header_container}>
         <Toggler click={() => setOpenNav(!openNav)} open={openNav} />
         <div className={styles.logo_wrapper}>
-          <a href="https://www.powiat-zyrardowski.pl/"><img src={coatOfArms} alt="Herb powiatu" /></a>
+          <a href="https://www.powiat-zyrardowski.pl/"><img className={styles.coatOfArms} src={coatOfArms} alt="Herb powiatu" /></a>
           <Link to='/'><img className={styles.logo} src={logo} alt="Logo PCPR" /></Link>
         </div>
         <nav className={openNav ? `${styles.navbar} ${styles.open}` : styles.navbar}>
@@ -64,7 +64,7 @@ const Header = ({ subSiteTitle }) => {
           <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div><div>do pobrania</div></Link>
           <Link className={styles.nav_item} to='/kontakt/'><div>Dane</div><div>kontaktowe</div></Link>
         </nav>
-        <a href="http://www.pcprzyrardow.naszbip.pl/"><img style={{ width: "50px", height: "50px" }} src={bip} alt="Logo bip" /></a>
+        <a href="http://www.pcprzyrardow.naszbip.pl/"><img style={{ width: "30px", height: "30px" }} src={bip} alt="Logo bip" /></a>
       </div>
     </header>
   )

@@ -4,12 +4,13 @@ header {
     border-bottom: 5px solid;
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 .header_container {
     display: flex;
-    padding: 20px;
-    width: 1200px;
-    background-color: white;
+    padding: 10px;
+    width: 1100px;
+
 }
 
 .header_border_blue {
@@ -34,9 +35,9 @@ header {
     justify-content: space-evenly;
 }
 
-img {
+.coatOfArms, .logo {
     padding: 10px;
-    height: 100px;
+    height: 70px;
 }
 
 .logo {
@@ -121,15 +122,15 @@ img {
 }
 
 @media (max-width: 991px) {
-    .header_container {
+    /* .header_container {
         padding: 10px;
-    }
+    } */
     .logo_wrapper {
         width: 150px;
     }
-    img {
+    /* img {
         height: 70px;
-    }
+    } */
     .arrow {
         padding:5px;
     }

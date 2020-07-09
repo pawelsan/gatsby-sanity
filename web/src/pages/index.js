@@ -10,6 +10,8 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
+import photo_title from '../images/photo_title.png'
+
 import styles from './pages.module.css'
 
 export const query = graphql`
@@ -96,8 +98,11 @@ const IndexPage = props => {
         description={site.description}
         keywords={site.keywords}
       />
-
-      <h1>{site.subtitle} - aktualności: </h1>
+      <div className={styles.photo_title} >
+        <img src={photo_title} alt="Zdjęcie dzieci w parku" />
+        <h1>{site.subtitle}</h1>
+      </div>
+      <h2>Aktualności</h2>
       <ul className={styles.post_container}>
         {postNodes &&
           postNodes.map(node => (

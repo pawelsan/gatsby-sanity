@@ -8,6 +8,7 @@
 
 .root {
   /* margin: 0 auto; */
+  position: relative;
   min-height: 100vh;
   color: black;
   /* background-color: white; */

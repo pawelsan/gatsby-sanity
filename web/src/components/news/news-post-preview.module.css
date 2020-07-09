@@ -29,8 +29,8 @@
     margin-top: 4px;;
 }
 
-.post_content {
-    letter-spacing: 1px;
+.post_content>p {
+    font-size: 18px;
     flex-grow: 1;
 }
 

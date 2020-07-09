@@ -1,7 +1,7 @@
 @import url("../styles/index.css");
 
 footer {
-    padding: 20px;
+    padding: 10px;
     background-color: var(--gray);
     display: flex;
     justify-content: center;
