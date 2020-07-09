@@ -46,3 +46,13 @@
         bottom: -170%
     }
 }
+
+@media (max-width: 529px) {
+    .dropdown {
+        width: 100%;
+        bottom: -270%
+    }
+    .drop_item {
+        padding: 15px;
+    }
+}

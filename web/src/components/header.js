@@ -51,13 +51,16 @@ const Header = ({ subSiteTitle }) => {
                 active && subSiteTitle === "Pomoc instytucjonalna" ? `${styles.nav_item_dropdown} ${styles.active_orange}` :
                   active ? `${styles.nav_item_dropdown} ${styles.active}` : styles.nav_item_dropdown
           }>
-            <div>Nasza<br />praca</div>
+            <div>
+              <div>Nasza</div>
+              <div>praca</div>
+            </div>
             <div className={openDropdown && active ? `${styles.arrow} ${styles.arrow_up} ${styles.arrow_active}` : openDropdown ? `${styles.arrow} ${styles.arrow_up}` : active ? `${styles.arrow_active} ${styles.arrow} ` : styles.arrow}></div>
           </div>
           {openDropdown && <DropdownMenu />}
         </div>
         <Link className={styles.nav_item} to='/deklaracja/'><div>Deklaracja</div><div>dostępności</div></Link>
-        <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div><div>do pobranie</div></Link>
+        <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div><div>do pobrania</div></Link>
         <Link className={styles.nav_item} to='/kontakt/'><div>Dane</div><div>kontaktowe</div></Link>
       </nav>
       <a href="http://www.pcprzyrardow.naszbip.pl/"><img style={{ width: "50px", height: "50px" }} src={bip} alt="Logo bip" /></a>

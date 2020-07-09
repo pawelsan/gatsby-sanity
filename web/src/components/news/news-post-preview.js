@@ -15,16 +15,14 @@ function NewsPostPreview(props) {
       className={styles.post_link}
     >
       <div className={styles.post}>
-        <div>
-          <h3>{props.title}</h3>
-          <div>{format(props.publishedAt, 'DD.MM.YYYY')}</div>
-        </div>
+        <h3 className={styles.post_title}>{props.title}</h3>
+        <div className={styles.post_date}>{format(props.publishedAt, 'DD.MM.YYYY')}</div>
         <div>
           {props.mainImage && props.mainImage.asset && (
             <img
               src={imageUrlFor(buildImageObj(props.mainImage))
                 .width(600)
-                .height(Math.floor((9 / 16) * 600))
+                .height(600)
                 .auto('format')
                 .url()}
               alt={props.mainImage.alt}
@@ -32,7 +30,7 @@ function NewsPostPreview(props) {
           )}
         </div>
         {props._rawExcerpt && (
-          <div>
+          <div className={styles.post_content}>
             <PortableText blocks={props._rawExcerpt} />
           </div>
         )}

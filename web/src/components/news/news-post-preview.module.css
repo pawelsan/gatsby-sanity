@@ -1,3 +1,5 @@
+@import url("../../styles/index.css");
+
 .post_link {
     text-decoration: none;
 }
@@ -5,4 +7,35 @@
 .post {
     display: flex;
     flex-direction: column;
+    min-height: 320px;
+    padding: 10px;
+    color: black;
+    background-color: rgba(78, 83, 85, .2);
+}
+
+.post:hover {
+    color: white;
+    background-color: var(--gray);
+}
+
+.post_title {
+    border-bottom: 2px solid black;
+}
+.post:hover .post_title {
+    border-color: white;
+}
+.post_date {
+    font-size: 16px;
+    margin-top: 4px;;
+}
+
+.post_content {
+    letter-spacing: 1px;
+    flex-grow: 1;
+}
+
+@media (max-width: 528px) {
+    .post {
+        min-height: auto;
+    }
 }

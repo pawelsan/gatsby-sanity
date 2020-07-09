@@ -97,8 +97,7 @@ const IndexPage = props => {
         keywords={site.keywords}
       />
 
-      <h1>{site.subtitle} - witamy na naszej stronie </h1>
-      <p>Aktualności</p>
+      <h1>{site.subtitle} - aktualności: </h1>
       <ul className={styles.post_container}>
         {postNodes &&
           postNodes.map(node => (
