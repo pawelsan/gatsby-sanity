@@ -1,0 +1,130 @@
+@import url("../styles/index.css");
+
+.background_container {
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.6;
+    position: fixed;
+    z-index: -1;
+}
+
+.puzzle_container {
+    position: fixed;
+    left: 30px;
+    bottom: 100px;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.puzzle_row {
+    display: flex;
+    opacity: 0.5;
+}
+.puzzle_row:first-child {
+    position: relative;
+    top: 10px;
+    transform: rotate(3deg);
+    opacity: 1;
+}
+/* CSS for default orange puzzle */
+.puzzle {
+    position: relative;
+    /* top: 30px;
+    left: 30px; */
+    width: 100px;
+    height: 100px;
+    background-color: var(--orange);
+    /* transform: rotate(45deg); */
+}
+
+.connector {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+}
+.connector_1 {
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+.connector_2 {
+    top: 50%;
+    right: -3px;
+    transform: translateY(-50%)
+}
+
+.connector_3 {
+    bottom: -27px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.connector_4 {
+    left: -27px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.connector_3, .connector_4 {
+    background-color: var(--orange);
+    z-index: 1;
+}
+/* CSS for blue puzzles */
+.puzzle:last-child,
+.puzzle:last-child>.connector_3,
+.puzzle:last-child>.connector_4  {
+    background-color: var(--blue);
+    }
+
+/* CSS for green puzzles */
+.puzzle_row:nth-child(3)>.puzzle,
+.puzzle_row:nth-child(3)>.puzzle>.connector_3,
+.puzzle_row:nth-child(3)>.puzzle>.connector_4 {
+    background-color: var(--green);
+}
+
+/* CSS for a red puzzle */
+.puzzle_row:first-child>.puzzle:first-child,
+.puzzle_row:first-child>.puzzle:first-child>.connector_3,
+.puzzle_row:first-child>.puzzle:first-child>.connector_4 {
+    background-color: var(--red);
+}
+
+.loose_puzzle_1 {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    transform: rotate(35deg);
+    opacity: 0.5;
+}
+.loose_puzzle_2 {
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    transform: rotate(142deg);
+}
+.loose_puzzle_3 {
+    position: absolute;
+    top: -2px;
+    transform: rotate(4deg);
+    background-color: var(--red);
+}
+.loose_puzzle_3>.connector_3,
+.loose_puzzle_3>.connector_4 {
+    background-color: var(--red);
+}
+.loose_puzzle_4 {
+    position: absolute;
+    bottom: 40%;
+    right: 0;
+    transform: rotate(-5deg);
+    background-color: var(--green) !important;
+}
+.loose_puzzle_4>.connector_3,
+.loose_puzzle_4>.connector_4 {
+    background-color: var(--green) !important;
+}
