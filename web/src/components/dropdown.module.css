@@ -43,14 +43,14 @@
 }
 @media (max-width: 767px) {
     .dropdown {
-        bottom: -170%
+        bottom: -310%
     }
 }
 
 @media (max-width: 529px) {
     .dropdown {
         width: 100%;
-        bottom: -270%
+        bottom: -370%
     }
     .drop_item {
         padding: 15px;

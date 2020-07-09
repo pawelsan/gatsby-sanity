@@ -135,7 +135,7 @@ img {
 @media (max-width: 767px) {
     header {
         width: 100%;
-        height: 100px;
+        height: 75px;
         justify-content: space-between;
         align-items: center;
         position: fixed;
@@ -146,10 +146,10 @@ img {
     }
     .navbar {
         position: absolute;
-        top: 100px;
+        top: 75px;
         left: 0;
         width: 100%;
-        height: 100px;
+        height: 60px;
         background-color: white;
         z-index: -100;
         box-shadow: 0 0 5px #777;
@@ -170,7 +170,7 @@ img {
     .nav_item {
         flex-basis: 95%;
         flex-direction: row;
-        height: 80px;
+        height: 60px;
     }
     .nav_item > div, .nav_item_dropdown >div >div {
         margin-left: 5px;
