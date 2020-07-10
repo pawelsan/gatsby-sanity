@@ -146,13 +146,19 @@ header {
     .header_container {
         width: 100%;
         height: 75px;
-        justify-content: space-between;
+        /* justify-content: flex-end; */
         align-items: center;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         background-color: white;
         z-index: 999;
+    }
+
+    .logo_wrapper {
+        margin-right: 40px;
+        flex-grow: 1;
+        justify-content: center;
     }
     .navbar {
         position: absolute;
@@ -166,6 +172,10 @@ header {
         opacity: 0;
         
     }
+    .open_header {
+        position: fixed;
+    }
+
     .open {
         opacity: 1;
         top: 75px;
@@ -177,7 +187,7 @@ header {
     .navbar {
         flex-wrap: wrap;
         height: auto;
-        top: 75px;
+        top: 80px;
         left: -100%;
         opacity: 1;
         transition: .5s;

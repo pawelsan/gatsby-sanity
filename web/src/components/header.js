@@ -37,7 +37,7 @@ const Header = ({ subSiteTitle }) => {
           subSiteTitle === "Pomoc instytucjonalna" ? styles.header_border_orange :
             styles.header_border_red
     }>
-      <div className={styles.header_container}>
+      <div className={openNav ? `${styles.header_container} ${styles.open_header}` : styles.header_container}>
         <Toggler click={() => setOpenNav(!openNav)} open={openNav} />
         <div className={styles.logo_wrapper}>
           <a href="https://www.powiat-zyrardowski.pl/"><img className={styles.coatOfArms} src={coatOfArms} alt="Herb powiatu" /></a>
