@@ -103,6 +103,8 @@ li {
     
     .photo_title > img {
             width: initial;
+            position: relative;
+            left: -100px;
             /* max-height: initial; */
     }
 
