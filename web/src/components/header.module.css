@@ -156,7 +156,7 @@ header {
     }
 
     .logo_wrapper {
-        margin-right: 40px;
+        margin-left: 40px;
         flex-grow: 1;
         justify-content: center;
     }
