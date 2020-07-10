@@ -185,9 +185,10 @@ header {
 
 @media (max-width: 529px) {
     .navbar {
+        position: fixed;
         flex-wrap: wrap;
         height: auto;
-        top: 80px;
+        top: 75px;
         left: -100%;
         opacity: 1;
         transition: .5s;

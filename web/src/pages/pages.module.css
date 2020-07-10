@@ -5,14 +5,11 @@
     height: auto;
     display: flex;
     justify-content: center;
-    /* overflow: hidden; */
     position: relative;
 }
 
 .photo_title > img {
-        /* margin: auto; */
         width: 100%;
-        /* max-height: 100%; */
 }
 
 .photo_title > h1 {
@@ -65,14 +62,8 @@ h2 {
 
 li {
     list-style: none;
-    flex-basis: 24%;
+    flex-basis: 30%;
     margin: 5px;
-}
-
-@media (max-width: 1199px) {
-    li {
-        flex-basis: 30%;
-    }
 }
 
 @media (max-width: 991px) {
@@ -80,12 +71,12 @@ li {
         font-size: 28px;
         letter-spacing: 0;
     }
-}
-
-@media (max-width: 767px) {
     li {
         flex-basis: 45%;
     }
+}
+
+@media (max-width: 767px) {
     .photo_title > h1 {
         font-size: 24px;
     }
@@ -105,7 +96,6 @@ li {
             width: initial;
             position: relative;
             left: -100px;
-            /* max-height: initial; */
     }
 
     .photo_title > h1 {
