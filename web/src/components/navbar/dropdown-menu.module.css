@@ -1,9 +1,9 @@
-@import url("../styles/index.css");
+@import url("../../styles/index.css");
 
 
 .dropdown {
     position: absolute;
-    bottom: -170%;
+    bottom: -250%;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -36,11 +36,6 @@
     background-color: var(--orange)
 }
 
-@media (max-width: 991px) {
-    .dropdown {
-        bottom: -250%
-    }
-}
 @media (max-width: 767px) {
     .dropdown {
         bottom: -310%
