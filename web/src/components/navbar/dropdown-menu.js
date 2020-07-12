@@ -1,19 +1,15 @@
 import { Link } from 'gatsby';
 import React from 'react';
-
+import Dropdown from './dropdown'
 import styles from './dropdown-menu.module.css'
 
-const DropdownMenu = () => {
-    const items = [
-        { to: '/o-nas/', text: 'Informacje ogólne' },
-        { to: '/rodziny-zastepcze', text: 'Rodziny zastępcze' },
-        { to: '/osoby-niepelnosprawne', text: 'Osoby z niepełnosprawnością' },
-        { to: '/pomoc-instytucjonalna', text: 'Pomoc instytucjonalna' }
-    ]
+const DropdownMenu = ({ items }) => {
+
     return (
         <div className={styles.dropdown}>
             {items.map((item, index) =>
-                <Link key={index} className={styles.drop_item} to={item.to}>{item.text}</Link>
+                item.dropdown ? <Dropdown key={index} text={item.text} items={item.dropdownItems} /> :
+                    <Link key={index} className={styles.drop_item} to={item.to}>{item.text}</Link>
             )}
 
             {/* <Link className={styles.drop_item} to></Link>

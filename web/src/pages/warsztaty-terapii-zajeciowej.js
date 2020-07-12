@@ -17,4 +17,4 @@ const TherapyWorkshops = () => (
     </Layout>
 )
 
-export default TherapyWhorkshops
+export default TherapyWorkshops

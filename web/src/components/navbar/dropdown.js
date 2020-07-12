@@ -3,7 +3,7 @@ import DropdownMenu from './dropdown-menu';
 
 import styles from './navbar.module.css'
 
-const Dropdown = ({ subSiteTitle }) => {
+const Dropdown = ({ subSiteTitle, items, text }) => {
     const [openDropdown, setOpenDropdown] = useState(false);
 
     // let active
@@ -14,7 +14,7 @@ const Dropdown = ({ subSiteTitle }) => {
     //     active = false
     // }
     return (
-        <div className={styles.nav_item} onClick={() => setOpenDropdown(!openDropdown)}>
+        <div className={styles.nav_item} onMouseEnter={() => setOpenDropdown(true)} onMouseLeave={() => setOpenDropdown(false)}>
             <div className={
                 subSiteTitle === "Piecza zastępcza" ? `${styles.nav_item_dropdown} ${styles.active_blue}` :
                     subSiteTitle === "Rehabilitacja społeczna" || subSiteTitle === "Aktywny samorząd" ? `${styles.nav_item_dropdown} ${styles.active_green}` :
@@ -22,12 +22,12 @@ const Dropdown = ({ subSiteTitle }) => {
                             subSiteTitle === "Informacje ogólne" || subSiteTitle === "Cudzoziemcy" ? `${styles.nav_item_dropdown} ${styles.active}` : styles.nav_item_dropdown
             }>
                 <div>
-                    <div>Nasza</div>
-                    <div>praca</div>
+                    <div>{text}</div>
+                    {/* <div>praca</div> */}
                 </div>
-                <div className={openDropdown && active ? `${styles.arrow} ${styles.arrow_up} ${styles.arrow_active}` : openDropdown ? `${styles.arrow} ${styles.arrow_up}` : active ? `${styles.arrow_active} ${styles.arrow} ` : styles.arrow}></div>
+                <div className={openDropdown ? `${styles.arrow} ${styles.arrow_up}` : styles.arrow}></div>
             </div>
-            {openDropdown && <DropdownMenu />}
+            {openDropdown && <DropdownMenu items={items} />}
         </div>
     );
 }
