@@ -3,7 +3,7 @@ import DropdownMenu from './dropdown-menu';
 
 import styles from './navbar.module.css'
 
-const Dropdown = ({ subSiteTitle, items, text }) => {
+const Dropdown = ({ subSiteTitle, items, text, primary }) => {
     const [openDropdown, setOpenDropdown] = useState(false);
 
     // let active
@@ -21,13 +21,13 @@ const Dropdown = ({ subSiteTitle, items, text }) => {
                         subSiteTitle === "Domy Pomocy Społecznej" || subSiteTitle === "Środowiskowe Domy Samopomocy" || subSiteTitle === "Warsztaty Terapii Zajęciowej" ? `${styles.nav_item_dropdown} ${styles.active_orange}` :
                             subSiteTitle === "Informacje ogólne" || subSiteTitle === "Cudzoziemcy" ? `${styles.nav_item_dropdown} ${styles.active}` : styles.nav_item_dropdown
             }>
-                <div>
-                    <div>{text}</div>
-                    {/* <div>praca</div> */}
-                </div>
+                {/* <div> */}
+                <div>{text}</div>
+                {/* <div>praca</div> */}
+                {/* </div> */}
                 <div className={openDropdown ? `${styles.arrow} ${styles.arrow_up}` : styles.arrow}></div>
             </div>
-            {openDropdown && <DropdownMenu items={items} />}
+            {openDropdown && <DropdownMenu items={items} primary={primary} />}
         </div>
     );
 }

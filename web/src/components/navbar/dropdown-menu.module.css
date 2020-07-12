@@ -13,6 +13,11 @@
     z-index: 2;
 }
 
+.primary_dropdown {
+    top: 100%;
+    left: 0;
+}
+
 .drop_item {
     padding: 5px;
     margin-top: 2px;

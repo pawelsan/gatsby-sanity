@@ -29,7 +29,7 @@ const Navbar = ({ openNav, subSiteTitle }) => {
     return (
         <nav className={openNav ? `${styles.navbar} ${styles.open}` : styles.navbar}>
             <Link className={styles.nav_item} to='/'><div>Strona</div><div>główna</div></Link>
-            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItems} text={'Nasza praca'} />
+            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItems} text={'Nasza praca'} primary={true} />
             <Link className={styles.nav_item} to='/deklaracja/'><div>Deklaracja</div><div>dostępności</div></Link>
             <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div><div>do pobrania</div></Link>
             <Link className={styles.nav_item} to='/kontakt/'><div>Dane</div><div>kontaktowe</div></Link>
