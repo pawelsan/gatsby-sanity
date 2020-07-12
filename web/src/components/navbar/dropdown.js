@@ -16,9 +16,9 @@ const Dropdown = ({ subSiteTitle }) => {
     return (
         <div className={styles.nav_item} onClick={() => setOpenDropdown(!openDropdown)}>
             <div className={
-                active && subSiteTitle === "Rodziny zastępcze" ? `${styles.nav_item_dropdown} ${styles.active_blue}` :
-                    active && subSiteTitle === "Osoby z niepełnosprawnością" ? `${styles.nav_item_dropdown} ${styles.active_green}` :
-                        active && subSiteTitle === "Pomoc instytucjonalna" ? `${styles.nav_item_dropdown} ${styles.active_orange}` :
+                active && subSiteTitle === "Piecza zastępcza" ? `${styles.nav_item_dropdown} ${styles.active_blue}` :
+                    active && (subSiteTitle === "Rehabilitacja społeczna" || subSiteTitle === "Aktywny samorząd") ? `${styles.nav_item_dropdown} ${styles.active_green}` :
+                        active && (subSiteTitle === "Domy pomocy społecznej" || subSiteTitle === "Środowiskowe domy samopomocy" || subSiteTitle === "Warsztaty terapii zajęciowej") ? `${styles.nav_item_dropdown} ${styles.active_orange}` :
                             active ? `${styles.nav_item_dropdown} ${styles.active}` : styles.nav_item_dropdown
             }>
                 <div>

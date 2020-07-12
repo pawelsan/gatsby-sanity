@@ -7,7 +7,7 @@ import logo_blue from '../images/logo_blue.png'
 
 const Foster = () => (
   <Layout>
-    <SEO title='Rodziny zastępcze' />
+    <SEO title='Piecza zastępcza' />
     <div className={styles.page_header}>
       <div><img src={logo_blue} alt="Niebieska część loga PCPR" /></div>
       <h1>Rodziny zastępcze</h1>

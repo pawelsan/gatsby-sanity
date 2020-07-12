@@ -5,14 +5,14 @@ import SEO from '../components/seo'
 import styles from './pages.module.css'
 import logo_green from '../images/logo_green.png'
 
-const Handicap = () => (
+const SocialRehab = () => (
     <Layout>
-        <SEO title='Osoby z niepełnosprawnością' />
+        <SEO title='Rehabilitacja społeczna' />
         <div className={styles.page_header}>
             <div><img src={logo_green} alt="Zielona część loga PCPR" /></div>
-            <h1>Osoby z niepełnosprawnością</h1></div>
-        <p>Strona o pomocy dla osób z niepełnosprawnościami</p>
+            <h1>Rehabilitacja społeczna</h1></div>
+        <p>Strona na temat rehabilitacji społecznej</p>
     </Layout>
 )
 
-export default Handicap
+export default SocialRehab
