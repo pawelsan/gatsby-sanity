@@ -5,7 +5,7 @@ import styles from './navbar.module.css'
 
 const Navbar = ({ openNav, subSiteTitle }) => {
 
-    const dropdownItems = [
+    const dropdownItemsAbout = [
         { to: '/o-nas/', text: 'Informacje ogólne' },
         {
             dropdown: true, text: 'Osoby z niepełnosprawnością', dropdownItems: [
@@ -26,13 +26,28 @@ const Navbar = ({ openNav, subSiteTitle }) => {
         // { to: '/pomoc-instytucjonalna', text: 'Pomoc instytucjonalna' }
     ]
 
+    const dropdownItemsDocuments = [
+        { to: '/dokumenty/piecza-zastepcza/', text: 'Piecza zastępcza' },
+        { to: '/dokumenty/pfron/', text: 'PFRON' },
+        { to: '/dokumenty/aktywny-samorzad/', text: 'Aktywny Samorząd' },
+    ]
+
+    const dropdownItemsContact = [
+        { to: '/kontakt/kontakt/', text: 'Dane kontaktowe' },
+        { to: '/kontakt/deklaracja/', text: 'Deklaracja dostępności' },
+        { to: '/kontakt/rodo/', text: 'RODO' },
+        { to: '/kontakt/koordyantorzy/', text: 'Koordynatorzy' },
+    ]
+
     return (
         <nav className={openNav ? `${styles.navbar} ${styles.open}` : styles.navbar}>
-            <Link className={styles.nav_item} to='/'><div>Strona</div><div>główna</div></Link>
-            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItems} text={'Nasza praca'} primary={true} />
-            <Link className={styles.nav_item} to='/deklaracja/'><div>Deklaracja</div><div>dostępności</div></Link>
-            <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div><div>do pobrania</div></Link>
-            <Link className={styles.nav_item} to='/kontakt/'><div>Dane</div><div>kontaktowe</div></Link>
+            <Link className={styles.nav_item} to='/'><div>Aktualności</div></Link>
+            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsAbout} text={'Nasza praca'} primary={true} />
+            {/* <Link className={styles.nav_item} to='/deklaracja/'><div>Deklaracja</div><div>dostępności</div></Link> */}
+            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsDocuments} text={'Dokumenty'} primary={true} />
+            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsContact} text={'Kontakt'} primary={true} />
+            {/* <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div></Link>
+            <Link className={styles.nav_item} to='/kontakt/'><div>Kontakt</div></Link> */}
         </nav>
     )
 };

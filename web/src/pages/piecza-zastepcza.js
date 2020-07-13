@@ -5,7 +5,7 @@ import SEO from '../components/seo'
 import styles from './pages.module.css'
 import logo_blue from '../images/logo_blue.png'
 
-const Foster = () => (
+const FosterCare = () => (
   <Layout>
     <SEO title='Piecza zastępcza' />
     <div className={styles.page_header}>
@@ -16,4 +16,4 @@ const Foster = () => (
   </Layout>
 )
 
-export default Foster
+export default FosterCare
