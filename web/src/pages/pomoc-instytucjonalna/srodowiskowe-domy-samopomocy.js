@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import styles from './pages.module.css'
-import logo_orange from '../images/logo_orange.png'
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
+import styles from '../pages.module.css'
+import logo_orange from '../../images/logo_orange.png'
 
 
 const SelfAssistance = () => (

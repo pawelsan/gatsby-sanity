@@ -9,15 +9,15 @@ const Navbar = ({ openNav, subSiteTitle }) => {
         { to: '/o-nas/', text: 'Informacje ogólne' },
         {
             dropdown: true, text: 'Osoby z niepełnosprawnością', dropdownItems: [
-                { to: '/rehabilitacja-spoleczna/', text: 'Rehabilitacja spoleczna' },
-                { to: '/aktywny-samorzad/', text: 'Aktywny samorząd' },
+                { to: '/osoby-z-niepelnosprawnoscia/rehabilitacja-spoleczna/', text: 'Rehabilitacja spoleczna' },
+                { to: '/osoby-z-niepelnosprawnoscia/aktywny-samorzad/', text: 'Aktywny samorząd' },
             ]
         },
         {
             dropdown: true, text: 'Pomoc instytucjonalna', dropdownItems: [
-                { to: '/domy-pomocy-spolecznej/', text: 'Domy Pomocy Społecznej' },
-                { to: '/srodowiskowe-domy-samopomocy/', text: 'Środowiskowe Domy Samopomocy' },
-                { to: '/warsztaty-terapii-zajeciowej/', text: 'Warsztaty Terapii Zajęciowej' },
+                { to: '/pomoc-instytucjonalna/domy-pomocy-spolecznej/', text: 'Domy Pomocy Społecznej' },
+                { to: '/pomoc-instytucjonalna/srodowiskowe-domy-samopomocy/', text: 'Środowiskowe Domy Samopomocy' },
+                { to: '/pomoc-instytucjonalna/warsztaty-terapii-zajeciowej/', text: 'Warsztaty Terapii Zajęciowej' },
             ]
         },
         { to: '/cudzoziemcy', text: 'Cudzoziemcy' }

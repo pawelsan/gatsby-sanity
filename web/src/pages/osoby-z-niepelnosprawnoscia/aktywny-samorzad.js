@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import styles from './pages.module.css'
-import logo_green from '../images/logo_green.png'
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
+import styles from '../pages.module.css'
+import logo_green from '../../images/logo_green.png'
 
 const ActiveSelfGovernment = () => (
     <Layout>

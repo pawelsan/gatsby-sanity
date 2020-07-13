@@ -2,7 +2,7 @@ import { Link } from 'gatsby'
 import React, { useState } from 'react'
 import Navbar from './navbar/navbar'
 import logo from '../images/logo.png'
-import coatOfArms from '../images/herb_powiatu.jpg'
+import coatOfArms from '../images/herb_powiatu.png'
 import bip from '../images/bip.png'
 import Toggler from './toggler'
 
@@ -33,11 +33,13 @@ const Header = ({ subSiteTitle }) => {
       <div className={openNav ? `${styles.header_container} ${styles.open_header}` : styles.header_container}>
         <Toggler click={() => setOpenNav(!openNav)} open={openNav} />
         <div className={styles.logo_wrapper}>
-          <a href="https://www.powiat-zyrardowski.pl/"><img className={styles.coatOfArms} src={coatOfArms} alt="Herb powiatu" /></a>
           <Link to='/'><img className={styles.logo} src={logo} alt="Logo PCPR" /></Link>
         </div>
         <Navbar openNav={openNav} subSiteTitle={subSiteTitle} />
-        <a href="http://www.pcprzyrardow.naszbip.pl/"><img style={{ width: "30px", height: "30px" }} src={bip} alt="Logo bip" /></a>
+        <div className={styles.rightside_wrapper}>
+          <a href="http://www.pcprzyrardow.naszbip.pl/"><img src={bip} alt="Logo bip" /></a>
+          <a href="https://www.powiat-zyrardowski.pl/"><img src={coatOfArms} alt="Herb powiatu" /></a>
+        </div>
       </div>
     </header>
   )
