@@ -36,7 +36,7 @@ const Navbar = ({ openNav, subSiteTitle }) => {
         { to: '/kontakt/kontakt/', text: 'Dane kontaktowe' },
         { to: '/kontakt/deklaracja/', text: 'Deklaracja dostępności' },
         { to: '/kontakt/rodo/', text: 'RODO' },
-        { to: '/kontakt/koordyantorzy/', text: 'Koordynatorzy' },
+        { to: '/kontakt/koordynatorzy/', text: 'Koordynatorzy' },
     ]
 
     return (
