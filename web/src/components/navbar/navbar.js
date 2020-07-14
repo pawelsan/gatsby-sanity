@@ -40,7 +40,7 @@ const Navbar = ({ openNav, subSiteTitle }) => {
 
     return (
         <nav className={openNav ? `${styles.navbar} ${styles.open}` : styles.navbar}>
-            <Link className={styles.nav_item} to='/'><div>Aktualności</div></Link>
+            <Link className={styles.nav_item} activeClassName={`${styles.active} ${styles.active_item_red}`} to='/'><div>Aktualności</div></Link>
             <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsForAbout} text={'Nasza praca'} primary={true} />
             <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsForDocuments} text={'Dokumenty'} primary={true} />
             <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsForContact} text={'Kontakt'} primary={true} />
