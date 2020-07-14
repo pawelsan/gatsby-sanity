@@ -43,5 +43,7 @@
   @media (max-width: 767px) {
     .button {
         position: fixed;
+        top: 5px;
+        left: 20px
     }
   }

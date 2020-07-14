@@ -25,10 +25,10 @@ const Header = ({ subSiteTitle }) => {
 
   return (
     <header className={
-      subSiteTitle === "Rodziny zastępcze" ? styles.header_border_blue :
-        subSiteTitle === "Osoby z niepełnosprawnością" ? styles.header_border_green :
-          subSiteTitle === "Pomoc instytucjonalna" ? styles.header_border_orange :
-            styles.header_border_red
+      // subSiteTitle === "Rodziny zastępcze" ? styles.header_border_blue :
+      //   subSiteTitle === "Osoby z niepełnosprawnością" ? styles.header_border_green :
+      //     subSiteTitle === "Pomoc instytucjonalna" ? styles.header_border_orange :
+      styles.header_border_red
     }>
       <div className={openNav ? `${styles.header_container} ${styles.open_header}` : styles.header_container}>
         <Toggler click={() => setOpenNav(!openNav)} open={openNav} />
