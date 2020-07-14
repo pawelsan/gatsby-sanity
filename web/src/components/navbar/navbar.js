@@ -1,53 +1,49 @@
 import { Link } from 'gatsby'
-import React from 'react';
+import React, { useState } from 'react';
 import Dropdown from './dropdown';
 import styles from './navbar.module.css'
 
 const Navbar = ({ openNav, subSiteTitle }) => {
-
-    const dropdownItemsAbout = [
-        { to: '/o-nas/', text: 'Informacje ogólne' },
+    // Schemas for dropdowns' content 
+    const dropdownItemsForAbout = [
+        { dropdown: false, to: '/o-nas/', text: 'Informacje ogólne', color: 'red' },
+        { dropdown: false, to: '/piecza-zastepcza', text: 'Piecza zastępcza', color: 'blue' },
         {
-            dropdown: true, text: 'Osoby z niepełnosprawnością', dropdownItems: [
-                { to: '/osoby-z-niepelnosprawnoscia/rehabilitacja-spoleczna/', text: 'Rehabilitacja spoleczna' },
-                { to: '/osoby-z-niepelnosprawnoscia/aktywny-samorzad/', text: 'Aktywny samorząd' },
+            dropdown: true, to: false, text: 'Osoby z niepełnosprawnością', color: 'green', dropdownItems: [
+                { dropdown: false, to: '/osoby-z-niepelnosprawnoscia/rehabilitacja-spoleczna/', text: 'Rehabilitacja spoleczna', color: 'green' },
+                { dropdown: false, to: '/osoby-z-niepelnosprawnoscia/aktywny-samorzad/', text: 'Aktywny samorząd', color: 'green' },
             ]
         },
         {
-            dropdown: true, text: 'Pomoc instytucjonalna', dropdownItems: [
-                { to: '/pomoc-instytucjonalna/domy-pomocy-spolecznej/', text: 'Domy Pomocy Społecznej' },
-                { to: '/pomoc-instytucjonalna/srodowiskowe-domy-samopomocy/', text: 'Środowiskowe Domy Samopomocy' },
-                { to: '/pomoc-instytucjonalna/warsztaty-terapii-zajeciowej/', text: 'Warsztaty Terapii Zajęciowej' },
+            dropdown: true, to: false, text: 'Pomoc instytucjonalna', color: 'orange', dropdownItems: [
+                { dropdown: false, to: '/pomoc-instytucjonalna/domy-pomocy-spolecznej/', text: 'Domy Pomocy Społecznej', color: 'orange' },
+                { dropdown: false, to: '/pomoc-instytucjonalna/srodowiskowe-domy-samopomocy/', text: 'Środowiskowe Domy Samopomocy', color: 'orange' },
+                { dropdown: false, to: '/pomoc-instytucjonalna/warsztaty-terapii-zajeciowej/', text: 'Warsztaty Terapii Zajęciowej', color: 'orange' },
             ]
         },
-        { to: '/cudzoziemcy', text: 'Cudzoziemcy' }
-        // { to: '/rodziny-zastepcze', text: 'Rodziny zastępcze' },
-        // { to: '/osoby-niepelnosprawne', text: 'Osoby z niepełnosprawnością' },
-        // { to: '/pomoc-instytucjonalna', text: 'Pomoc instytucjonalna' }
+        { dropdown: false, to: '/cudzoziemcy', text: 'Cudzoziemcy', color: 'red' }
     ]
 
-    const dropdownItemsDocuments = [
-        { to: '/dokumenty/piecza-zastepcza/', text: 'Piecza zastępcza' },
-        { to: '/dokumenty/pfron/', text: 'PFRON' },
-        { to: '/dokumenty/aktywny-samorzad/', text: 'Aktywny Samorząd' },
+    const dropdownItemsForDocuments = [
+        { dropdown: false, to: '/dokumenty/piecza-zastepcza/', text: 'Piecza zastępcza', color: 'blue' },
+        { dropdown: false, to: '/dokumenty/pfron/', text: 'PFRON', color: 'green' },
+        { dropdown: false, to: '/dokumenty/aktywny-samorzad/', text: 'Aktywny Samorząd', color: 'green' },
     ]
 
-    const dropdownItemsContact = [
-        { to: '/kontakt/kontakt/', text: 'Dane kontaktowe' },
-        { to: '/kontakt/deklaracja/', text: 'Deklaracja dostępności' },
-        { to: '/kontakt/rodo/', text: 'RODO' },
-        { to: '/kontakt/koordynatorzy/', text: 'Koordynatorzy' },
+    const dropdownItemsForContact = [
+        { dropdown: false, to: '/kontakt/kontakt/', text: 'Dane kontaktowe', color: 'red' },
+        { dropdown: false, to: '/kontakt/deklaracja/', text: 'Deklaracja dostępności', color: 'red' },
+        { dropdown: false, to: '/kontakt/rodo/', text: 'RODO', color: 'red' },
+        { dropdown: false, to: '/kontakt/koordynatorzy/', text: 'Koordynatorzy', color: 'blue' },
     ]
+
 
     return (
         <nav className={openNav ? `${styles.navbar} ${styles.open}` : styles.navbar}>
             <Link className={styles.nav_item} to='/'><div>Aktualności</div></Link>
-            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsAbout} text={'Nasza praca'} primary={true} />
-            {/* <Link className={styles.nav_item} to='/deklaracja/'><div>Deklaracja</div><div>dostępności</div></Link> */}
-            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsDocuments} text={'Dokumenty'} primary={true} />
-            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsContact} text={'Kontakt'} primary={true} />
-            {/* <Link className={styles.nav_item} to='/dokumenty/'><div>Dokumenty</div></Link>
-            <Link className={styles.nav_item} to='/kontakt/'><div>Kontakt</div></Link> */}
+            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsForAbout} text={'Nasza praca'} primary={true} />
+            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsForDocuments} text={'Dokumenty'} primary={true} />
+            <Dropdown subSiteTitle={subSiteTitle} items={dropdownItemsForContact} text={'Kontakt'} primary={true} />
         </nav>
     )
 };

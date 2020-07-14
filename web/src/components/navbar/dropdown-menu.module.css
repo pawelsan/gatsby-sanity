@@ -27,18 +27,18 @@
     transition: .2s;
 
 }
-.drop_item[aria-current="page"], .drop_item:hover {
+.drop_item_red:hover {
     color: white;
-    background-color: var(--green);
+    background-color: var(--red);
     margin-right: 0;
 }
-.drop_item[aria-current="page"]:first-child, .drop_item:first-child:hover  {
-    background-color: var(--red);
+.drop_item_green:hover  {
+    background-color: var(--green);
 }
-.drop_item[aria-current="page"]:nth-child(2), .drop_item:nth-child(2):hover  {
+.drop_item_blue:hover  {
     background-color: var(--blue);
 }
-.drop_item[aria-current="page"]:last-child, .drop_item:last-child:hover {
+.drop_item_orange:hover {
     background-color: var(--orange)
 }
 
