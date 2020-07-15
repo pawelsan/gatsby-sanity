@@ -3,16 +3,16 @@ import DropdownMenu from './dropdown-menu';
 
 import styles from './navbar.module.css'
 
-const Dropdown = ({ location, items, text, color, primary }) => {
-
+const Dropdown = ({ items, text, color, primary }) => {
+    console.log(location)
     const [openDropdown, setOpenDropdown] = useState(false);
 
-    const activeItem = items.find(item => item.to === location.pathname);
+    const activeItem = location ? items.find(item => item.to === location.pathname) : null;
 
-    const activeItemInNestedDropdown = items
+    const activeItemInNestedDropdown = location ? items
         .filter(item => item.dropdown === true)
         .find(item => item.dropdownItems
-            .find(item => item.to === location.pathname))
+            .find(item => item.to === location.pathname)) : null
 
     let activeDropdown
 
