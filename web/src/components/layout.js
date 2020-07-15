@@ -12,7 +12,7 @@ const Layout = ({ children, siteTitle }) => {
   return (
     <Container>
       <Background />
-      <Header siteTitle={siteTitle} subSiteTitle={children[0] ? children[0].props.title : null} />
+      <Header siteTitle={siteTitle} />
       <main className={styles.main}>
         {children}
         {/* <Aside subSiteTitle={children[0] ? children[0].props.title : null} ></Aside> */}
