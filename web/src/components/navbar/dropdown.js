@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import DropdownItems from './dropdown-items';
+import DropdownMenu from './dropdown-menu';
 
 import styles from './navbar.module.css'
 
@@ -41,7 +41,7 @@ const Dropdown = ({ items, text, color, primary }) => {
 
             {/* <div className={openDropdown ? `${styles.arrow} ${styles.arrow_up}` : styles.arrow}></div> */}
 
-            {openDropdown && <DropdownItems items={items} primary={primary} />}
+            {openDropdown && <DropdownMenu items={items} primary={primary} />}
         </div>
     );
 }

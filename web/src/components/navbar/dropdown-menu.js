@@ -3,7 +3,7 @@ import React from 'react';
 import Dropdown from './dropdown'
 import styles from './navbar.module.css'
 
-const DropdownItems = ({ items, primary }) => {
+const DropdownMenu = ({ items, primary }) => {
 
     return (
         <div className={primary ? `${styles.dropdown} ${styles.primary_dropdown}` : styles.dropdown}>
@@ -19,4 +19,4 @@ const DropdownItems = ({ items, primary }) => {
     )
 };
 
-export default DropdownItems;
+export default DropdownMenu;
