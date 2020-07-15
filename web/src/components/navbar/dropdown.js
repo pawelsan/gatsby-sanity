@@ -1,18 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import DropdownMenu from './dropdown-menu';
 
 import styles from './navbar.module.css'
 
 const Dropdown = ({ items, text, color, primary }) => {
-    console.log(location)
+
     const [openDropdown, setOpenDropdown] = useState(false);
+    const [activeItem, setActiveItem] = useState();
+    const [activeItemInNestedDropdown, setActiveItemInNestedDropdown] = useState();
 
-    const activeItem = location ? items.find(item => item.to === location.pathname) : null;
+    useEffect(() => {
+        setActiveItem(items.find(item => item.to === location.pathname)),
+            setActiveItemInNestedDropdown(items
+                .filter(item => item.dropdown === true)
+                .find(item => item.dropdownItems
+                    .find(item => item.to === location.pathname)))
+    }
 
-    const activeItemInNestedDropdown = location ? items
-        .filter(item => item.dropdown === true)
-        .find(item => item.dropdownItems
-            .find(item => item.to === location.pathname)) : null
+        , []);
+
+    // const activeItem = items.find(item => item.to === location.pathname);
+
+    // const activeItemInNestedDropdown = items
+    //     .filter(item => item.dropdown === true)
+    //     .find(item => item.dropdownItems
+    //         .find(item => item.to === location.pathname))
 
     let activeDropdown
 
