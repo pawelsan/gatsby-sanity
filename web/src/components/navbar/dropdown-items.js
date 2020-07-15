@@ -4,7 +4,7 @@ import Dropdown from './dropdown'
 import styles from './navbar.module.css'
 
 const DropdownItems = ({ items, primary }) => {
-    console.log(styles[`drop_item_red`])
+
     return (
         <div className={primary ? `${styles.dropdown} ${styles.primary_dropdown}` : styles.dropdown}>
             {items.map((item, index) =>
