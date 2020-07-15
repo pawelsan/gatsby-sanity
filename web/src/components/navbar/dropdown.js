@@ -3,7 +3,7 @@ import DropdownMenu from './dropdown-menu';
 
 import styles from './navbar.module.css'
 
-const Dropdown = ({ items, text, color, primary }) => {
+const Dropdown = ({ location, items, text, color, primary }) => {
 
     const [openDropdown, setOpenDropdown] = useState(false);
 
