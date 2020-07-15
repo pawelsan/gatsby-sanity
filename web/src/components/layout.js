@@ -8,7 +8,7 @@ import styles from './layout.module.css'
 
 
 const Layout = ({ children, siteTitle }) => {
-  console.log(location.pathname)
+
   return (
     <Container>
       <Background />
