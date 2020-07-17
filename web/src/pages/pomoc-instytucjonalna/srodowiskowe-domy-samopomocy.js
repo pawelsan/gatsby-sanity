@@ -13,7 +13,7 @@ const SelfAssistance = () => (
             <div><img src={logo_orange} alt="Pomarańczowa część loga PCPR" /></div>
             <h1>Środowiskowe Domy Samopomocy</h1>
         </div>
-        <p>Strona o ŚÐŚ</p>
+        <p>Strona o ŚDS</p>
     </Layout>
 )
 

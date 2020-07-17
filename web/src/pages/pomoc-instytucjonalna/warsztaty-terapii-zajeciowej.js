@@ -13,7 +13,7 @@ const TherapyWorkshops = () => (
             <div><img src={logo_orange} alt="Pomarańczowa część loga PCPR" /></div>
             <h1>Warsztaty Terapii Zajęciowej</h1>
         </div>
-        <p>Strona o WTŻ</p>
+        <p>Strona o WTZ</p>
     </Layout>
 )
 
