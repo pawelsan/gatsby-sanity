@@ -44,7 +44,7 @@ export const query = graphql`
       description
       keywords
     }
-    posts: allSanityPost(
+    news: allSanityNews(
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
@@ -79,8 +79,8 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts)
+  const postNodes = (data || {}).news
+    ? mapEdgesToNodes(data.news)
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []

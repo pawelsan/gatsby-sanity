@@ -18,7 +18,7 @@ export function filterOutDocsPublishedInTheFuture({ publishedAt }) {
 }
 
 export function getNewsUrl(publishedAt, slug) {
-  return `/aktualnosci/${format(publishedAt, 'YYYY/MM')}/${slug.current || slug}/`
+  return `/aktualnosci/${format(publishedAt, 'DD/MM/YYYY')}/${slug.current || slug}/`
 }
 
 export function buildImageObj(source = { asset: {} }) {

@@ -63,6 +63,11 @@ export default () =>
         .schemaType('post')
         .child(S.documentTypeList('post').title('Blog posts')),
       S.listItem()
+        .title('Aktualności')
+        .icon(MdDescription)
+        .schemaType('news')
+        .child(S.documentTypeList('news').title('Aktualności')),
+      S.listItem()
         .title('Authors')
         .icon(MdPerson)
         .schemaType('author')
@@ -77,7 +82,7 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'author', 'post', 'siteSettings'].includes(
+          !['category', 'author', 'post', 'news', 'siteSettings'].includes(
             listItem.getId()
           )
       )

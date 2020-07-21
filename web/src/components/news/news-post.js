@@ -33,7 +33,7 @@ function NewsPost(props) {
               <div>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do, YYYY')}
+                  : format(new Date(publishedAt), 'DD MM YYYY')}
               </div>
             )}
           </aside>

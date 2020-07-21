@@ -58,6 +58,7 @@ export const query = graphql`
 `
 
 const NewsPostTemplate = props => {
+  console.log(props.data)
   const { data, errors } = props
   const post = data && data.post
   return (
