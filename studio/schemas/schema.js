@@ -10,6 +10,7 @@ import category from './documents/category'
 import post from './documents/post'
 import news from './documents/news'
 import coordinator from './documents/coordinator'
+import gdpr from './documents/gdpr'
 import siteSettings from './documents/siteSettings'
 
 // Object types
@@ -32,6 +33,7 @@ export default createSchema({
     post,
     news,
     coordinator,
+    gdpr,
     category,
     author,
     mainImage,

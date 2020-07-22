@@ -73,6 +73,11 @@ export default () =>
         .schemaType('coordinator')
         .child(S.documentTypeList('coordinator').title('Koordynatorzy')),
       S.listItem()
+        .title('RODO')
+        .icon(MdDescription)
+        .schemaType('gdpr')
+        .child(S.documentTypeList('gdpr').title('Klauzula RODO')),
+      S.listItem()
         .title('Authors')
         .icon(MdPerson)
         .schemaType('author')
