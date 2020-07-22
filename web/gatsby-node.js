@@ -11,9 +11,7 @@ async function createBlogPostPages(graphql, actions) {
   const { createPage } = actions
   const result = await graphql(`
     {
-      allSanityPost(
-        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-      ) {
+      allSanityNews {
         edges {
           node {
             id
@@ -31,53 +29,10 @@ async function createBlogPostPages(graphql, actions) {
 
   if (result.errors) throw result.errors
 
-  const postEdges = (result.data.allSanityPost || {}).edges || []
+  const postEdges = (result.data.allSanityNews || {}).edges || []
 
   postEdges
     .filter(edge => !isFuture(edge.node.publishedAt))
-    .forEach((edge, index) => {
-      const { id, slug = {}, publishedAt } = edge.node
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/aktualnosci/${dateSegment}/${slug.current}/`
-
-      createPage({
-        path,
-        component: require.resolve('./src/templates/blog-post.js'),
-        context: { id }
-      })
-    })
-}
-
-exports.createPages = async ({ graphql, actions }) => {
-  await createBlogPostPages(graphql, actions)
-}
-
-
-async function createNewsPages(graphql, actions) {
-  const { createPage } = actions
-  const result = await graphql(`
-  {
-    allSanityNews {
-      edges {
-        node {
-          _id
-          publishedAt
-          slug {
-            current
-          }
-        }
-      }
-    }
-  }
-  `)
-
-
-
-  if (result.errors) throw result.errors
-
-  const newsEdges = (result.data.allSanityNews || {}).edges || []
-
-  newsEdges
     .forEach((edge, index) => {
       const { id, slug = {}, publishedAt } = edge.node
       const dateSegment = format(publishedAt, 'DD/MM/YYYY')
@@ -92,5 +47,48 @@ async function createNewsPages(graphql, actions) {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  await createNewsPages(graphql, actions)
+  await createBlogPostPages(graphql, actions)
 }
+
+
+// async function createNewsPages(graphql, actions) {
+//   const { createPage } = actions
+//   const result = await graphql(`
+//   {
+//     allSanityNews {
+//       edges {
+//         node {
+//           _id
+//           publishedAt
+//           slug {
+//             current
+//           }
+//         }
+//       }
+//     }
+//   }
+//   `)
+
+
+
+//   if (result.errors) throw result.errors
+
+//   const newsEdges = (result.data.allSanityNews || {}).edges || []
+
+//   newsEdges
+//     .forEach((edge, index) => {
+//       const { id, slug = {}, publishedAt } = edge.node
+//       const dateSegment = format(publishedAt, 'DD/MM/YYYY')
+//       const path = `/aktualnosci/${dateSegment}/${slug.current}/`
+
+//       createPage({
+//         path,
+//         component: require.resolve('./src/templates/news.js'),
+//         context: { id }
+//       })
+//     })
+// }
+
+// exports.createPages = async ({ graphql, actions }) => {
+//   await createNewsPages(graphql, actions)
+// }

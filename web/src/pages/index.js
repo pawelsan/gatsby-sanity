@@ -102,7 +102,7 @@ const IndexPage = props => {
         <img src={photo_title} alt="Zdjęcie dzieci w parku" />
         <h1>{site.subtitle}</h1>
       </div>
-      <h2>Aktualności</h2>
+      <h1>Aktualności</h1>
       <ul className={styles.post_container}>
         {postNodes &&
           postNodes.map(node => (

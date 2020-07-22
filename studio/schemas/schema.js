@@ -9,6 +9,7 @@ import author from './documents/author'
 import category from './documents/category'
 import post from './documents/post'
 import news from './documents/news'
+import coordinator from './documents/coordinator'
 import siteSettings from './documents/siteSettings'
 
 // Object types
@@ -30,6 +31,7 @@ export default createSchema({
     siteSettings,
     post,
     news,
+    coordinator,
     category,
     author,
     mainImage,

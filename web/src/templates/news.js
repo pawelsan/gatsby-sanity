@@ -20,12 +20,14 @@ export const query = graphql`
       slug {
         current
       }
+      _rawExcerpt(resolveReferences: {maxDepth: 5})
+      _rawBody(resolveReferences: {maxDepth: 5})
     }
   }
 `
 
 const NewsTemplate = props => {
-  console.log(props.data)
+  console.log(props)
   const { data, errors } = props
   const news = data && data.news
   return (
