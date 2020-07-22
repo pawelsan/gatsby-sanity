@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
+import GraphQLErrorList from '../../components/graphql-error-list'
 
 export const query = graphql`
 
@@ -21,8 +22,15 @@ query CoordinatorQuery {
 const Coordinators = props => {
     const { data, errors } = props
 
+    if (errors) {
+        return (
+            <Layout>
+                <GraphQLErrorList errors={errors} />
+            </Layout>
+        )
+    }
+
     const coordinators = (data || {}).coordinators.edges
-    console.log(coordinators[0].node)
 
     if (!coordinators) {
         throw new Error(
