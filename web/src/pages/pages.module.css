@@ -66,6 +66,20 @@ li {
     margin: 5px;
 }
 
+.gdpr {
+    margin: 10px 0;
+    text-align: justify;
+}
+
+.gdpr li {
+    list-style: initial;
+    margin-left: 20px;
+}
+
+.gdpr p {
+    margin-top: 10px;
+}
+
 @media (max-width: 991px) {
     .photo_title > h1 {
         font-size: 28px;
@@ -85,6 +99,9 @@ li {
 @media (max-width: 529px) {
     li {
         flex-basis: 95%;
+    }
+    .gdpr {
+        text-align: left;
     }
     .photo_title {
         height: 400px;
