@@ -3,19 +3,19 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import GraphQLErrorList from '../../components/graphql-error-list'
+import PortableText from '../../components/portableText'
+
+import styles from '../pages.module.css'
 
 export const query = graphql`
 
 query CoordinatorQuery {
-    coordinators: allSanityCoordinator {
-        edges {
-          node {
-            lastName
-            firstName
-            phone
-          }
-        }
-    }
+    coordinators: sanityPageContent(pageName: {eq: "Koordynatorzy"}) {
+        id
+        pageName
+        contentTitle
+        _rawContent
+      }
 }
 `
 
@@ -30,7 +30,9 @@ const Coordinators = props => {
         )
     }
 
-    const coordinators = (data || {}).coordinators.edges
+    const coordinators = (data || {}).coordinators
+
+    const { _rawContent, contentTitle, pageName } = coordinators
 
     if (!coordinators) {
         throw new Error(
@@ -41,15 +43,10 @@ const Coordinators = props => {
     return (
         < Layout >
             <SEO title='Koordyantorzy pieczy zastępczej' />
-            <h1>Koordyantorzy pieczy zastępczej</h1>
-            <ul>
-                {coordinators &&
-                    coordinators.map(coordinator => (
-                        <li key={coordinator.node.lastName}>
-                            {coordinator.node.firstName} {coordinator.node.lastName} <span>- tel. {coordinator.node.phone}</span>
-                        </li>
-                    ))}
-            </ul>
+            <h1>{contentTitle}</h1>
+            <div className={styles.gdpr}>
+                {_rawContent && <PortableText blocks={_rawContent} />}
+            </div>
         </Layout >
     )
 }
