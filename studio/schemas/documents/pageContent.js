@@ -18,5 +18,15 @@ export default {
             type: 'bodyPortableText',
             title: 'Treść'
         },
+        {
+            name: 'content2',
+            type: 'bodyPortableText',
+            title: 'Treść2'
+        },
+        {
+            name: 'content3',
+            type: 'bodyPortableText',
+            title: 'Treść3'
+        },
     ],
 }

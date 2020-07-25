@@ -15,6 +15,8 @@ query CoordinatorQuery {
         pageName
         contentTitle
         _rawContent
+        _rawContent2
+        _rawContent3
       }
 }
 `
@@ -32,7 +34,7 @@ const Coordinators = props => {
 
     const coordinators = (data || {}).coordinators
 
-    const { _rawContent, contentTitle, pageName } = coordinators
+    const { _rawContent, _rawContent2, _rawContent3, contentTitle, pageName } = coordinators
 
     if (!coordinators) {
         throw new Error(
@@ -43,9 +45,15 @@ const Coordinators = props => {
     return (
         < Layout >
             <SEO title='Koordyantorzy pieczy zastępczej' />
-            <h1>{contentTitle}</h1>
-            <div className={styles.gdpr}>
+            <h1 className={styles.content_title}>{contentTitle}</h1>
+            <div className={styles.raw_content}>
                 {_rawContent && <PortableText blocks={_rawContent} />}
+            </div>
+            <div className={styles.raw_content}>
+                {_rawContent2 && <PortableText blocks={_rawContent2} />}
+            </div>
+            <div className={styles.raw_content}>
+                {_rawContent3 && <PortableText blocks={_rawContent3} />}
             </div>
         </Layout >
     )

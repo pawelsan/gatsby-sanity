@@ -14,7 +14,9 @@ query GDPRQuery {
       pageName
       contentTitle
       _id
-      _rawContent(resolveReferences: {maxDepth: 10})
+      _rawContent
+      _rawContent2
+      _rawContent3
     }
 }
 `
@@ -34,7 +36,7 @@ const GDPR = props => {
   const gdpr = (data || {}).gdpr
   console.log(gdpr)
 
-  const { _rawContent, contentTitle, pageName } = gdpr
+  const { _rawContent, _rawContent2, _rawContent3, contentTitle, pageName } = gdpr
 
   if (!gdpr) {
     throw new Error(
@@ -45,9 +47,15 @@ const GDPR = props => {
   return (
     <Layout>
       <SEO title={contentTitle} />
-      <h1>{contentTitle}</h1>
-      <div className={styles.gdpr}>
+      <h1 className={styles.content_title}>{contentTitle}</h1>
+      <div className={styles.raw_content}>
         {_rawContent && <PortableText blocks={_rawContent} />}
+      </div>
+      <div className={styles.raw_content}>
+        {_rawContent2 && <PortableText blocks={_rawContent2} />}
+      </div>
+      <div className={styles.raw_content}>
+        {_rawContent3 && <PortableText blocks={_rawContent3} />}
       </div>
     </Layout>
   )

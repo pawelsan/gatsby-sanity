@@ -92,7 +92,7 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'author', 'post', 'news', 'coordinator', 'siteSettings'].includes(
+          !['category', 'author', 'post', 'news', 'pageContent', 'coordinator', 'siteSettings'].includes(
             listItem.getId()
           )
       )

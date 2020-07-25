@@ -1,62 +1,62 @@
 import React from 'react'
-
+import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
+import GraphQLErrorList from '../../components/graphql-error-list'
+import PortableText from '../../components/portableText'
+import styles from '../pages.module.css'
 
-const Declaration = () => (
-    <Layout>
-        <SEO title='Deklaracja dostępności' />
-        <h1>Deklaracja dostępności</h1>
-        <div style={{ width: "900px" }}>Deklaracja dostępności
+export const query = graphql`
 
-        Powiatowe Centrum Pomocy Rodzinie w Żyrardowie zobowiązuje się zapewnić dostępność swojej strony internetowej zgodnie z Ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych. Oświadczenie w sprawie dostępności ma zastosowanie do strony internetowej: strony internetowej BIP Powiatowego Centrum Pomocy Rodzenie w Żyrardowie.
+query DeclarationQuery {
+    declaration: sanityPageContent(pageName: {eq: "Deklaracja"}) {
+      pageName
+      contentTitle
+      _id
+      _rawContent
+      _rawContent2
+      _rawContent3
+    }
+}
+`
 
-        Status pod względem zgodności
 
-        Strona internetowa jest zgodna z Ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych.
+const Declaration = props => {
+    console.log(props)
+    const { data, errors } = props
 
-        Przygotowanie oświadczenia w sprawie dostępności
+    if (errors) {
+        return (
+            <Layout>
+                <GraphQLErrorList errors={errors} />
+            </Layout>
+        )
+    }
 
-        Niniejsze oświadczenie sporządzono dnia: 24 lutego 2020 r.
+    const declaration = (data || {}).declaration
 
-        Metoda przygotowania oświadczenia:
+    const { _rawContent, _rawContent2, _rawContent3, contentTitle, pageName } = declaration
 
-        Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.
-
-        Informacje zwrotne i dane kontaktowe
-
-        W przypadku problemów z dostępnością strony internetowej prosimy o kontakt. Osobą kontaktową jest Joanna Hińcza, joanna.hincza@pcpr-zyrardow.pl. Kontaktować można się także dzwoniąc na numer telefonu 46 854 20 83, ww. 21. Tą samą drogą można składać wnioski o udostępnienie informacji niedostępnej oraz składać skargi na brak zapewnienia dostępności.
-
-        Informacje na temat procedury
-
-        Każdy ma prawo do wystąpienia z żądaniem zapewnienia dostępności cyfrowej strony internetowej, aplikacji mobilnej lub jakiegoś ich elementu. Można także zażądać udostępnienia informacji za pomocą alternatywnego sposobu dostępu, na przykład przez odczytanie niedostępnego cyfrowo dokumentu, opisanie zawartości filmu bez audiodeskrypcji itp. Żądanie powinno zawierać dane osoby zgłaszającej żądanie, wskazanie, o którą stronę internetową chodzi oraz sposób kontaktu. Jeżeli osoba żądająca zgłasza potrzebę otrzymania informacji za pomocą alternatywnego sposobu dostępu, powinna także określić dogodny dla niej sposób przedstawienia tej informacji. Podmiot publiczny powinien zrealizować żądanie niezwłocznie, nie później niż w ciągu 7 dni od dnia wystąpienia z żądaniem. Jeżeli dotrzymanie tego terminu nie jest możliwe, podmiot publiczny niezwłocznie informuje o tym wnoszącego żądanie, kiedy realizacja żądania będzie możliwa, przy czym termin ten nie może być dłuższy niż 2 miesiące od dnia wystąpienia z żądaniem. Jeżeli zapewnienie dostępności cyfrowej nie jest możliwe, podmiot publiczny może zaproponować alternatywny sposób dostępu do informacji. W przypadku, gdy podmiot publiczny odmówi realizacji żądania zapewnienia dostępności lub alternatywnego sposobu dostępu do informacji, wnoszący żądanie możne złożyć skargę w sprawie zapewniana dostępności cyfrowej strony internetowej, aplikacji mobilnej lub elementu strony internetowej, lub aplikacji mobilnej. Po wyczerpaniu wskazanej wyżej procedury można także złożyć wniosek do Rzecznika Praw Obywatelskich.
-
-        Strona internetowa Rzecznika Praw Obywatelskich:
-
-        https://www.rpo.gov.pl/
-
-        Dane teleadresowe podmiotu publicznego:
-
-        1 Maja 60
-        96-300 Żyrardów
-
-        tel.: 46 854 20 83, ww. 21
-
-        fax: 46 855 29 26
-
-        e-mail: pcpr.zyrardow@o2.pl
-
-        http://pcpr-zyrardow.pl/
-
-        Dostępność architektoniczna
-
-        Budynek jednostki znajduje się w centrum miasta. Do budynku prowadzą 2 drzwi.
-        Budynek ma podjazd dla wózków (wejście od tyłu budynku). Sekretariat znajduje się na I piętrze. Dla osób na wózkach  dostępny jest korytarz oraz pomieszczenia na parterze. W budynku nie ma windy. Toaleta dla osób niepełnosprawnych znajduje się na parterze. W budynku nie ma pętli indukcyjnych oraz oznaczeń w alfabecie brajla.
-
-        Informacja o dostępności tłumacza języka migowego:
-
-Brak stałego dostępu tłumacza języka migowego.</div>
-    </Layout>
-)
+    if (!declaration) {
+        throw new Error(
+            `Brak treści na stronie "${pageName}". Otwórz panel administratora i dodaj treść do "${pageName}".`
+        )
+    }
+    return (
+        <Layout>
+            <SEO title='Deklaracja dostępności' />
+            <h1 className={styles.content_title}>{contentTitle}</h1>
+            <div className={styles.raw_content}>
+                {_rawContent && <PortableText blocks={_rawContent} />}
+            </div>
+            <div className={styles.raw_content}>
+                {_rawContent2 && <PortableText blocks={_rawContent2} />}
+            </div>
+            <div className={styles.raw_content}>
+                {_rawContent3 && <PortableText blocks={_rawContent3} />}
+            </div>
+        </Layout>
+    )
+}
 
 export default Declaration
