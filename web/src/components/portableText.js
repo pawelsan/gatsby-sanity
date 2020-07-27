@@ -2,14 +2,14 @@ import React from 'react'
 import clientConfig from '../../client-config'
 import BasePortableText from '@sanity/block-content-to-react'
 import { imageUrlFor } from '../lib/image-url'
+import styles from '../pages/pages.module.css'
 
 const serializer = {
   types: {
     mainImage: props => {
-      console.log(props)
       return (
-        <figure>
-          <img src={imageUrlFor(props.node.asset).width(200).url()} alt={props.node.all} />
+        <figure className={styles.figure}>
+          <img src={imageUrlFor(props.node.asset).fit("scale").url()} alt={props.node.all} />
           <figcaption>{props.node.caption}</figcaption>
         </figure>
       )
