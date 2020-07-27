@@ -84,6 +84,10 @@ li {
     margin-top: 10px;
 }
 
+.raw_content img {
+    float: left;
+ }
+
 @media (max-width: 991px) {
     .photo_title > h1 {
         font-size: 28px;
