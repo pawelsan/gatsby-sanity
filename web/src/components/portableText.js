@@ -5,6 +5,9 @@ import { imageUrlFor } from '../lib/image-url'
 import styles from '../pages/pages.module.css'
 
 const serializer = {
+  marks: {
+    link: ({ children, mark }) => mark.blank ? <a href={mark.href} target="_blank" rel="noopener noreferer">{children}</a> : <a href={mark.href}>{children}</a>
+  },
   types: {
     mainImage: props => {
       return (

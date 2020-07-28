@@ -11,43 +11,64 @@ export default {
       // you want and decide how you want to deal with it where you want to
       // use your content.
       styles: [
-        {title: 'Normal', value: 'normal'},
-        {title: 'H1', value: 'h1'},
-        {title: 'H2', value: 'h2'},
-        {title: 'H3', value: 'h3'},
-        {title: 'H4', value: 'h4'},
-        {title: 'Quote', value: 'blockquote'}
+        { title: 'Normal', value: 'normal' },
+        { title: 'H1', value: 'h1' },
+        { title: 'H2', value: 'h2' },
+        { title: 'H3', value: 'h3' },
+        { title: 'H4', value: 'h4' },
+        { title: 'Quote', value: 'blockquote' }
       ],
-      lists: [{title: 'Bullet', value: 'bullet'}, {title: 'Number', value: 'number'}],
+      lists: [{ title: 'Bullet', value: 'bullet' }, { title: 'Number', value: 'number' }],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
-        decorators: [{title: 'Strong', value: 'strong'}, {title: 'Emphasis', value: 'em'}],
+        decorators: [{ title: 'Strong', value: 'strong' }, { title: 'Emphasis', value: 'em' }],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            name: 'link',
-            type: 'object',
-            title: 'URL',
+            name: "internalLink",
+            type: "object",
+            title: "Odnośnik wewnętrzny",
             fields: [
               {
-                title: 'URL',
+                title: 'Link',
+                name: 'item',
+                type: 'reference',
+                to: [
+                  { type: 'pageContent' },
+
+                ]
+              }
+            ]
+          },
+          {
+            name: 'link',
+            type: 'object',
+            title: 'Odnośnik',
+            fields: [
+              {
+                title: 'Link',
                 name: 'href',
                 type: 'url'
+              },
+              {
+                title: "Otwórz w nowym oknie",
+                name: 'blank',
+                type: 'boolean'
               }
             ]
           }
         ]
       },
-      of: [{type: 'authorReference'}]
+      of: [{ type: 'authorReference' }]
     },
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
       type: 'mainImage',
-      options: {hotspot: true}
+      options: { hotspot: true }
     }
   ]
 }

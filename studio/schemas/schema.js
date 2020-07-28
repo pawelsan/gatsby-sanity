@@ -9,7 +9,6 @@ import author from './documents/author'
 import category from './documents/category'
 import post from './documents/post'
 import news from './documents/news'
-import coordinator from './documents/coordinator'
 import pageContent from './documents/pageContent'
 import siteSettings from './documents/siteSettings'
 
@@ -32,7 +31,6 @@ export default createSchema({
     siteSettings,
     post,
     news,
-    coordinator,
     pageContent,
     category,
     author,

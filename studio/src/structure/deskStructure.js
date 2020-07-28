@@ -58,41 +58,36 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
-        .title('Blog posts')
-        .icon(MdDescription)
-        .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
-      S.listItem()
-        .title('Aktualności')
-        .icon(MdDescription)
-        .schemaType('news')
-        .child(S.documentTypeList('news').title('Aktualności')),
-      S.listItem()
-        .title('Koordynatorzy')
-        .icon(MdPerson)
-        .schemaType('coordinator')
-        .child(S.documentTypeList('coordinator').title('Koordynatorzy')),
+        .title('Kategorie menu głównego')
+        .icon(MdLocalOffer)
+        .schemaType('category')
+        .child(S.documentTypeList('category').title('Kategorie')),
       S.listItem()
         .title('Treść stron')
         .icon(MdDescription)
         .schemaType('pageContent')
         .child(S.documentTypeList('pageContent').title('Treść stron')),
       S.listItem()
+        .title('Aktualności')
+        .icon(MdDescription)
+        .schemaType('news')
+        .child(S.documentTypeList('news').title('Aktualności')),
+      S.listItem()
+        .title('Blog posts')
+        .icon(MdDescription)
+        .schemaType('post')
+        .child(S.documentTypeList('post').title('Blog posts')),
+      S.listItem()
         .title('Authors')
         .icon(MdPerson)
         .schemaType('author')
         .child(S.documentTypeList('author').title('Authors')),
-      S.listItem()
-        .title('Categories')
-        .icon(MdLocalOffer)
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'author', 'post', 'news', 'pageContent', 'coordinator', 'siteSettings'].includes(
+          !['category', 'author', 'post', 'news', 'pageContent', 'siteSettings'].includes(
             listItem.getId()
           )
       )
