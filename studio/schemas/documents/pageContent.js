@@ -52,5 +52,10 @@ export default {
             type: 'bodyPortableText',
             title: 'Treść3'
         },
+        {
+            name: 'contents',
+            type: 'array',
+            of: [{ type: 'bodyPortableTextSection' }]
+        }
     ],
 }
