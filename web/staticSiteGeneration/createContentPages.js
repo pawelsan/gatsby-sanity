@@ -24,7 +24,7 @@ async function createContentPages(graphql, actions) {
     contentEdges
         .forEach(edge => {
             const { id, slug = {} } = edge.node
-            const path = `/autokontakt/${slug.current}/`
+            const path = `/${slug.current}/`
 
             createPage({
                 path,

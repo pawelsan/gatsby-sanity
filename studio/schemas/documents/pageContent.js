@@ -4,20 +4,6 @@ export default {
     title: 'Treść stron',
     fields: [
         {
-            name: 'categories',
-            type: 'array',
-            title: 'Wybierz kategorię podstrony',
-            description: 'Wybór wpływa na adres podstrony oraz jej miejsce w menu głównym',
-            of: [
-                {
-                    type: 'reference',
-                    to: {
-                        type: 'category'
-                    }
-                }
-            ]
-        },
-        {
             name: 'pageName',
             type: 'string',
             title: 'Nazwa strony'

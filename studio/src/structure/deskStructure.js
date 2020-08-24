@@ -53,11 +53,6 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
-        .title('Kategorie menu głównego')
-        .icon(MdLocalOffer)
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Kategorie')),
-      S.listItem()
         .title('Treść stron')
         .icon(MdDescription)
         .schemaType('pageContent')
@@ -77,6 +72,6 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'post', 'news', 'pageContent', 'siteSettings'].includes(listItem.getId())
+          !['post', 'news', 'pageContent', 'siteSettings'].includes(listItem.getId())
       )
     ])

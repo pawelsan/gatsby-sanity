@@ -44,10 +44,10 @@ const Navbar = ({ openNav, subSiteTitle }) => {
     ]
 
     const dropdownItemsForContact = [
-        { dropdown: false, to: '/kontakt/kontakt/', text: 'Dane kontaktowe', color: 'red' },
-        { dropdown: false, to: '/kontakt/deklaracja/', text: 'Deklaracja dostępności', color: 'red' },
-        { dropdown: false, to: '/kontakt/rodo/', text: 'RODO', color: 'red' },
-        { dropdown: false, to: '/kontakt/koordynatorzy/', text: 'Koordynatorzy', color: 'blue' },
+        { dropdown: false, to: '/dane-kontaktowe/', text: 'Dane kontaktowe', color: 'red' },
+        { dropdown: false, to: '/deklaracja/', text: 'Deklaracja dostępności', color: 'red' },
+        { dropdown: false, to: '/rodo/', text: 'RODO', color: 'red' },
+        { dropdown: false, to: '/koordynatorzy/', text: 'Koordynatorzy', color: 'blue' },
     ]
 
 
