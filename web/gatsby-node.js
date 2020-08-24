@@ -7,6 +7,7 @@
 
 const { format } = require('date-fns')
 const createBlogPostPages = require('./staticSiteGeneration/createBlogPostPages')
+const createContentPages = require('./staticSiteGeneration/createContentPages')
 
 
 async function createNewsPages(graphql, actions) {
@@ -16,7 +17,7 @@ async function createNewsPages(graphql, actions) {
     allSanityNews {
       edges {
         node {
-          _id
+          id
           publishedAt
           slug {
             current
@@ -35,14 +36,14 @@ async function createNewsPages(graphql, actions) {
 
   newsEdges
     .forEach((edge, index) => {
-      const { _id, slug = {}, publishedAt } = edge.node
+      const { id, slug = {}, publishedAt } = edge.node
       const dateSegment = format(publishedAt, 'DD/MM/YYYY')
       const path = `/aktualnosci/${dateSegment}/${slug.current}/`
 
       createPage({
         path,
         component: require.resolve('./src/templates/news.js'),
-        context: { id: _id }
+        context: { id }
       })
     })
 }
@@ -50,5 +51,6 @@ async function createNewsPages(graphql, actions) {
 
 exports.createPages = async ({ graphql, actions }) => {
   await createBlogPostPages(graphql, actions)
+  await createContentPages(graphql, actions)
   await createNewsPages(graphql, actions)
 }
