@@ -5,6 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
+import category from './documents/category'
 import post from './documents/post'
 import news from './documents/news'
 import pageContent from './documents/pageContent'
@@ -30,6 +31,7 @@ export default createSchema({
     post,
     news,
     pageContent,
+    category,
     mainImage,
     bodyPortableText,
     excerptPortableText,

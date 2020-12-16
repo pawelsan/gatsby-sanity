@@ -40,10 +40,10 @@ export const getDefaultDocumentNode = props => {
 
 export default () =>
   S.list()
-    .title('Content')
+    .title('Spis treści')
     .items([
       S.listItem()
-        .title('Settings')
+        .title('Ustawienia główne strony')
         .icon(MdSettings)
         .child(
           S.editor()
@@ -52,6 +52,11 @@ export default () =>
             .documentId('siteSettings')
         ),
       S.divider(),
+      S.listItem()
+        .title('Kategorie menu głównego')
+        .icon(MdLocalOffer)
+        .schemaType('category')
+        .child(S.documentTypeList('category').title('Kategorie')),
       S.listItem()
         .title('Treść stron')
         .icon(MdDescription)
@@ -72,6 +77,6 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['post', 'news', 'pageContent', 'siteSettings'].includes(listItem.getId())
+          !['category', 'post', 'news', 'pageContent', 'siteSettings'].includes(listItem.getId())
       )
     ])

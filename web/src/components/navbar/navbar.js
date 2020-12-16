@@ -9,7 +9,7 @@ const Navbar = ({ openNav }) => {
 
     const Dropdown = ({ items, text }) => {
 
-        const [openDropdown, setOpenDropdown] = useState(false);
+        const [openDropdown, setOpenDropdown] = useState(true);
         const [activeItem, setActiveItem] = useState();
         const [activeItemInNestedDropdown, setActiveItemInNestedDropdown] = useState();
 

@@ -42,6 +42,20 @@ export default {
             name: 'contents',
             type: 'array',
             of: [{ type: 'bodyPortableTextSection' }]
+        },
+        {
+            name: 'categories',
+            type: 'array',
+            title: 'Wybierz kategorię podstrony',
+            description: 'Wybór wpływa na adres podstrony oraz jej miejsce w menu głównym. Ustaw jeśli chcesz, aby link do podstrony pojawił się e odpowiedniej części rozwijanego menu. Do wykorzystania tylko w wypadku umieszczenia podstrony w części "Zadania PCPR". W przeciwnym razie pozostaw puste.',
+            of: [
+                {
+                    type: 'reference',
+                    to: {
+                        type: 'category'
+                    }
+                }
+            ]
         }
     ],
 }
