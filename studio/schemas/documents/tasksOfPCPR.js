@@ -1,12 +1,12 @@
 export default {
-    name: 'pageContent',
+    name: 'tasksOfPCPR',
     type: 'document',
-    title: 'Treść stron',
+    title: 'Zadania PCPR',
     fields: [
         {
             name: 'pageName',
             type: 'string',
-            title: 'Nazwa strony'
+            title: 'Zadanie'
         },
         {
             name: 'slug',
@@ -39,9 +39,18 @@ export default {
             title: 'Treść3'
         },
         {
-            name: 'contents',
+            name: 'categories',
             type: 'array',
-            of: [{ type: 'bodyPortableTextSection' }]
+            title: 'Wybierz kategorię podstrony',
+            description: 'Wybór wpływa na miejsce podstrony w rozwijanym menu głównym.',
+            of: [
+                {
+                    type: 'reference',
+                    to: {
+                        type: 'category'
+                    }
+                }
+            ]
         }
     ],
 }

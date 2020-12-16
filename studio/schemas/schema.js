@@ -9,6 +9,7 @@ import category from './documents/category'
 import post from './documents/post'
 import news from './documents/news'
 import pageContent from './documents/pageContent'
+import tasksOfPCPR from './documents/tasksOfPCPR'
 import siteSettings from './documents/siteSettings'
 
 // Object types
@@ -31,6 +32,7 @@ export default createSchema({
     post,
     news,
     pageContent,
+    tasksOfPCPR,
     category,
     mainImage,
     bodyPortableText,
