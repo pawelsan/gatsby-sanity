@@ -1,54 +1,54 @@
-// import React from "react";
-// import { graphql } from "gatsby";
-// import GraphQLErrorList from "../components/graphql-error-list";
-// import ContentPage from "../components/content/content-page";
-// import SEO from "../components/seo";
-// import Layout from "../containers/layout";
-// import { toPlainText } from "../lib/helpers";
+import React from "react";
+import { graphql } from "gatsby";
+import GraphQLErrorList from "../components/graphql-error-list";
+import ContentPage from "../components/content/content-page";
+import SEO from "../components/seo";
+import Layout from "../containers/layout";
+import { toPlainText } from "../lib/helpers";
 
-// export const query = graphql`
-//   query TaskOfPCPRQuery($id: String!) {
-//     content: sanityTasksOfPcpr(id: {eq: $id}) {
-//       _id
-//       _rawContent
-//       _rawContent2
-//       _rawContent3
-//       contentTitle
-//       pageName
-//       slug {
-//         current
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query TaskOfPCPRQuery($id: String!) {
+    content: sanityTasksOfPcpr(id: {eq: $id}) {
+      _id
+      _rawContent
+      _rawContent2
+      _rawContent3
+      contentTitle
+      pageName
+      slug {
+        current
+      }
+    }
+  }
+`;
 
-// const TaskOfPCPRTemplate = (props) => {
-//     const { data, errors } = props;
-//     const content = data && data.content;
+const TaskOfPCPRTemplate = (props) => {
+    const { data, errors } = props;
+    const content = data && data.content;
 
-//     if (errors) {
-//         return (
-//             <Layout>
-//                 <GraphQLErrorList errors={errors} />
-//             </Layout>
-//         )
-//     }
+    if (errors) {
+        return (
+            <Layout>
+                <GraphQLErrorList errors={errors} />
+            </Layout>
+        )
+    }
 
-//     if (!content) {
-//         throw new Error(
-//             `Brak treści na stronie ${content.pageName}.`
-//         )
-//     }
+    if (!content) {
+        throw new Error(
+            `Brak treści na stronie ${content.pageName}.`
+        )
+    }
 
-//     return (
-//         <Layout>
-//             <SEO
-//                 title={content.pageName || "Untitled"}
-//             // description={toPlainText(news._rawExcerpt)}
-//             />
-//             <ContentPage {...content} />
-//         </Layout>
-//     );
-// };
+    return (
+        <Layout>
+            <SEO
+                title={content.pageName || "Untitled"}
+            // description={toPlainText(news._rawExcerpt)}
+            />
+            <ContentPage {...content} />
+        </Layout>
+    );
+};
 
-// export default TaskOfPCPRTemplate;
+export default TaskOfPCPRTemplate;

@@ -8,7 +8,7 @@
 const { format } = require('date-fns')
 const createBlogPostPages = require('./staticSiteGeneration/createBlogPostPages')
 const createContentPages = require('./staticSiteGeneration/createContentPages')
-// const createTasksOfPCPRPages = require('./staticSiteGeneration/createTasksOfPCPRPages')
+const createTasksOfPCPRPages = require('./staticSiteGeneration/createTasksOfPCPRPages')
 
 
 async function createNewsPages(graphql, actions) {
@@ -54,5 +54,5 @@ exports.createPages = async ({ graphql, actions }) => {
   await createBlogPostPages(graphql, actions)
   await createContentPages(graphql, actions)
   await createNewsPages(graphql, actions)
-  // await createTasksOfPCPRPages(graphql, actions)
+  await createTasksOfPCPRPages(graphql, actions)
 }
