@@ -7,26 +7,33 @@
     align-items: center;
 }
 
-.dropdown {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    right: -100%;
+.nav_item {
+
+    height: 70px;
     display: flex;
-    flex-direction: column;
-    background-color: white;
-    box-shadow: 0 10px 10px #555;
-    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    text-decoration: none;
+    color: black;
+    transition: .2s;
 }
 
-.primary_dropdown {
+.dropdown {
+    position: absolute;
     top: 100%;
     left: 0;
     right: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(78, 83, 85, .2);
+    box-shadow: 0 10px 10px #555;
+    z-index: 2;
+    margin: 10px;
 }
 
-.nav_item {
-    position: relative;
+.dropdown_item {
     height: 70px;
     display: flex;
     justify-content: center;
@@ -43,11 +50,16 @@
     background-color: rgba(78, 83, 85, .2);
 }
 
+.dropdown_item:hover {
+    cursor: pointer;
+    background-color: rgba(78, 83, 85, .2);
+}
+
 .active {
     color: white;
 }
 
-.nav_item_red:hover {
+.dropdown_item_red:hover {
     background-color: var(--light-red);
 }
 
@@ -55,7 +67,7 @@
     background-color: var(--red);
 }
 
-.nav_item_green:hover {
+.dropdown_item_green:hover {
     background-color: var(--light-green);
 }
 
@@ -63,14 +75,14 @@
     background-color: var(--green);
 }
 
-.nav_item_blue:hover {
+.dropdown_item_blue:hover {
     background-color: var(--light-blue);
 }
 
 .active_item_blue  {
     background-color: var(--blue);
 }
-.nav_item_orange:hover {
+.dropdown_item_orange:hover {
     background-color: var(--light-orange)
 }
 
@@ -142,18 +154,6 @@
         border: 1px solid var(--gray);
     }
 
-    .primary_dropdown {
-        flex-direction: row;
-        flex-wrap: wrap;
-        top: -100%;
-        left: 25%;
-        border: none;
-    }
-
-    .primary_dropdown > .nav_item {
-        flex-basis: 35%;
-    }
-
     .open {
         opacity: 1;
         top: 65px;
@@ -189,10 +189,4 @@
         right: -75%;
         left: 75%;
     }
-    .primary_dropdown {
-        top: 100%;
-        left: 0;
-        right: 0;
-    }
-    
 }
