@@ -40,7 +40,7 @@ export default {
         },
         {
             name: "order",
-            title: "Kolejność",
+            title: "Order",
             type: "number",
             hidden: true,
         },

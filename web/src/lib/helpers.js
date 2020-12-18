@@ -45,3 +45,10 @@ export function toPlainText(blocks) {
     })
     .join('\n\n')
 }
+
+export function sortNavItemsByOrder(items, order) {
+  return items.sort(function (a, b) {
+    var x = a[order]; var y = b[order];
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}

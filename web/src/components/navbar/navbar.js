@@ -4,16 +4,20 @@ import React, { useState, useEffect } from 'react';
 import { navItemQuery, dropdownItemsForAbout, dropdownItemsForDocuments, dropdownItemsForContact } from './dropdownItems'
 // import Dropdown from './dropdown';
 import DropdownMenu from './dropdown-menu';
+import { sortNavItemsByOrder } from '../../lib/helpers';
 import styles from './navbar.module.css'
 
 const Navbar = ({ openNav }) => {
-  // console.log(navItemsQuery)
+
   const data = navItemQuery()
-  const tasksNavItems = [];
-  const aboutNavItems = [];
+  let tasksNavItems = [];
+  let aboutNavItems = [];
   data.allSanityTasksOfPcpr.edges.map(item => tasksNavItems.push(item.node));
   data.allSanityAboutPcpr.edges.map(item => aboutNavItems.push(item.node));
-  // console.log(tasksNavItems, aboutNavItems)
+  console.log(aboutNavItems)
+
+  aboutNavItems = sortNavItemsByOrder(aboutNavItems, 'order')
+  console.log(aboutNavItems)
 
 
   const Dropdown = ({ items, text }) => {
