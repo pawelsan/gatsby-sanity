@@ -73,6 +73,11 @@ export default () =>
         .schemaType('tasksOfPCPR')
         .child(S.documentTypeList('tasksOfPCPR').title('Zadania PCPR')),
       S.listItem()
+        .title('O nas')
+        .icon(MdDescription)
+        .schemaType('aboutPCPR')
+        .child(S.documentTypeList('aboutPCPR').title('O nas')),
+      S.listItem()
         .title('Blog posts')
         .icon(MdDescription)
         .schemaType('post')
@@ -82,6 +87,6 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'post', 'news', 'pageContent', 'tasksOfPCPR', 'siteSettings'].includes(listItem.getId())
+          !['category', 'post', 'news', 'pageContent', 'tasksOfPCPR', 'aboutPCPR', 'siteSettings'].includes(listItem.getId())
       )
     ])
