@@ -8,7 +8,7 @@ const DropdownMenu = ({ items }) => {
         <Link key={index}
             // className={`${styles.dropdown_item} ${styles[`dropdown_item_${item.color}`]}`}
             // activeClassName={`${styles.active} ${styles[`active_item_${item.color}`]}`}
-            to={`o-nas/${item.slug.current}`}>{item.pageName}</Link>
+            to={`/o-nas/${item.slug.current}`}>{item.pageName}</Link>
     )
     return (
         <div className={styles.dropdown}>
