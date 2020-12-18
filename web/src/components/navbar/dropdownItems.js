@@ -1,3 +1,5 @@
+import { useStaticQuery, graphql } from "gatsby";
+
 // Schemas for dropdowns' content 
 export const dropdownItemsForAbout = [
     // { dropdown: false, to: '/piecza-zastepcza', text: 'Piecza zastępcza', color: 'red' },
@@ -43,3 +45,38 @@ export const dropdownItemsForContact = [
     { to: '/rodo/', text: 'RODO', color: 'red' },
     { to: '/koordynatorzy/', text: 'Koordynatorzy', color: 'blue' },
 ]
+
+// Data extracted from gatsby
+export const navItemQuery = () => {
+    const data = useStaticQuery(graphql`
+      query navItemQuery {
+        allSanityTasksOfPcpr {
+          edges {
+            node {
+              categories {
+                title
+              }
+              pageName
+              slug {
+                current
+              }
+            }
+          }
+        }
+        allSanityAboutPcpr {
+          edges {
+            node {
+              pageName
+              slug {
+                current
+              }
+            }
+          }
+        }
+        }
+      `)
+    return (
+        data
+    )
+
+}
