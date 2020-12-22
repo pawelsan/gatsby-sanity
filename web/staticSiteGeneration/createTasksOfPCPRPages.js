@@ -24,7 +24,7 @@ async function createTaskOfPCPRPages(graphql, actions) {
   contentEdges
     .forEach(edge => {
       const { id, slug = {} } = edge.node
-      const path = `/zadania-PCPR/${slug.current}/`
+      const path = `/zadania-pcpr/${slug.current}/`
 
       createPage({
         path,

@@ -3,6 +3,8 @@ import MdSettings from 'react-icons/lib/md/settings'
 import { MdPerson, MdDescription, MdLocalOffer } from 'react-icons/lib/md'
 import IframePreview from '../previews/IframePreview'
 
+import { navItems } from '../../../web/src/lib/constants';
+
 // Web preview configuration
 const remoteURL = ''
 const localURL = 'http://localhost:8000'
@@ -68,15 +70,15 @@ export default () =>
         .schemaType('news')
         .child(S.documentTypeList('news').title('Aktualności')),
       S.listItem()
-        .title('Zadania PCPR')
+        .title(navItems.tasksOfPCPR)
         .icon(MdDescription)
         .schemaType('tasksOfPCPR')
-        .child(S.documentTypeList('tasksOfPCPR').title('Zadania PCPR')),
+        .child(S.documentTypeList('tasksOfPCPR').title(navItems.tasksOfPCPR)),
       S.listItem()
-        .title('O nas')
+        .title(navItems.aboutPCPR)
         .icon(MdDescription)
         .schemaType('aboutPCPR')
-        .child(S.documentTypeList('aboutPCPR').title('O nas')),
+        .child(S.documentTypeList('aboutPCPR').title(navItems.aboutPCPR)),
       S.listItem()
         .title('Blog posts')
         .icon(MdDescription)
