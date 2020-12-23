@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './navbar.module.css'
 
 const DropdownPanel = ({ items, path }) => {
+    // console.log(items)
     const dropdownItems = items && items.map((item, index) =>
         <Link key={index}
             className={styles.dropdown_item}
@@ -17,5 +18,4 @@ const DropdownPanel = ({ items, path }) => {
         </div>
     )
 };
-
-export default DropdownPanel;
+export default DropdownPanel

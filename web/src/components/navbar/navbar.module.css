@@ -67,10 +67,25 @@
 
 }
 
+.dropdown_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown_section_title {
+    font-weight: bold;
+}
+
+.dropdown_section_list {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .dropdown_item {
 flex-grow: 1;
 text-align: center;
-padding: 20px;
+padding: 20px 0;
 text-decoration: none;
 color: black;
 }

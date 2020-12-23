@@ -17,6 +17,13 @@ export const dropdownItemsQuery = () => {
             }
           }
         }
+        allSanityCategory {
+          edges {
+            node {
+              title
+            }
+          }
+        }
         allSanityAboutPcpr {
           edges {
             node {
