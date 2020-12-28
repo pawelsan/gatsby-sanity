@@ -7,7 +7,10 @@ export const dropdownItemsQuery = () => {
         allSanityTasksOfPcpr {
           edges {
             node {
-              categories {
+              category {
+                slug {
+                  current
+                }
                 title
               }
               pageName

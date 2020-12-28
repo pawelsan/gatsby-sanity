@@ -21,16 +21,19 @@ const Navbar = ({ openNav }) => {
   data.allSanityTasksOfPcpr.edges.map(item => tasksDropdownItems.push(item.node));
   data.allSanityAboutPcpr.edges.map(item => aboutDropdownItems.push(item.node));
 
+  console.log(tasksDropdownItems)
+  // console.log(taskCategories)
+
   aboutDropdownItems = sortNavItemsByOrder(aboutDropdownItems, 'order');
 
-  const Dropdown = ({ items, path, text }) => {
+  const DropdownNavItem = ({ items, text }) => {
 
     const [openDropdown, setOpenDropdown] = useState(false);
     const [activeItem, setActiveItem] = useState();
     // const [activeItemInNestedDropdown, setActiveItemInNestedDropdown] = useState();
     // console.log(items.find(item => `/o-nas/${item.slug.current}` === location.pathname))
     useEffect(() => {
-      setActiveItem(items && items.find(item => `${path}/${item.slug.current}` === location.pathname));
+      setActiveItem(items && items.find(item => `/${item.category.slug.current}/${item.slug.current}` === location.pathname));
       //   setActiveItemInNestedDropdown(
       //     items
       //       .filter(item => item.to === null)
@@ -40,6 +43,10 @@ const Navbar = ({ openNav }) => {
     }
 
       , []);
+
+    console.log(location.pathname)
+    console.log(activeItem)
+
     let activeDropdown
 
     let dropdownColor
@@ -72,7 +79,7 @@ const Navbar = ({ openNav }) => {
           onMouseLeave={() => setTimeout(function () { setOpenDropdown(false); }, 1000)
           }
         />} */}
-        {openDropdown && <DropdownPanelWithSections items={items} categories={taskCategories} path={path}
+        {openDropdown && <DropdownPanelWithSections items={items} categories={taskCategories}
           onMouseEnter={() => setOpenDropdown(true)}
           onMouseLeave={() => setTimeout(function () { setOpenDropdown(false); }, 1000)
           }
@@ -92,7 +99,7 @@ const Navbar = ({ openNav }) => {
           <Link to='/' className={styles.link}><span>{navItems.main.split(' ')[0]}</span><img className={styles.logo} src={logo} alt="Logo PCPR" /><span>{navItems.main.split(' ')[1]}</span></Link>
         </li>
         {/* <Dropdown items={aboutDropdownItems} path={paths.about} text={navItems.about} /> */}
-        <Dropdown items={tasksDropdownItems} path={paths.tasks} text={navItems.tasks} />
+        <DropdownNavItem items={tasksDropdownItems} text={navItems.tasks} />
         {/* <Dropdown items={null} text={navItems.projects} />
         <Dropdown items={null} text={navItems.cooperation} />
         <Dropdown items={null} text={navItems.contact} /> */}

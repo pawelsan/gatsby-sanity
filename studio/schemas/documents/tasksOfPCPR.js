@@ -39,18 +39,14 @@ export default {
             title: 'Treść3'
         },
         {
-            name: 'categories',
-            type: 'array',
+            name: 'category',
             title: 'Wybierz kategorię podstrony',
             description: 'Wybór wpływa na miejsce podstrony w rozwijanym menu głównym.',
-            of: [
-                {
-                    type: 'reference',
-                    to: {
-                        type: 'category'
-                    }
-                }
-            ]
+            type: 'reference',
+            to: {
+                type: 'category'
+            },
+            validation: Rule => Rule.required().error('Ustawienie kategorii jest niezbędne dla właściwego funkcjonowania strony')
         }
-    ],
+    ]
 }

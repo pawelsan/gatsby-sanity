@@ -2,37 +2,37 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styles from './navbar.module.css'
 
-const DropdownSection = (props) => {
-    const selectedItems = props.items.filter(item => item.categories[0].title === props.category.title);
-    const section = selectedItems.map((item, index) =>
-        <li><Link key={index}
-            className={styles.dropdown_item}
-            activeClassName={styles.active}
-            to={`/${props.category.slug.current}/${item.slug.current}`}>{item.pageName}</Link></li>
+const DropdownSection = ({ items, title }) => {
+    const dropdownItems = items.map((item, index) =>
+        <li key={index} className={styles.dropdown_item}>
+            <Link key={index}
+                activeClassName={styles.active}
+                to={`/${item.category.slug.current}/${item.slug.current}`}>{item.pageName}
+            </Link>
+        </li>
     )
     return (
         <div className={styles.dropdown_section}>
-            <span className={styles.dropdown_section_title}>{props.category.title}</span>
-            <ul className={styles.dropdown_section_list}>{section}</ul>
+            <span className={styles.dropdown_section_title}>{title}</span>
+            <ul className={styles.dropdown_section_list}>{dropdownItems}</ul>
         </div>
     )
 
 }
 
-const DropdownPanelWithSections = ({ items, categories, path }) => {
-    const dropdownItems = categories.map((category, index) =>
+const DropdownPanelWithSections = ({ items, categories }) => {
+    const dropdownSections = categories.map((category, index) =>
         <DropdownSection
             key={index}
-            items={items}
-            path={path}
-            category={category}
+            items={items.filter(item => item.category.title === category.title)}
+            title={category.title}
 
         />
     )
     return (
         <div className={styles.dropdown_panel}>
             <div className={styles.dropdown_container}>
-                {dropdownItems}
+                {dropdownSections}
             </div>
         </div>
     )

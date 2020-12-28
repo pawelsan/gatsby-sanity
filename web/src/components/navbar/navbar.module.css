@@ -90,6 +90,10 @@ text-decoration: none;
 color: black;
 }
 
+.active {
+    background-color: var(--red);
+}
+
 /* .navbar {
     flex-grow: 1;
     display: flex;
