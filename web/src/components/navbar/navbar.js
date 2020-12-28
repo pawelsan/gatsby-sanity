@@ -17,15 +17,11 @@ const Navbar = ({ openNav }) => {
   let tasksDropdownItems = [];
   let aboutDropdownItems = [];
   let taskCategories = [];
-  data.allSanityCategory.edges.map(category => taskCategories.push(category.node.title));
+  data.allSanityCategory.edges.map(category => taskCategories.push(category.node));
   data.allSanityTasksOfPcpr.edges.map(item => tasksDropdownItems.push(item.node));
   data.allSanityAboutPcpr.edges.map(item => aboutDropdownItems.push(item.node));
 
-
   aboutDropdownItems = sortNavItemsByOrder(aboutDropdownItems, 'order');
-  console.log(taskCategories)
-  console.log(tasksDropdownItems)
-
 
   const Dropdown = ({ items, path, text }) => {
 

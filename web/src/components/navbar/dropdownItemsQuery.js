@@ -21,6 +21,9 @@ export const dropdownItemsQuery = () => {
           edges {
             node {
               title
+              slug {
+                current
+              }
             }
           }
         }

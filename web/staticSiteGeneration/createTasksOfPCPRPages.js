@@ -5,12 +5,25 @@ async function createTaskOfPCPRPages(graphql, actions) {
         allSanityTasksOfPcpr {
             edges {
               node {
+                categories {
+                  title
+                }
                 id
                 slug {
                   current
                 }
               }
             }
+        }
+        allSanityCategory {
+          edges {
+            node {
+              title
+              slug {
+                current
+              }
+            }
+          }
         }
       }
     `)
@@ -19,12 +32,16 @@ async function createTaskOfPCPRPages(graphql, actions) {
 
   if (result.errors) throw result.errors
 
-  const contentEdges = (result.data.allSanityTasksOfPcpr || {}).edges || []
+  const contentEdges = (result.data.allSanityTasksOfPcpr || {}).edges || [];
+  const contentCategories = (result.data.allSanityCategory || {}).edges || [];
+  let taskCategories = [];
+  contentCategories.map(category => taskCategories.push(category.node));
 
   contentEdges
     .forEach(edge => {
-      const { id, slug = {} } = edge.node
-      const path = `/zadania-pcpr/${slug.current}/`
+      const { categories, id, slug = {} } = edge.node
+      const category = taskCategories.filter(category => category.title === categories[0].title)
+      const path = `/${category[0].slug.current}/${slug.current}/`
 
       createPage({
         path,

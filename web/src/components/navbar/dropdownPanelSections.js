@@ -3,16 +3,16 @@ import React from 'react';
 import styles from './navbar.module.css'
 
 const DropdownSection = (props) => {
-    const selectedItems = props.items.filter(item => item.categories[0].title === props.category);
+    const selectedItems = props.items.filter(item => item.categories[0].title === props.category.title);
     const section = selectedItems.map((item, index) =>
         <li><Link key={index}
             className={styles.dropdown_item}
             activeClassName={styles.active}
-            to={`/${props.path}/${item.slug.current}`}>{item.pageName}</Link></li>
+            to={`/${props.category.slug.current}/${item.slug.current}`}>{item.pageName}</Link></li>
     )
     return (
         <div className={styles.dropdown_section}>
-            <span className={styles.dropdown_section_title}>{props.category}</span>
+            <span className={styles.dropdown_section_title}>{props.category.title}</span>
             <ul className={styles.dropdown_section_list}>{section}</ul>
         </div>
     )
