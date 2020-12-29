@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styles from './navbar.module.css'
 
-const DropdownSection = ({ items, title }) => {
+const DropdownCategory = ({ items, title }) => {
     const dropdownItems = items.map((item, index) =>
         <li key={index} className={styles.dropdown_item}>
             <Link key={index}
@@ -20,9 +20,9 @@ const DropdownSection = ({ items, title }) => {
 
 }
 
-const DropdownPanelWithSections = ({ items, categories }) => {
+const DropdownPanelWithCategories = ({ items, categories }) => {
     const dropdownSections = categories.map((category, index) =>
-        <DropdownSection
+        <DropdownCategory
             key={index}
             items={items.filter(item => item.category.title === category.title)}
             title={category.title}
@@ -38,4 +38,4 @@ const DropdownPanelWithSections = ({ items, categories }) => {
     )
 }
 
-export default DropdownPanelWithSections
+export default DropdownPanelWithCategories

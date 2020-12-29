@@ -1,19 +1,26 @@
-import { Link } from 'gatsby'
-import React, { useState, useEffect } from 'react';
+import { Link } from 'gatsby';
+import React from 'react';
 import logo from '../../images/logo-small.png';
-import { navItems, paths } from '../../lib/constants'
-import { dropdownItemsQuery } from './dropdownItemsQuery'
-// import Dropdown from './dropdown';
+import dropdownItemsQuery from './dropdownItemsQuery';
+import DropdownParent from './dropdownParent';
 import DropdownPanel from './dropdownPanel';
-import DropdownPanelWithSections from './dropdownPanelSections';
-
+import DropdownPanelWithCategories from './dropdownPanelWithCategories';
 import { sortNavItemsByOrder } from '../../lib/helpers';
-import styles from './navbar.module.css'
+import styles from './navbar.module.css';
 
 const Navbar = ({ openNav }) => {
 
-  const data = dropdownItemsQuery()
+  // initial constants
+  const navItems = {
+    main: "Strona Główna",
+    about: "O nas",
+    tasks: "Zadania PCPR",
+    projects: "Projekty",
+    cooperation: "Współpraca",
+    contact: "Kontakt"
+  }
 
+  const data = dropdownItemsQuery()
   let tasksDropdownItems = [];
   let aboutDropdownItems = [];
   let taskCategories = [];
@@ -21,73 +28,7 @@ const Navbar = ({ openNav }) => {
   data.allSanityTasksOfPcpr.edges.map(item => tasksDropdownItems.push(item.node));
   data.allSanityAboutPcpr.edges.map(item => aboutDropdownItems.push(item.node));
 
-  console.log(tasksDropdownItems)
-  // console.log(taskCategories)
-
   aboutDropdownItems = sortNavItemsByOrder(aboutDropdownItems, 'order');
-
-  const DropdownNavItem = ({ items, text }) => {
-
-    const [openDropdown, setOpenDropdown] = useState(false);
-    const [activeItem, setActiveItem] = useState();
-    // const [activeItemInNestedDropdown, setActiveItemInNestedDropdown] = useState();
-    // console.log(items.find(item => `/o-nas/${item.slug.current}` === location.pathname))
-    useEffect(() => {
-      setActiveItem(items && items.find(item => `/${item.category.slug.current}/${item.slug.current}` === location.pathname));
-      //   setActiveItemInNestedDropdown(
-      //     items
-      //       .filter(item => item.to === null)
-      //       .find(item => item.subItems
-      //         .find(subItem => subItem.to === location.pathname)))
-
-    }
-
-      , []);
-
-    console.log(location.pathname)
-    console.log(activeItem)
-
-    let activeDropdown
-
-    let dropdownColor
-
-    const color = "red";
-
-    // // check if an active link is included in a given dropdown
-    if (activeItem) {
-      activeDropdown = true
-      dropdownColor = color
-      // check if an active link is included in a given dropdown's nested dropdown
-      // } else if (activeItemInNestedDropdown) {
-      //   activeDropdown = true
-      //   dropdownColor = activeItemInNestedDropdown.color
-    } else {
-      activeDropdown = false
-      dropdownColor = null
-    }
-
-    return (
-      <li
-        className={`${styles.dropdown_parent} ${styles.nav_item}`}
-        // className={activeDropdown ? `${styles.nav_item} ${styles.active} ${styles[`active_item_${dropdownColor}`]}` : `${styles.nav_item} ${styles[`nav_item_${dropdownColor}`]}`}
-        onMouseEnter={() => setOpenDropdown(true)}
-        onMouseLeave={() => setOpenDropdown(false)}
-      >
-        <span>{text}</span>
-        {/* {openDropdown && <DropdownPanel items={items} taskCategories={taskCategories} path={path}
-          onMouseEnter={() => setOpenDropdown(true)}
-          onMouseLeave={() => setTimeout(function () { setOpenDropdown(false); }, 1000)
-          }
-        />} */}
-        {openDropdown && <DropdownPanelWithSections items={items} categories={taskCategories}
-          onMouseEnter={() => setOpenDropdown(true)}
-          onMouseLeave={() => setTimeout(function () { setOpenDropdown(false); }, 1000)
-          }
-        />}
-
-      </li >
-    );
-  }
 
   return (
     <nav
@@ -95,21 +36,25 @@ const Navbar = ({ openNav }) => {
     // className={openNav ? `${styles.navbar} ${styles.open}` : styles.navbar}
     >
       <ul>
-        <li className={`${styles.logo_wrapper} ${styles.nav_item} `} activeClassName={styles.active}>
-          <Link to='/' className={styles.link}><span>{navItems.main.split(' ')[0]}</span><img className={styles.logo} src={logo} alt="Logo PCPR" /><span>{navItems.main.split(' ')[1]}</span></Link>
+        <li className={`${styles.logo_wrapper} ${styles.nav_item} `} >
+          <Link to='/' className={styles.link} activeClassName={styles.active}><span>{navItems.main}</span><img className={styles.logo} src={logo} alt="Logo PCPR" /></Link>
         </li>
-        {/* <Dropdown items={aboutDropdownItems} path={paths.about} text={navItems.about} /> */}
-        <DropdownNavItem items={tasksDropdownItems} text={navItems.tasks} />
-        {/* <Dropdown items={null} text={navItems.projects} />
-        <Dropdown items={null} text={navItems.cooperation} />
-        <Dropdown items={null} text={navItems.contact} /> */}
+        <DropdownParent title={navItems.about}>
+          <DropdownPanel items={aboutDropdownItems} />
+        </DropdownParent>
+        <DropdownParent title={navItems.tasks}>
+          <DropdownPanelWithCategories items={tasksDropdownItems} categories={taskCategories} />
+        </DropdownParent>
+        {/* <DropdownParent title={navItems.projects}>
+          {openDropdown && <DropdownPanel items={tasksDropdownItems} categories={taskCategories} />}
+        </DropdownParent>
+        <DropdownParent title={navItems.cooperation}>
+          {openDropdown && <DropdownPanel items={tasksDropdownItems} categories={taskCategories} />}
+        </DropdownParent>
+        <DropdownParent title={navItems.contact}>
+          {openDropdown && <DropdownPanel items={tasksDropdownItems} categories={taskCategories} />}
+        </DropdownParent> */}
       </ul>
-      {/* <Link className={styles.nav_item} activeClassName={`${styles.active} ${styles.active_item_red}`} to='/'><div>Aktualności</div></Link> */}
-      {/* <Link className={styles.nav_item} activeClassName={`${styles.active} ${styles.active_item_red}`} to='/o-nas'><div>O nas</div></Link> */}
-
-      {/* <Dropdown items={dropdownItemsForAbout} text={'Nasza praca'} />
-      <Dropdown items={dropdownItemsForDocuments} text={'Dokumenty'} />
-      <Dropdown items={dropdownItemsForContact} text={'Kontakt'} /> */}
     </nav>
   )
 };

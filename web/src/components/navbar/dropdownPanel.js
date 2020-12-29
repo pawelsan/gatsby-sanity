@@ -2,19 +2,20 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styles from './navbar.module.css'
 
-const DropdownPanel = ({ items, path }) => {
-    // console.log(items)
+const DropdownPanel = ({ items }) => {
     const dropdownItems = items && items.map((item, index) =>
-        <Link key={index}
-            className={styles.dropdown_item}
-            activeClassName={styles.active}
-            to={`/${path}/${item.slug.current}`}>{item.pageName}</Link>
+        <li key={index} className={styles.dropdown_item}>
+            <Link key={index}
+                activeClassName={styles.active}
+                to={`/${item.slug.current}`}>{item.pageName}
+            </Link>
+        </li>
     )
     return (
         <div className={styles.dropdown_panel}>
-            <div className={styles.dropdown_container}>
+            <ul className={styles.dropdown_container}>
                 {dropdownItems}
-            </div>
+            </ul>
         </div>
     )
 };

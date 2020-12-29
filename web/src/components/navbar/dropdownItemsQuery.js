@@ -1,7 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby";
 
 // Data extracted from the Sainity Studio
-export const dropdownItemsQuery = () => {
+const dropdownItemsQuery = () => {
   const data = useStaticQuery(graphql`
       query dropdownItemsQuery {
         allSanityTasksOfPcpr {
@@ -46,5 +46,6 @@ export const dropdownItemsQuery = () => {
   return (
     data
   )
-
 }
+
+export default dropdownItemsQuery;
