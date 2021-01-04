@@ -5,13 +5,14 @@ header {
     display: flex;
     justify-content: center;
     background-color: white;
+    /* position relative below for dropdown to allign with the with */
+    position: relative;
 }
 .header_container {
     display: flex;
     padding: 0 20px;
     width: 1100px;
-    /* position relative below for dropdown to allign with the with */
-    position: relative;
+
     /* height: 80px; */
 }
 

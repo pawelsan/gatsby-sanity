@@ -26,7 +26,7 @@ const DropdownParent = ({ title, children }) => {
 
     return (
         <li
-            className={activeDropdown ? `${styles.active} ${styles.dropdown_parent} ${styles.nav_item}` : `${styles.dropdown_parent} ${styles.nav_item}`}
+            className={activeDropdown ? `${styles.nav_item_active} ${styles.nav_item}` : styles.nav_item}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >

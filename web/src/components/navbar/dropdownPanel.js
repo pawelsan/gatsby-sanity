@@ -4,8 +4,9 @@ import styles from './navbar.module.css'
 
 const DropdownPanel = ({ items }) => {
     const dropdownItems = items && items.map((item, index) =>
-        <li key={index} className={styles.dropdown_item}>
+        <li key={index}>
             <Link key={index}
+                className={styles.dropdown_item}
                 activeClassName={styles.active}
                 to={`/${item.slug.current}`}>{item.pageName}
             </Link>

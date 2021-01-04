@@ -37,7 +37,7 @@ const Navbar = ({ openNav }) => {
     >
       <ul>
         <li className={`${styles.logo_wrapper} ${styles.nav_item} `} >
-          <Link to='/' className={styles.link} activeClassName={styles.active}><span>{navItems.main}</span><img className={styles.logo} src={logo} alt="Logo PCPR" /></Link>
+          <Link to='/' className={styles.nav_item} activeClassName={styles.nav_item_active}><img className={styles.logo} src={logo} alt="Logo PCPR" /><span>{navItems.main}</span></Link>
         </li>
         <DropdownParent title={navItems.about}>
           <DropdownPanel items={aboutDropdownItems} />
