@@ -21,7 +21,7 @@ const DropdownParent = ({ title, children }) => {
         setOpenDropdown(true)
     }
     const handleMouseLeave = () => {
-        setOpenDropdown(false)
+        setOpenDropdown(true)
     }
 
     return (

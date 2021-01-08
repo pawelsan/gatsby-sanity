@@ -35,7 +35,7 @@
     transform: rotate(45deg) translate(-7px, -7px);
   }
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     .button {
         display: none;
     }
@@ -46,4 +46,4 @@
         top: 5px;
         left: 20px
     }
-  }
+  } */

@@ -1,12 +1,12 @@
 import React from "react";
 import styles from './toggler.module.css'
-const Toggler = ({ click, open }) => {
+const Toggler = ({ handleShowNav, navIsShown }) => {
     // console.log(click);
     return (
-        <button className={styles.button} onClick={click}>
-            <div className={open ? `${styles.line1} ${styles.line}` : styles.line} />
-            <div className={open ? `${styles.line2} ${styles.line}` : styles.line} />
-            <div className={open ? `${styles.line3} ${styles.line}` : styles.line} />
+        <button className={styles.button} onClick={handleShowNav}>
+            <div className={navIsShown ? `${styles.line1} ${styles.line}` : styles.line} />
+            <div className={navIsShown ? `${styles.line2} ${styles.line}` : styles.line} />
+            <div className={navIsShown ? `${styles.line3} ${styles.line}` : styles.line} />
         </button>
     );
 };

@@ -31,7 +31,7 @@ const DropdownCategory = ({ items, title, styling }) => {
 
     return (
         <div className={`${styles.dropdown_section} ${styles[applicableStyle]}`}>
-            <span className={styles.dropdown_section_title}>{title}</span>
+            <span className={styles.dropdown_section_title}>{`${title}:`}</span>
             <ul className={styles.dropdown_section_list}>{dropdownItems}</ul>
         </div>
     )

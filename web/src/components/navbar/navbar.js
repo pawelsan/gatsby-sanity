@@ -8,7 +8,7 @@ import DropdownPanelWithCategories from './dropdownPanelWithCategories';
 import { sortNavItemsByOrder } from '../../lib/helpers';
 import styles from './navbar.module.css';
 
-const Navbar = ({ openNav }) => {
+const Navbar = ({ navIsShown }) => {
 
   // initial constants
   const navItems = {
@@ -33,7 +33,7 @@ const Navbar = ({ openNav }) => {
   return (
     <nav
       className={styles.navbar}
-    // className={openNav ? `${styles.navbar} ${styles.open}` : styles.navbar}
+      className={navIsShown ? styles.navbar : `${styles.navbar} ${styles.hidden}`}
     >
       <ul>
         <li className={`${styles.logo_wrapper} ${styles.nav_item} `} >
