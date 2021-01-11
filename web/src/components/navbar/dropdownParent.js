@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, cloneElement, Children } from "react";
 import styles from "./navbar.module.css";
 
 const DropdownParent = ({ title, children }) => {
@@ -7,27 +7,25 @@ const DropdownParent = ({ title, children }) => {
 
   useEffect(() => {
     setActiveItem(
-      children.props.items.find((item) => item.slug.current === location.pathname.split("/").pop())
+      children.props.items && children.props.items.find((item) => item.slug.current === location.pathname.split("/").pop())
     );
   }, []);
 
-  // check if an active link is included in a given dropdown
-  let activeDropdown;
-  if (activeItem) {
-    activeDropdown = true;
-  }
+  console.log(openDropdown);
 
   // handlers
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (e) => {
     setOpenDropdown(true);
+    console.log(e.target)
   };
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (e) => {
     setOpenDropdown(false);
+    console.log(e.target)
   };
 
   return (
     <li
-      className={activeDropdown ? `${styles.nav_item_active} ${styles.nav_item}` : styles.nav_item}
+      className={activeItem ? `${styles.nav_item_active} ${styles.nav_item}` : styles.nav_item}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

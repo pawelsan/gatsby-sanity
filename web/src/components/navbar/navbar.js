@@ -8,12 +8,12 @@ import DropdownPanelWithCategories from "./dropdownPanelWithCategories";
 import { sortNavItemsByOrder } from "../../lib/helpers";
 import styles from "./navbar.module.css";
 
-const Navbar = ({ navIsShown }) => {
+const Navbar = ({ navIsShown, smallViewport }) => {
   // initial constants
   const navItems = {
     main: "Strona Główna",
     about: "O nas",
-    tasks: "Zadania PCPR",
+    tasks: "Zadania",
     projects: "Projekty",
     cooperation: "Współpraca",
     contact: "Kontakt",
@@ -35,9 +35,9 @@ const Navbar = ({ navIsShown }) => {
       className={navIsShown ? styles.navbar : `${styles.navbar} ${styles.hidden}`}
     >
       <ul>
-        <li className={styles.nav_item}>
-          <Link to="/" className={styles.nav_item} activeClassName={styles.nav_item_active}>
-            <img className={styles.logo} src={logo} alt="Logo PCPR" />
+        <li className={styles.nav_item} >
+          <Link to="/" activeClassName={styles.nav_item_active}>
+            {!smallViewport && <img className={styles.logo} src={logo} alt="Logo PCPR" />}
             <span>{navItems.main}</span>
           </Link>
         </li>
@@ -48,13 +48,13 @@ const Navbar = ({ navIsShown }) => {
           <DropdownPanelWithCategories items={tasksDropdownItems} categories={taskCategories} />
         </DropdownParent>
         <DropdownParent title={navItems.projects}>
-          <DropdownPanel items={tasksDropdownItems} categories={taskCategories} />
+          <DropdownPanel items={null} />
         </DropdownParent>
         <DropdownParent title={navItems.cooperation}>
-          <DropdownPanel items={tasksDropdownItems} categories={taskCategories} />
+          <DropdownPanel items={null} />
         </DropdownParent>
         <DropdownParent title={navItems.contact}>
-          <DropdownPanel items={tasksDropdownItems} categories={taskCategories} />
+          <DropdownPanel items={null} />
         </DropdownParent>
       </ul>
     </nav>

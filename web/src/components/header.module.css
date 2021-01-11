@@ -33,12 +33,12 @@ header {
 }
 
 .rightside_wrapper {
-    width: 100px;
+    /* width: 100px; */
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
 
     justify-content: flex-end;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .rightside_wrapper > a > img {
@@ -71,7 +71,7 @@ header {
     .header_container {
         width: 100%;
         justify-content: flex-end;
-        padding: 0 20px;
+        padding: 0 5px;
         align-items: center;
         position: absolute;
         top: 0;
@@ -81,7 +81,7 @@ header {
         z-index: 999;
     }
     .logo_wrapper {
-        /* height: 70px; */
+        height: 70px;
         flex-grow: 1;
         display: flex;
         justify-content: center;

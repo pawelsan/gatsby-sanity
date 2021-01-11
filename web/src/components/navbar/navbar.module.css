@@ -20,20 +20,24 @@
     border-radius: 50%;
 }
 
-.nav_item {
+.nav_item, .nav_item > a {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin: 0;
-    padding: 5px 0;
+    height: 100%;
+    padding: 5px;
     text-decoration: none;
     color: black;
     width: 100%;
     cursor: pointer;
 }
 
-.nav_item:hover {
+.nav_item:hover, .nav_item > a:hover {
     background-color: var(--light-gray);
+}
+
+.nav_item:hover {
+    border-bottom: 5px solid var(--red);
 }
 
 .nav_item_active {
@@ -90,15 +94,15 @@
 .dropdown_section_list {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .dropdown_section_list li {
-    margin: 10px 0;
+    margin: 5px 0;
+    flex-basis: 0;
 }
 
 .dropdown_item {
-    flex-grow: 1;
     position: relative;
     display: flex;
     justify-content: center;
@@ -167,6 +171,9 @@
 
 
 @media (max-width: 991px) {
+    .dropdown_section_title {
+        font-size: 16px;
+    }
     .dropdown_item {
         font-size: 16px;
     }
@@ -175,26 +182,35 @@
 
 @media (max-width: 767px) {
 .navbar {
-    margin-left: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 70px;
+    padding-left: 50px;
+    width: calc(100% -50px);
+    background-color: white;
+    box-shadow: 0 0 5px #777;
+    flex-wrap: wrap;
+    /* z-index: 999; */
+    transition: 1s;
+}
+.dropdown_panel {
+    /* overflow-y: scroll; */
 }
 .dropdown_container {
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 .dropdown_section {
-    flex-direction: row;
+    /* flex-direction: row; */
+    padding: 5px;
 }
-
-    .navbar {
-        position: absolute;
-        top: 0px;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        box-shadow: 0 0 5px #777;
-        opacity: 0;
-        flex-wrap: wrap;
-        
-    }
+.dropdown_section_title {
+    height: 40px;
+}
+.dropdown_item {
+    /* padding: 0 0 5; */
+    font-size: 15px;
+}
 
     /* .nav_item {
         max-height: 50px;
@@ -213,13 +229,21 @@
     } */
 
     .hidden {
-        display: none;
+        left: -105%;
+        box-shadow: none;
     }
   }
 
 
 @media (max-width: 575px) {
-    .dropdown_section {
+    .navbar {
+        width: 100vw;
+        height: auto;
+    }
+    .navbar > ul {
+        flex-direction: column;
+    }
+    .dropdown_container {
         flex-direction: column;
     }
     /* .navbar {
