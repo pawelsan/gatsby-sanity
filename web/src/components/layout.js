@@ -1,14 +1,12 @@
-import React from 'react'
-import Header from './header'
+import React from "react";
+import Header from "./header";
 // import Aside from './aside'
-import Footer from './footer'
-import Container from './container'
-import Background from './background'
-import styles from './layout.module.css'
-
+import Footer from "./footer";
+import Container from "./container";
+import Background from "./background";
+import styles from "./layout.module.css";
 
 const Layout = ({ children, siteTitle }) => {
-
   return (
     <Container>
       <Background />
@@ -20,7 +18,7 @@ const Layout = ({ children, siteTitle }) => {
       </main>
       <Footer />
     </Container>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

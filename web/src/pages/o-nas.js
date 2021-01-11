@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 // import { graphql } from 'gatsby'
 // import { mapEdgesToNodes } from '../lib/helpers'
 // import BlogPostPreviewGrid from '../components/news/news-post-preview-grid'
 // import GraphQLErrorList from '../components/graphql-error-list'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
-import styles from './pages.module.css'
-import logo_red from '../images/logo_red.png'
+import SEO from "../components/seo";
+import Layout from "../containers/layout";
+import styles from "./pages.module.css";
+import logo_red from "../images/logo_red.png";
 
 // export const query = graphql`
 //   query ArchivePageQuery {
@@ -33,7 +33,7 @@ import logo_red from '../images/logo_red.png'
 //   }
 // `
 
-const About = props => {
+const About = (props) => {
   //   const { data, errors } = props
 
   //   if (errors) {
@@ -48,14 +48,16 @@ const About = props => {
 
   return (
     <Layout>
-      <SEO title='Informacje ogólne' />
+      <SEO title="Informacje ogólne" />
       <div className={styles.page_header}>
-        <div><img src={logo_red} alt="Czerwona część loga PCPR" /></div>
+        <div>
+          <img src={logo_red} alt="Czerwona część loga PCPR" />
+        </div>
         <h1>O PCPR</h1>
       </div>
       <p>Powiatowe Centrum Pomocy Rodzinie sprawuję wszechstronne funkcje pomocy</p>
     </Layout>
-  )
-}
+  );
+};
 
-export default About
+export default About;

@@ -8,7 +8,7 @@ import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
   query ContentPageQuery($id: String!) {
-    content: sanityPageContent(id: {eq: $id}) {
+    content: sanityPageContent(id: { eq: $id }) {
       _id
       _rawContent
       _rawContent2
@@ -31,20 +31,18 @@ const ContentPageTemplate = (props) => {
       <Layout>
         <GraphQLErrorList errors={errors} />
       </Layout>
-    )
+    );
   }
 
   if (!content) {
-    throw new Error(
-      `Brak treści na stronie ${content.pageName}.`
-    )
+    throw new Error(`Brak treści na stronie ${content.pageName}.`);
   }
 
   return (
     <Layout>
       <SEO
         title={content.pageName || "Untitled"}
-      // description={toPlainText(news._rawExcerpt)}
+        // description={toPlainText(news._rawExcerpt)}
       />
       <ContentPage {...content} />
     </Layout>

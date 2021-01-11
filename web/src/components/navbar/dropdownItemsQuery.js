@@ -3,49 +3,47 @@ import { useStaticQuery, graphql } from "gatsby";
 // Data extracted from the Sainity Studio
 const dropdownItemsQuery = () => {
   const data = useStaticQuery(graphql`
-      query dropdownItemsQuery {
-        allSanityTasksOfPcpr {
-          edges {
-            node {
-              category {
-                slug {
-                  current
-                }
-                title
-              }
-              pageName
+    query dropdownItemsQuery {
+      allSanityTasksOfPcpr {
+        edges {
+          node {
+            category {
               slug {
                 current
               }
-            }
-          }
-        }
-        allSanityCategory {
-          edges {
-            node {
               title
-              slug {
-                current
-              }
+            }
+            pageName
+            slug {
+              current
             }
           }
         }
-        allSanityAboutPcpr {
-          edges {
-            node {
-              pageName
-              slug {
-                current
-              }
-              order
+      }
+      allSanityCategory {
+        edges {
+          node {
+            title
+            slug {
+              current
             }
           }
         }
+      }
+      allSanityAboutPcpr {
+        edges {
+          node {
+            pageName
+            slug {
+              current
+            }
+            order
+          }
         }
-      `)
-  return (
-    data
-  )
-}
+      }
+    }
+  `);
+  return data;
+};
 
 export default dropdownItemsQuery;

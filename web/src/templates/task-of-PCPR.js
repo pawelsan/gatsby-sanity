@@ -8,7 +8,7 @@ import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
   query TaskOfPCPRQuery($id: String!) {
-    content: sanityTasksOfPcpr(id: {eq: $id}) {
+    content: sanityTasksOfPcpr(id: { eq: $id }) {
       _id
       _rawContent
       _rawContent2
@@ -23,32 +23,30 @@ export const query = graphql`
 `;
 
 const TaskOfPCPRTemplate = (props) => {
-    const { data, errors } = props;
-    const content = data && data.content;
+  const { data, errors } = props;
+  const content = data && data.content;
 
-    if (errors) {
-        return (
-            <Layout>
-                <GraphQLErrorList errors={errors} />
-            </Layout>
-        )
-    }
-
-    if (!content) {
-        throw new Error(
-            `Brak treści na stronie ${content.pageName}.`
-        )
-    }
-
+  if (errors) {
     return (
-        <Layout>
-            <SEO
-                title={content.pageName || "Untitled"}
-            // description={toPlainText(news._rawExcerpt)}
-            />
-            <ContentPage {...content} />
-        </Layout>
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
     );
+  }
+
+  if (!content) {
+    throw new Error(`Brak treści na stronie ${content.pageName}.`);
+  }
+
+  return (
+    <Layout>
+      <SEO
+        title={content.pageName || "Untitled"}
+        // description={toPlainText(news._rawExcerpt)}
+      />
+      <ContentPage {...content} />
+    </Layout>
+  );
 };
 
 export default TaskOfPCPRTemplate;
