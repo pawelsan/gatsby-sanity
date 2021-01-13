@@ -8,7 +8,7 @@ import DropdownPanelWithCategories from "./dropdownPanelWithCategories";
 import { sortNavItemsByOrder } from "../../lib/helpers";
 import styles from "./navbar.module.css";
 
-const Navbar = ({ navIsShown, smallViewport }) => {
+const Navbar = ({ navIsShown, handleShowNav, smallViewport }) => {
   // initial constants
   const navItems = {
     main: "Strona Główna",
@@ -35,7 +35,7 @@ const Navbar = ({ navIsShown, smallViewport }) => {
       className={navIsShown ? styles.navbar : `${styles.navbar} ${styles.hidden}`}
     >
       <ul>
-        <Home title={navItems.main} smallViewport={smallViewport} />
+        <Home title={navItems.main} smallViewport={smallViewport} handleShowNav={handleShowNav} />
         <DropdownParent title={navItems.about}>
           <DropdownPanel items={aboutDropdownItems} />
         </DropdownParent>

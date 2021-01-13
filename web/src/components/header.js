@@ -47,7 +47,7 @@ const Header = ({ subSiteTitle }) => {
         }
       >
         {smallViewport && <Toggler handleShowNav={handleShowNav} navIsShown={navIsShown} />}
-        <Navbar navIsShown={navIsShown} smallViewport={smallViewport} />
+        <Navbar navIsShown={navIsShown} handleShowNav={handleShowNav} smallViewport={smallViewport} />
         {smallViewport && (
           <div className={styles.logo_wrapper}>
             <Link to="/">

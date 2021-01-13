@@ -97,6 +97,6 @@ header {
         width: 54px;
     }
     .open_header {
-        position: fixed;
+        /* position: fixed; */
     }
   }
