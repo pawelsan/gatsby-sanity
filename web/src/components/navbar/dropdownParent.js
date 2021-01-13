@@ -1,4 +1,4 @@
-import React, { useState, useEffect, cloneElement, Children } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./navbar.module.css";
 
 const DropdownParent = ({ title, children }) => {
@@ -11,22 +11,18 @@ const DropdownParent = ({ title, children }) => {
     );
   }, []);
 
-  console.log(openDropdown);
-
   // handlers
-  const handleMouseEnter = (e) => {
+  const handleMouseOver = () => {
     setOpenDropdown(true);
-    console.log(e.target)
   };
-  const handleMouseLeave = (e) => {
+  const handleMouseLeave = () => {
     setOpenDropdown(false);
-    console.log(e.target)
   };
 
   return (
     <li
       className={activeItem ? `${styles.nav_item_active} ${styles.nav_item}` : styles.nav_item}
-      onMouseEnter={handleMouseEnter}
+      onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
     >
       <span>{title}</span>

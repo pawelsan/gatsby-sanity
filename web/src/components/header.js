@@ -22,9 +22,7 @@ const Header = ({ subSiteTitle }) => {
   };
 
   window.onresize = handleViewportWidth;
-  window.onload = handleViewportWidth;
-
-  console.log(viewportWidth);
+  window.onload = handleViewportWidth;;
 
   const smallViewport = viewportWidth < 768 ? true : false
 

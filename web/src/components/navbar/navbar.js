@@ -1,6 +1,6 @@
-import { Link } from "gatsby";
+
 import React from "react";
-import logo from "../../images/logo-small.png";
+import Home from "./home";
 import dropdownItemsQuery from "./dropdownItemsQuery";
 import DropdownParent from "./dropdownParent";
 import DropdownPanel from "./dropdownPanel";
@@ -35,12 +35,7 @@ const Navbar = ({ navIsShown, smallViewport }) => {
       className={navIsShown ? styles.navbar : `${styles.navbar} ${styles.hidden}`}
     >
       <ul>
-        <li className={styles.nav_item} >
-          <Link to="/" activeClassName={styles.nav_item_active}>
-            {!smallViewport && <img className={styles.logo} src={logo} alt="Logo PCPR" />}
-            <span>{navItems.main}</span>
-          </Link>
-        </li>
+        <Home title={navItems.main} smallViewport={smallViewport} />
         <DropdownParent title={navItems.about}>
           <DropdownPanel items={aboutDropdownItems} />
         </DropdownParent>
