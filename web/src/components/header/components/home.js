@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "gatsby";
-import logo from "../../images/logo-small.png";
-import styles from "./navbar.module.css";
+import logo from "../../../images/logo-small.png";
+import styles from "../styles/header.module.css";
 
 
 const Home = ({ title, smallViewport, handleShowNav }) => {

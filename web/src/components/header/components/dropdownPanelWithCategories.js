@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
-import styles from "./navbar.module.css";
+import styles from "../styles/header.module.css";
 
 const DropdownCategory = ({ items, title, styling }) => {
   const dropdownItems = items.map((item, index) => (

@@ -1,6 +1,5 @@
 import React from "react";
-import Header from "./header";
-// import Aside from './aside'
+import Header from "./header/header";
 import Footer from "./footer";
 import Container from "./container";
 import Background from "./background";
@@ -13,8 +12,6 @@ const Layout = ({ children, siteTitle }) => {
       <Header siteTitle={siteTitle} />
       <main className={styles.main}>
         {children}
-        {/* <Aside subSiteTitle={children[0] ? children[0].props.title : null} ></Aside> */}
-        {/* <div className={styles.page}>{children}</div> */}
       </main>
       <Footer />
     </Container>

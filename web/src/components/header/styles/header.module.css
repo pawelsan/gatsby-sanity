@@ -1,5 +1,49 @@
-@import url("../../styles/index.css");
+@import url("../../../styles/index.css");
 
+header {
+    border-bottom: 5px solid;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    position: relative;
+    border-bottom-color: var(--red);
+}
+.header_container {
+    display: flex;
+    padding: 0 20px;
+    width: 1100px;
+}
+.toggler {
+    height: 44px;
+    width: 44px;
+    margin: 5px;
+    background: var(--gray);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid white;
+    z-index: 2;
+}
+.toggler:focus {
+    outline: none;
+}
+.toggler_line {
+    width: 30px;
+    height: 3px;
+    background: white;
+    transition: all 0.4s;
+}
+.toggler_line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+.toggler_line2 {
+  opacity: 0;
+}
+.toggler_line3 {
+  transform: rotate(45deg) translate(-7px, -7px);
+}
 .navbar {
     display: flex;
     flex-grow: 1;
@@ -131,6 +175,14 @@
 .blue .active {
     background-color: var(--blue);
 }
+.rightside_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.rightside_wrapper > a > img {
+    height: 30px;
+}
 
 @media (max-width: 991px) {
     .dropdown_section_title {
@@ -142,6 +194,28 @@
 }
 
 @media (max-width: 767px) {
+    header {
+        height: 70px;
+        border: none;
+    }
+    .header_container {
+        width: 100%;
+        justify-content: flex-end;
+        padding: 0 5px;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: white;
+        border-bottom: 5px solid red;
+        z-index: 999;
+    }
+    .logo_wrapper {
+        height: 70px;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+    }
     .navbar {
         position: absolute;
         top: 0;
@@ -179,7 +253,12 @@
         right: 100%;
         box-shadow: none;
     }
-}
+    .rightside_wrapper {
+        flex-direction: row;
+        margin-left: 0px;
+        width: 54px;
+    }
+  }
 
 @media (max-width: 567px) {
     .navbar {
