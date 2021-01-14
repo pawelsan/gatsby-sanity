@@ -1,12 +1,12 @@
 export default {
-    name: 'tasksOfPCPR',
+    name: 'aboutPCPR',
     type: 'document',
-    title: 'Zadania PCPR',
+    title: 'O nas',
     fields: [
         {
             name: 'pageName',
             type: 'string',
-            title: 'Zadanie'
+            title: 'Nazwa strony'
         },
         {
             name: 'slug',
@@ -39,14 +39,10 @@ export default {
             title: 'Treść3'
         },
         {
-            name: 'category',
-            title: 'Wybierz kategorię podstrony',
-            description: 'Wybór wpływa na miejsce podstrony w rozwijanym menu głównym.',
-            type: 'reference',
-            to: {
-                type: 'category'
-            },
-            validation: Rule => Rule.required().error('Ustawienie kategorii jest niezbędne dla właściwego funkcjonowania strony')
-        }
-    ]
+            name: "order",
+            title: "Order",
+            type: "number",
+            hidden: true,
+        },
+    ],
 }

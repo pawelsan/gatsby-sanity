@@ -52,8 +52,24 @@ export default () =>
             .documentId('siteSettings')
         ),
       S.divider(),
+
       S.listItem()
-        .title('Kategorie menu głównego')
+        .title('Aktualności')
+        .icon(MdDescription)
+        .schemaType('news')
+        .child(S.documentTypeList('news').title('Aktualności')),
+      S.listItem()
+        .title('O nas')
+        .icon(MdDescription)
+        .schemaType('aboutPCPR')
+        .child(S.documentTypeList('aboutPCPR').title('O nas')),
+      S.listItem()
+        .title('Zadania PCPR')
+        .icon(MdDescription)
+        .schemaType('tasksOfPCPR')
+        .child(S.documentTypeList('tasksOfPCPR').title('Zadania PCPR')),
+      S.listItem()
+        .title('Kategorie podstron "Zadania PCPR"')
         .icon(MdLocalOffer)
         .schemaType('category')
         .child(S.documentTypeList('category').title('Kategorie')),
@@ -62,16 +78,6 @@ export default () =>
         .icon(MdDescription)
         .schemaType('pageContent')
         .child(S.documentTypeList('pageContent').title('Treść stron')),
-      S.listItem()
-        .title('Aktualności')
-        .icon(MdDescription)
-        .schemaType('news')
-        .child(S.documentTypeList('news').title('Aktualności')),
-      S.listItem()
-        .title('Zadania PCPR')
-        .icon(MdDescription)
-        .schemaType('tasksOfPCPR')
-        .child(S.documentTypeList('tasksOfPCPR').title('Zadania PCPR')),
       S.listItem()
         .title('Blog posts')
         .icon(MdDescription)
@@ -82,6 +88,6 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'post', 'news', 'pageContent', 'tasksOfPCPR', 'siteSettings'].includes(listItem.getId())
+          !['category', 'post', 'news', 'pageContent', 'tasksOfPCPR', 'aboutPCPR', 'siteSettings'].includes(listItem.getId())
       )
     ])

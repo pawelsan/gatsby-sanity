@@ -7,8 +7,8 @@ import Layout from "../containers/layout";
 import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
-  query TaskOfPCPRQuery($id: String!) {
-    content: sanityTasksOfPcpr(id: { eq: $id }) {
+  query AboutPCPRQuery($id: String!) {
+    content: sanityAboutPcpr(id: { eq: $id }) {
       _id
       _rawContent
       _rawContent2
@@ -22,7 +22,7 @@ export const query = graphql`
   }
 `;
 
-const TaskOfPCPRTemplate = (props) => {
+const AboutPCPRTemplate = (props) => {
   const { data, errors } = props;
   const content = data && data.content;
 
@@ -49,4 +49,4 @@ const TaskOfPCPRTemplate = (props) => {
   );
 };
 
-export default TaskOfPCPRTemplate;
+export default AboutPCPRTemplate;

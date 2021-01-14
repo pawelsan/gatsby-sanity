@@ -1,8 +1,8 @@
-async function createContentPages(graphql, actions) {
+async function createAboutfPCPRPages(graphql, actions) {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityPageContent {
+      allSanityAboutPcpr {
         edges {
           node {
             id
@@ -17,7 +17,7 @@ async function createContentPages(graphql, actions) {
 
   if (result.errors) throw result.errors;
 
-  const contentEdges = (result.data.allSanityPageContent || {}).edges || [];
+  const contentEdges = (result.data.allSanityAboutPcpr || {}).edges || [];
 
   contentEdges.forEach((edge) => {
     const { id, slug = {} } = edge.node;
@@ -25,10 +25,10 @@ async function createContentPages(graphql, actions) {
 
     createPage({
       path,
-      component: require.resolve("../src/templates/content-page.js"),
+      component: require.resolve("../src/templates/about-PCPR.js"),
       context: { id },
     });
   });
 }
 
-module.exports = createContentPages;
+module.exports = createAboutfPCPRPages;
