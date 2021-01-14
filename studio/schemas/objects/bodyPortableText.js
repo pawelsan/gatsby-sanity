@@ -18,30 +18,27 @@ export default {
         { title: 'H4', value: 'h4' },
         { title: 'Quote', value: 'blockquote' }
       ],
-      lists: [
-        { title: 'Bullet', value: 'bullet' },
-        { title: 'Number', value: 'number' }
-      ],
+      lists: [{ title: 'Bullet', value: 'bullet' }, { title: 'Number', value: 'number' }],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
-        decorators: [
-          { title: 'Strong', value: 'strong' },
-          { title: 'Emphasis', value: 'em' }
-        ],
+        decorators: [{ title: 'Strong', value: 'strong' }, { title: 'Emphasis', value: 'em' }],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            name: 'internalLink',
-            type: 'object',
-            title: 'Odnośnik wewnętrzny',
+            name: "internalLink",
+            type: "object",
+            title: "Odnośnik wewnętrzny",
             fields: [
               {
                 title: 'Link',
                 name: 'item',
                 type: 'reference',
-                to: [{ type: 'pageContent' }]
+                to: [
+                  { type: 'pageContent' },
+
+                ]
               }
             ]
           },
@@ -56,14 +53,15 @@ export default {
                 type: 'url'
               },
               {
-                title: 'Otwórz w nowym oknie',
+                title: "Otwórz w nowym oknie",
                 name: 'blank',
                 type: 'boolean'
               }
             ]
           }
         ]
-      }
+      },
+      of: [{ type: 'authorReference' }]
     },
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array

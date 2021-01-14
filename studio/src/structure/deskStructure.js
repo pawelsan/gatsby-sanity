@@ -1,12 +1,17 @@
 import S from '@sanity/desk-tool/structure-builder'
 import MdSettings from 'react-icons/lib/md/settings'
-import { MdPerson, MdDescription, MdLocalOffer } from 'react-icons/lib/md'
+import {
+  MdPerson,
+  MdDescription,
+  MdLocalOffer
+} from 'react-icons/lib/md'
 import IframePreview from '../previews/IframePreview'
 
 // Web preview configuration
 const remoteURL = ''
 const localURL = 'http://localhost:8000'
-const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
+const previewURL =
+  window.location.hostname === 'localhost' ? localURL : remoteURL
 
 export const getDefaultDocumentNode = props => {
   /**
@@ -83,11 +88,16 @@ export default () =>
         .icon(MdDescription)
         .schemaType('post')
         .child(S.documentTypeList('post').title('Blog posts')),
+      S.listItem()
+        .title('Authors')
+        .icon(MdPerson)
+        .schemaType('author')
+        .child(S.documentTypeList('author').title('Authors')),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'post', 'news', 'pageContent', 'tasksOfPCPR', 'aboutPCPR', 'siteSettings'].includes(listItem.getId())
+          !['category', 'author', 'post', 'news', 'pageContent', 'tasksOfPCPR', 'aboutPCPR', 'siteSettings'].includes(listItem.getId())
       )
     ])
