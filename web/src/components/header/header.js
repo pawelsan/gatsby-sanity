@@ -37,7 +37,7 @@ const Header = () => {
   // states
   const [navIsShown, setNavIsShown] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(
-    Math.max(document.documentElement.clientWidth)
+    Math.max(typeof window !== `undefined` ? window.document.documentElement.clientWidth : null)
   );
 
   // handlers
@@ -45,13 +45,13 @@ const Header = () => {
     setNavIsShown(!navIsShown);
   };
   const handleViewportWidth = () => {
-    setViewportWidth(Math.max(document.documentElement.clientWidth));
+    setViewportWidth(Math.max(typeof window !== `undefined` ? window.document.documentElement.clientWidth : null));
   };
 
-  useEffect(() => {
+  if (typeof window !== `undefined`) {
     window.onresize = handleViewportWidth;
     window.onload = handleViewportWidth;;
-  }, [document.documentElement.clientWidth]);
+  }
 
   const smallViewport = viewportWidth < 768 ? true : false
 
