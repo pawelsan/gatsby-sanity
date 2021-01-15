@@ -18,6 +18,11 @@ export const query = graphql`
       slug {
         current
       }
+      category {
+        slug {
+          current
+        }
+      }
     }
   }
 `;
@@ -42,7 +47,7 @@ const TaskOfPCPRTemplate = (props) => {
     <Layout>
       <SEO
         title={content.pageName || "Untitled"}
-        // description={toPlainText(news._rawExcerpt)}
+      // description={toPlainText(news._rawExcerpt)}
       />
       <ContentPage {...content} />
     </Layout>
