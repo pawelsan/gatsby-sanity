@@ -42,7 +42,7 @@ const Header = () => {
 
   // handlers
   const handleShowNav = () => {
-    setNavIsShown(!navIsShown);
+    smallViewport && setNavIsShown(!navIsShown);
   };
   const handleViewportWidth = () => {
     setViewportWidth(Math.max(typeof window !== `undefined` ? window.document.documentElement.clientWidth : null));
