@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Toggler from "./components/toggler";
 import Navbar from "./components/navbar";
 import Home from "./components/home";
@@ -48,8 +48,10 @@ const Header = () => {
     setViewportWidth(Math.max(document.documentElement.clientWidth));
   };
 
-  window.onresize = handleViewportWidth;
-  window.onload = handleViewportWidth;;
+  useEffect(() => {
+    window.onresize = handleViewportWidth;
+    window.onload = handleViewportWidth;;
+  }, [document.documentElement.clientWidth]);
 
   const smallViewport = viewportWidth < 768 ? true : false
 
