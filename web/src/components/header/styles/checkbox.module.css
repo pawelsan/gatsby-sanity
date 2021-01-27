@@ -8,7 +8,7 @@
     font-size: 22px;
     height: 30px;
     width: 30px;
-    margin: 0 5px;
+    margin: 0 2px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -82,6 +82,6 @@
 }
 @media (max-width: 767px) {
     .container {
-        margin: 2px
+        margin: 0px
     }
 }
