@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
@@ -81,8 +81,8 @@ const IndexPage = (props) => {
   const site = (data || {}).site;
   const postNodes = (data || {}).news
     ? mapEdgesToNodes(data.news)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
+      .filter(filterOutDocsWithoutSlugs)
+      .filter(filterOutDocsPublishedInTheFuture)
     : [];
 
   if (!site) {
@@ -91,8 +91,13 @@ const IndexPage = (props) => {
     );
   }
 
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+
   return (
-    <Layout>
+    <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode}>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <div className={styles.photo_title}>
         <img src={photo_title} alt="Zdjęcie dzieci w parku" />

@@ -3,9 +3,10 @@
 .background_container {
     height: 100%;
     width: 100%;
-    opacity: 0.6;
+    opacity: var(--opacity);
     position: absolute;
     z-index: -1;
+    background-color: var(--color-background);
 }
 
 .puzzle_container {
@@ -44,7 +45,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--color-background);
 }
 .connector_1 {
     top: -2px;

@@ -9,6 +9,7 @@ import DropdownPanelWithCategories from "./components/dropdownPanelWithCategorie
 import logo from "../../images/logo.png";
 import coatOfArms from "../../images/herb_powiatu.png";
 import bip from "../../images/bip.png";
+import DarkModeToggler from "./components/darkmodetoggler"
 import dropdownItemsQuery from "./data/dropdownItemsQuery";
 import { sortNavItemsByOrder } from "../../lib/helpers";
 import styles from "./styles/header.module.css";
@@ -91,6 +92,7 @@ const Header = () => {
           <a href="https://www.powiat-zyrardowski.pl/">
             <img src={coatOfArms} alt="Herb powiatu" />
           </a>
+          <DarkModeToggler />
         </div>
       </div>
     </header>
