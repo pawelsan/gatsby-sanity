@@ -19,7 +19,7 @@ header {
     margin: 5px;
     background: var(--gray);
     border: none;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -52,7 +52,7 @@ header {
     display: flex;
     flex-grow: 1;
 }
-.logo {
+.logo, .home_logo {
     height: 70px;
     background-color: white;
     border-radius: 50%;
@@ -77,7 +77,7 @@ header {
     margin: 0px
 }
 .home_link:hover {
-    color: var(--color-background)
+    color: var(--color-font)
 }
 .home_span {
     margin: 0 5px;
@@ -175,6 +175,9 @@ header {
 .blue .active {
     background-color: var(--blue);
 }
+.logo_wrapper {
+    display: none;
+}
 .rightside_wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -209,21 +212,23 @@ header {
     }
     .header_container {
         width: 100%;
-        justify-content: flex-end;
+        justify-content: space-between;
         padding: 0 5px;
         align-items: center;
         position: absolute;
         top: 0;
         left: 0;
-        /* background-color: white; */
         border-bottom: 5px solid red;
         z-index: 999;
     }
-    .logo_wrapper {
-        height: 70px;
-        flex-grow: 1;
+    .toggler {
         display: flex;
-        justify-content: center;
+    }
+    .logo_wrapper {
+        display: flex;
+    }
+    .home_logo {
+        display:none;
     }
     .navbar {
         position: absolute;
@@ -237,6 +242,7 @@ header {
         box-shadow: 0 0 5px #777;
         flex-wrap: wrap;
         transition: 1s;
+        z-index: 1;
     }
     .dropdown_panel {
         top: 70px;
