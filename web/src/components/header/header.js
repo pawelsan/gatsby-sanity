@@ -7,7 +7,7 @@ import DropdownParent from "./components/dropdownParent";
 import DropdownPanel from "./components/dropdownPanel";
 import DropdownPanelWithCategories from "./components/dropdownPanelWithCategories";
 import logo from "../../images/logo.png";
-import coatOfArms from "../../images/herb_powiatu.png";
+import facebook from "../../images/f_logo_RGB-Blue_58.png";
 import bip from "../../images/bip.png";
 import DarkModeToggler from "./components/darkmodetoggler"
 import LargeFontToggler from "./components/largefonttoggler"
@@ -73,8 +73,8 @@ const Header = () => {
           <a href="http://www.pcprzyrardow.naszbip.pl/">
             <img src={bip} alt="Logo bip" />
           </a>
-          <a href="https://www.powiat-zyrardowski.pl/">
-            <img src={coatOfArms} alt="Herb powiatu" />
+          <a href="https://www.facebook.com/PowiatoweCentrumPomocyRodzinieZyrardow/">
+            <img src={facebook} alt="Logo facebook" />
           </a>
           <DarkModeToggler />
           <LargeFontToggler />
