@@ -10,6 +10,7 @@ import logo from "../../images/logo.png";
 import coatOfArms from "../../images/herb_powiatu.png";
 import bip from "../../images/bip.png";
 import DarkModeToggler from "./components/darkmodetoggler"
+import LargeFontToggler from "./components/largefonttoggler"
 import dropdownItemsQuery from "./data/dropdownItemsQuery";
 import { sortNavItemsByOrder } from "../../lib/helpers";
 import styles from "./styles/header.module.css";
@@ -76,6 +77,7 @@ const Header = () => {
             <img src={coatOfArms} alt="Herb powiatu" />
           </a>
           <DarkModeToggler />
+          <LargeFontToggler />
         </div>
       </div>
     </header>

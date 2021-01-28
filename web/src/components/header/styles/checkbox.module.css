@@ -5,7 +5,7 @@
     display: block;
     position: relative;
     cursor: pointer;
-    font-size: 22px;
+    /* font-size: 22px; */
     height: 30px;
     width: 30px;
     margin: 0 2px;
@@ -25,7 +25,7 @@
 }
   
   /* Create a custom checkbox */
-.checkmark {
+.darkMode, .fontSize {
     position: absolute;
     top: 0;
     left: 0;
@@ -35,12 +35,30 @@
     border: 1px solid var(--color-font)
 }
 
-.container:hover input ~ .checkmark {
+.container:hover input ~ .darkMode {
     background-color: rgb(200, 200, 200);
 }
 
+.container input ~ .fontSize {
+    background: linear-gradient(to bottom right, var(--color-background), var(--color-background) 43%, var(--color-font) 43%, var(--color-font) 47%, var(--color-background) 47%, var(--color-background));
+}
+
+.container:hover input ~ .fontSize {
+    background: linear-gradient(to bottom right, rgb(200, 200, 200), rgb(200, 200, 200) 43%, var(--color-font) 43%, var(--color-font) 47%, rgb(200, 200, 200) 47%, rgb(200, 200, 200));
+    font-weight: bold;
+}
+
+.container input:checked ~ .fontSize {
+    background: linear-gradient(to bottom right, var(--color-background), var(--color-background) 58%, var(--color-font) 58%, var(--color-font) 62%, var(--color-background) 62%, var(--color-background));
+}
+
+.container:hover input:checked ~ .fontSize {
+    background: linear-gradient(to bottom right, rgb(200, 200, 200), rgb(200, 200, 200) 58%, var(--color-font) 58%, var(--color-font) 62%, rgb(200, 200, 200) 62%, rgb(200, 200, 200));
+}
+
+
   /* Create the checkmark */
-.checkmark:before {
+.darkMode:before {
     content: "";
     position: absolute;
     display: block;
@@ -54,12 +72,12 @@
     border-top-right-radius: 20px;
 }
 
-.container input:checked ~ .checkmark:before {
+.container input:checked ~ .darkMode:before {
     border: 2px solid black;
     background-color: yellow;
 }
 
-.checkmark:after {
+.darkMode:after {
     content: "";
     position: absolute;
     display: block;
@@ -73,10 +91,47 @@
     border-top-left-radius: 20px;
 }
 
-.container input:checked ~ .checkmark:after {
+.container input:checked ~ .darkMode:after {
     border: 2px solid var(--orange);
     background-color: var(--blue);
 }
+
+ /* Create the checkmark */
+ .fontSize:before {
+    content: "A";
+    font-size: 22px;
+    position: absolute;
+    display: block;
+    left: 12px;
+    top: 6px;
+
+}
+
+.container input:checked ~ .fontSize:before {
+    left: 1px;
+    top: -3px;
+    /* font-weight: bold; */
+}
+
+.fontSize:after {
+    content: "A";
+    font-size: 12px;
+    position: absolute;
+    display: block;
+    left: 2px;
+    top: 0px;
+}
+
+.container input:checked ~ .fontSize:after {
+    left: 18px;
+    top: 14px;
+    /* font-weight: bold; */
+}
+
+.container:hover input:checked ~ .fontSize:after, .container:hover input:checked ~ .fontSize:before {
+        font-weight: bold;
+}
+
 .a11y {
     display: none
 }

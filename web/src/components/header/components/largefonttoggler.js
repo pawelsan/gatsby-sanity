@@ -1,27 +1,27 @@
 import React, { useState, useCallback } from 'react';
 import Checkbox from "./checkbox";
 
-const DarkModeToggle = () => {
+const LargeFontToggle = () => {
     if (typeof window === 'undefined') {
         return null;
     }
-    let theme
+    let font
     if (localStorage) {
-        theme = localStorage.getItem("preferred-theme")
+        font = localStorage.getItem("preferred-font")
     }
 
-    const [checked, setChecked] = useState(theme === 'dark');
+    const [checked, setChecked] = useState(font === 'large');
 
     const onChange = useCallback(
         e => {
             const isChecked = e.target.checked;
             setChecked(isChecked);
-            window.__setPreferredTheme(isChecked ? 'dark' : 'light');
+            window.__setPreferredFont(isChecked ? 'large' : 'normal');
         },
         [setChecked]
     );
 
-    return <Checkbox checkmark={"darkMode"} checked={checked} onChange={onChange} />;
+    return <Checkbox checkmark={"fontSize"} checked={checked} onChange={onChange} />;
 };
 
-export default DarkModeToggle;
+export default LargeFontToggle;

@@ -35,6 +35,31 @@ exports.onRenderBody = ({ setHeadComponents }) => {
                     let darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
                     setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+
+
+                    function setFont(font) {
+                        window.__font = font;
+                        if (font === 'large') {
+                            document.documentElement.setAttribute('data-font', 'large');
+                        } else {
+                            document.documentElement.setAttribute('data-font', 'normal');
+                        }
+                    };
+                    window.__setPreferredFont = function (font) {
+                        setFont(font);
+                        try {
+                            localStorage.setItem('preferred-font', font);
+                        } catch (e) { }
+                    };
+
+                    let preferredFont;
+                    try {
+                        preferredFont = localStorage.getItem('preferred-font');
+                    } catch (e) { }
+            
+                    // let darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+                    setFont(preferredFont ? preferredFont : 'normal');
                 })();`,
             }}
         />,
