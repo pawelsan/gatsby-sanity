@@ -4,10 +4,6 @@
     margin: 10px 0;
 }
 
-.pagination_container {
-    display: inline-block;
-}
-
 .pagination_item {
     display: inline-block;
 }
@@ -22,4 +18,8 @@
 }
 .pagination_item_button:hover {
     background-color: var(--light-gray);
+}
+.active, .active:hover {
+    background-color: var(--color-font);
+    color: var(--color-background)
 }

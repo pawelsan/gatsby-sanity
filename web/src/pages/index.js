@@ -117,7 +117,7 @@ const IndexPage = (props) => {
             </li>
           ))}
       </ul>
-      <Pagination newsPerSelection={newsPerSelection} totalNews={postNodes.length} paginate={paginate} />
+      <Pagination newsPerSelection={newsPerSelection} totalNews={postNodes.length} paginate={paginate} currentSelection={currentSelection} />
       {/* {postNodes && (
         <NewsPostPreview
           nodes={postNodes}
