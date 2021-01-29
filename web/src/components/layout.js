@@ -5,11 +5,11 @@ import Container from "./container";
 import Background from "./background";
 import styles from "./layout.module.css";
 
-const Layout = ({ children, siteTitle, darkMode, toggleDarkMode }) => {
+const Layout = ({ children }) => {
   return (
     <Container>
       <Background />
-      <Header siteTitle={siteTitle} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Header />
       <main className={styles.main}>
         {children}
       </main>

@@ -6,6 +6,7 @@ import {
   filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
 import NewsPostPreview from "../components/news/news-post-preview";
+import Pagination from "../components/news/pagination";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -91,26 +92,32 @@ const IndexPage = (props) => {
     );
   }
 
-  const [darkMode, setDarkMode] = useState(false);
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
+  // news posts pagination logic
+  const [currentSelection, setCurrentSelection] = useState(1);
+  const [newsPerSelection] = useState(6);
+  const indexOfLastNews = currentSelection * newsPerSelection;
+  const indexOfFirstNews = indexOfLastNews - newsPerSelection;
+  const newsToBeShownPerSelection = postNodes && postNodes.slice(indexOfFirstNews, indexOfLastNews);
+  const paginate = (selectionNumber) => {
+    setCurrentSelection(selectionNumber)
   }
 
   return (
-    <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode}>
+    <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <div className={styles.photo_title}>
         <img src={photo_title} alt="Zdjęcie dzieci w parku" />
         <h1>{site.subtitle}</h1>
       </div>
       <ul className={styles.post_container}>
-        {postNodes &&
-          postNodes.map((node) => (
+        {newsToBeShownPerSelection &&
+          newsToBeShownPerSelection.map((node) => (
             <li key={node.id}>
               <NewsPostPreview {...node} />
             </li>
           ))}
       </ul>
+      <Pagination newsPerSelection={newsPerSelection} totalNews={postNodes.length} paginate={paginate} />
       {/* {postNodes && (
         <NewsPostPreview
           nodes={postNodes}
