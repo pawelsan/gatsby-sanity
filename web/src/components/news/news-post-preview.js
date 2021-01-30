@@ -8,7 +8,6 @@ import PortableText from "../portableText";
 import styles from "./news-post-preview.module.css";
 
 function NewsPostPreview(props) {
-  console.log(props);
   return (
     <Link to={getNewsUrl(props.publishedAt, props.slug.current)} className={styles.post_link}>
       <div className={styles.post}>

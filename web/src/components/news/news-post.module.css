@@ -1,0 +1,36 @@
+.news_article {
+    display: flex;
+    flex-direction: column;
+}
+
+.news_header {
+    border-bottom: 1px solid var(--color-font);
+    display: flex;
+    align-items: center;
+    width: 100%
+}
+
+.news_image {
+    margin-right: 10px;
+}
+
+.news_title {
+    font-size: var(--big);
+    text-transform: uppercase;
+}
+
+.raw_content {
+    margin: 30px 0;
+    display: flex;
+}
+
+.news_footer {
+    font-style: italic;
+}
+
+@media (max-width: 529px) { 
+    .news_header {
+        flex-direction: column;
+    }
+
+}

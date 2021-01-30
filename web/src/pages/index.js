@@ -101,6 +101,7 @@ const IndexPage = (props) => {
   const paginate = (selectionNumber) => {
     setCurrentSelection(selectionNumber)
   }
+  console.log(currentSelection)
 
   return (
     <Layout>
@@ -118,11 +119,6 @@ const IndexPage = (props) => {
           ))}
       </ul>
       <Pagination newsPerSelection={newsPerSelection} totalNews={postNodes.length} paginate={paginate} currentSelection={currentSelection} />
-      {/* {postNodes && (
-        <NewsPostPreview
-          nodes={postNodes}
-        />
-      )} */}
     </Layout>
   );
 };

@@ -18,8 +18,8 @@ import siteSettings from './documents/siteSettings'
 import bodyPortableText from './objects/bodyPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
+import fileDocument from './documents/fileDocument'
 import authorReference from './objects/authorReference'
-
 import bodyPortableTextSection from './objects/bodyPortableTextSection'
 
 
@@ -35,6 +35,7 @@ export default createSchema({
     siteSettings,
     post,
     news,
+    fileDocument,
     pageContent,
     tasksOfPCPR,
     aboutPCPR,

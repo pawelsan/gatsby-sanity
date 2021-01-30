@@ -85,16 +85,12 @@ li {
 }
 
 .figure {
-    float: right;
-    max-width: 50%;
+    display: flex;
+    justify-content: center;
 }
 
  .figure > img {
      max-width: 100%;
- }
-
- .figure:nth-of-type(even) {
-    float: left;
  }
 
 @media (max-width: 991px) {
@@ -138,11 +134,5 @@ li {
 
     .photo_title > h1 {
             left: 0;
-    }
-
-    .figure {
-        float: none;
-        text-align: center;
-        max-width: 100%
     }
 }

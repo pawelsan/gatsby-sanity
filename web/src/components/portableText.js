@@ -12,23 +12,29 @@ const serializer = {
           {children}
         </a>
       ) : (
-        <a href={mark.href}>{children}</a>
-      ),
+          <a href={mark.href}>{children}</a>
+        ),
   },
   types: {
     mainImage: (props) => {
       return (
         <figure className={styles.figure}>
-          <img src={imageUrlFor(props.node.asset).fit("scale").url()} alt={props.node.all} />
+          <img src={imageUrlFor(props.node.asset).fit("scale").url()} alt={props.node.alt} />
           <figcaption>{props.node.caption}</figcaption>
         </figure>
       );
     },
+    fileDocument: (props) => {
+      return (
+        <>
+          <span>Plik{" "}<b>"{props.node.asset.originalFilename}"</b> można pobrać klikając{" "}<a href={`${props.node.asset.url}?dl=`}>tutaj</a>.</span>
+        </>
+      )
+    }
   },
 };
 
 const PortableText = ({ blocks }) => {
-  console.log(blocks);
   return <BasePortableText blocks={blocks} {...clientConfig.sanity} serializers={serializer} />;
 };
 
