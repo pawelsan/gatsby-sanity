@@ -27,7 +27,7 @@ const serializer = {
     fileDocument: (props) => {
       return (
         <>
-          <span>Plik{" "}<b>"{props.node.asset.originalFilename}"</b> można pobrać klikając{" "}<a href={`${props.node.asset.url}?dl=`}>tutaj</a>.</span>
+          <span><b>{props.node.description}</b> można pobrać klikając{" "}<a href={`${props.node.asset.url}?dl=`}>tutaj</a>.</span>
         </>
       )
     }

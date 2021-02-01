@@ -52,14 +52,6 @@ h2 {
     padding: 10px;
 }
 
-.post_container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-
 li {
     list-style: none;
     flex-basis: 30%;
