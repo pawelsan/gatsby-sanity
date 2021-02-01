@@ -4,15 +4,11 @@ import Pagination from "./pagination";
 import styles from "./news-post-preview-container.module.css";
 
 const NewsPostPreviewContainer = ({ postNodes }) => {
-    const [currentSelection, setCurrentSelection] = useState(localStorage.getItem('currentSelection') || 1);
+    const [currentSelection, setCurrentSelection] = useState(1);
     const newsPerSelection = 6;
     const indexOfLastNews = currentSelection * newsPerSelection;
     const indexOfFirstNews = indexOfLastNews - newsPerSelection;
     const newsToBeShownPerSelection = postNodes && postNodes.slice(indexOfFirstNews, indexOfLastNews);
-
-    useEffect(() => {
-        localStorage.setItem('currentSelection', currentSelection);
-    }, [currentSelection]);
 
     const changeSelection = (selectionNumber) => {
         setCurrentSelection(selectionNumber)
