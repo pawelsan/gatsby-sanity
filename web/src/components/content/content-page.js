@@ -7,10 +7,10 @@ import logo_orange from "../../images/logo_orange.png";
 import logo_red from "../../images/logo_red.png";
 import styles from "./content-page.module.css";
 
-const ContentPage = ({ _rawContent, _rawContent2, _rawContent3, contentTitle, category }) => {
+const ContentPage = (props) => {
   let applicablePuzzle;
   let altText;
-  let taskCategory = category ? category.slug.current : false
+  let taskCategory = props.category ? props.category.slug.current : false
   const logoMap = {
     "orange": logo_orange,
     "blue": logo_blue,
@@ -40,26 +40,26 @@ const ContentPage = ({ _rawContent, _rawContent2, _rawContent3, contentTitle, ca
   }
   return (
     <>
-      {category ? <div className={styles.page_header}>
+      {props.category ? <div className={styles.page_header}>
         <div>
           <img src={logoMap[applicablePuzzle]} alt={altText} />
         </div>
-        <h1 className={styles.content_title}>{contentTitle}</h1>
-      </div> : <h1 className={styles.content_title}>{contentTitle}</h1>}
+        <h1 className={styles.content_title}>{props.contentTitle}</h1>
+      </div> : <h1 className={styles.content_title}>{props.contentTitle}</h1>}
       <div className={styles.raw_content}>
-        {_rawContent && <PortableText blocks={_rawContent} />}
+        {props._rawContent && <PortableText blocks={props._rawContent} />}
       </div>
       <div className={styles.raw_content}>
-        {_rawContent2 && <PortableText blocks={_rawContent2} />}
+        {props._rawContent2 && <PortableText blocks={props._rawContent2} />}
       </div>
       <div className={styles.raw_content}>
-        {_rawContent3 && <PortableText blocks={_rawContent3} />}
+        {props._rawContent3 && <PortableText blocks={props._rawContent3} />}
       </div>
       <div className={styles.raw_content}>
-        {_rawContent4 && <PortableText blocks={_rawContent4} />}
+        {props._rawContent4 && <PortableText blocks={props._rawContent4} />}
       </div>
       <div className={styles.raw_content}>
-        {_rawContent5 && <PortableText blocks={_rawContent5} />}
+        {props._rawContent5 && <PortableText blocks={props._rawContent5} />}
       </div>
     </>
   );
