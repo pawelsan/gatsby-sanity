@@ -55,6 +55,12 @@ const ContentPage = ({ _rawContent, _rawContent2, _rawContent3, contentTitle, ca
       <div className={styles.raw_content}>
         {_rawContent3 && <PortableText blocks={_rawContent3} />}
       </div>
+      <div className={styles.raw_content}>
+        {_rawContent4 && <PortableText blocks={_rawContent4} />}
+      </div>
+      <div className={styles.raw_content}>
+        {_rawContent5 && <PortableText blocks={_rawContent5} />}
+      </div>
     </>
   );
 };

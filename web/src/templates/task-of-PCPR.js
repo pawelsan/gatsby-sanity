@@ -13,6 +13,8 @@ export const query = graphql`
       _rawContent
       _rawContent2
       _rawContent3
+      _rawContent4
+      _rawContent5
       contentTitle
       pageName
       slug {
