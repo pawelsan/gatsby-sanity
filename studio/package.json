@@ -28,8 +28,8 @@
     "react-dom": "^16.13.1",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.10",
     "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
-    "sanity-plugin-order-documents": "0.0.11",
-    "sanity-plugin-table": "^1.0.1"
+    "sanity-plugin-datatable": "^1.1.0",
+    "sanity-plugin-order-documents": "0.0.11"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
