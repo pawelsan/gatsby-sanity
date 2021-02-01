@@ -30,10 +30,16 @@ const Header = () => {
   const data = dropdownItemsQuery();
   let tasksDropdownItems = [];
   let aboutDropdownItems = [];
+  let projectsDropdownItems = [];
+  let cooperationDropdownItems = [];
+  let contactDropdownItems = [];
   let taskCategories = [];
   data.allSanityCategory.edges.map((category) => taskCategories.push(category.node));
   data.allSanityTasksOfPcpr.edges.map((item) => tasksDropdownItems.push(item.node));
   data.allSanityAboutPcpr.edges.map((item) => aboutDropdownItems.push(item.node));
+  data.allSanityProjects.edges.map((item) => projectsDropdownItems.push(item.node));
+  data.allSanityCooperation.edges.map((item) => cooperationDropdownItems.push(item.node));
+  data.allSanityContact.edges.map((item) => contactDropdownItems.push(item.node));
   aboutDropdownItems = sortNavItemsByOrder(aboutDropdownItems, "order");
 
   const [navIsShown, setNavIsShown] = useState(false);
@@ -55,13 +61,13 @@ const Header = () => {
             <DropdownPanelWithCategories items={tasksDropdownItems} categories={taskCategories} />
           </DropdownParent>
           <DropdownParent title={navItems.projects}>
-            <DropdownPanel items={null} />
+            <DropdownPanel items={projectsDropdownItems} />
           </DropdownParent>
           <DropdownParent title={navItems.cooperation}>
-            <DropdownPanel items={null} />
+            <DropdownPanel items={cooperationDropdownItems} />
           </DropdownParent>
           <DropdownParent title={navItems.contact}>
-            <DropdownPanel items={null} />
+            <DropdownPanel items={contactDropdownItems} />
           </DropdownParent>
         </Navbar>
         <div className={styles.logo_wrapper}>

@@ -9,6 +9,9 @@ const createBlogPostPages = require("./staticSiteGeneration/createBlogPostPages"
 const createContentPages = require("./staticSiteGeneration/createContentPages");
 const createTasksOfPCPRPages = require("./staticSiteGeneration/createTasksOfPCPRPages");
 const createAboutfPCPRPages = require("./staticSiteGeneration/createAboutPCPRPages");
+const createContactPages = require("./staticSiteGeneration/createContactPages");
+const createCooperationPages = require("./staticSiteGeneration/createCooperationPages");
+const createProjectsPages = require("./staticSiteGeneration/createProjectsPages");
 
 async function createNewsPages(graphql, actions) {
   const { createPage } = actions;
@@ -51,4 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
   await createNewsPages(graphql, actions);
   await createTasksOfPCPRPages(graphql, actions);
   await createAboutfPCPRPages(graphql, actions);
+  await createContactPages(graphql, actions);
+  await createCooperationPages(graphql, actions);
+  await createProjectsPages(graphql, actions);
 };

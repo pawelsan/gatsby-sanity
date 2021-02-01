@@ -12,13 +12,16 @@ import news from './documents/news'
 import pageContent from './documents/pageContent'
 import tasksOfPCPR from './documents/tasksOfPCPR'
 import aboutPCPR from './documents/aboutPCPR'
+import projects from './documents/projects'
+import cooperation from './documents/cooperation'
+import contact from './documents/contact'
 import siteSettings from './documents/siteSettings'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
-import fileDocument from './documents/fileDocument'
+import fileDocument from './objects/fileDocument'
 import authorReference from './objects/authorReference'
 import bodyPortableTextSection from './objects/bodyPortableTextSection'
 
@@ -39,6 +42,9 @@ export default createSchema({
     pageContent,
     tasksOfPCPR,
     aboutPCPR,
+    projects,
+    cooperation,
+    contact,
     category,
     author,
     mainImage,

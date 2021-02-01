@@ -74,6 +74,21 @@ export default () =>
         .schemaType('tasksOfPCPR')
         .child(S.documentTypeList('tasksOfPCPR').title('Zadania PCPR')),
       S.listItem()
+        .title('Projekty')
+        .icon(MdDescription)
+        .schemaType('projects')
+        .child(S.documentTypeList('projects').title('Projekty')),
+      S.listItem()
+        .title('Współpraca')
+        .icon(MdDescription)
+        .schemaType('cooperation')
+        .child(S.documentTypeList('cooperation').title('Współpraca')),
+      S.listItem()
+        .title('Kontakt')
+        .icon(MdDescription)
+        .schemaType('contact')
+        .child(S.documentTypeList('contact').title('Kontakt PCPR')),
+      S.listItem()
         .title('Kategorie podstron "Zadania PCPR"')
         .icon(MdLocalOffer)
         .schemaType('category')
@@ -98,6 +113,6 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'author', 'post', 'news', 'pageContent', 'tasksOfPCPR', 'aboutPCPR', 'siteSettings'].includes(listItem.getId())
+          !['category', 'author', 'post', 'news', 'pageContent', 'tasksOfPCPR', 'aboutPCPR', 'projects', 'cooperation', 'contact', 'siteSettings'].includes(listItem.getId())
       )
     ])

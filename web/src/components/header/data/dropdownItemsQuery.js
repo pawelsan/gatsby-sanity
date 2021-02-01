@@ -41,6 +41,39 @@ const dropdownItemsQuery = () => {
           }
         }
       }
+      allSanityProjects {
+        edges {
+          node {
+            pageName
+            slug {
+              current
+            }
+            order
+          }
+        }
+      }
+      allSanityCooperation {
+        edges {
+          node {
+            pageName
+            slug {
+              current
+            }
+            order
+          }
+        }
+      }
+      allSanityContact {
+        edges {
+          node {
+            pageName
+            slug {
+              current
+            }
+            order
+          }
+        }
+      }
     }
   `);
   return data;
