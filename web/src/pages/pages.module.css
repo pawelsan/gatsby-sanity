@@ -76,15 +76,6 @@ li {
     margin-top: 10px;
 }
 
-.figure {
-    display: flex;
-    justify-content: center;
-}
-
- .figure > img {
-     max-width: 100%;
- }
-
 @media (max-width: 991px) {
     .photo_title > h1 {
         font-size: 28px;

@@ -24,6 +24,7 @@ import mainImage from './objects/mainImage'
 import fileDocument from './objects/fileDocument'
 import authorReference from './objects/authorReference'
 import bodyPortableTextSection from './objects/bodyPortableTextSection'
+import dataTable from './objects/dataTable'
 
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -39,6 +40,7 @@ export default createSchema({
     post,
     news,
     fileDocument,
+    dataTable,
     pageContent,
     tasksOfPCPR,
     aboutPCPR,

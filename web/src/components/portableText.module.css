@@ -1,0 +1,26 @@
+.figure {
+    display: flex;
+    justify-content: center;
+}
+
+ .figure > img {
+     max-width: 100%;
+ }
+
+ .table {
+    min-width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+ }
+
+ .table_header {
+     background-color: var(--light-gray);
+     border-bottom: 2px solid var(--color-font);
+     height: 50px;
+ }
+ .table_row {
+     height: 50px;
+ }
+ .table_header > th, .table_row > td {
+     text-align: center;
+ }
