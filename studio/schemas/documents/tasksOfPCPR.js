@@ -39,6 +39,16 @@ export default {
             title: 'Treść3'
         },
         {
+            name: 'content4',
+            type: 'bodyPortableText',
+            title: 'Treść4'
+        },
+        {
+            name: 'content5',
+            type: 'bodyPortableText',
+            title: 'Treść5'
+        },
+        {
             name: 'category',
             title: 'Wybierz kategorię podstrony',
             description: 'Wybór wpływa na miejsce podstrony w rozwijanym menu głównym.',
