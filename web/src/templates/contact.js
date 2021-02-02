@@ -10,9 +10,9 @@ export const query = graphql`
   query contactQuery($id: String!) {
     content: sanityContact(id: { eq: $id }) {
       _id
-      _rawContent
-      _rawContent2
-      _rawContent3
+      _rawContent(resolveReferences: { maxDepth: 5 })
+      _rawContent2(resolveReferences: { maxDepth: 5 })
+      _rawContent3(resolveReferences: { maxDepth: 5 })
       contentTitle
       pageName
       slug {
@@ -23,30 +23,30 @@ export const query = graphql`
 `;
 
 const ContactTemplate = (props) => {
-    const { data, errors } = props;
-    const content = data && data.content;
+  const { data, errors } = props;
+  const content = data && data.content;
 
-    if (errors) {
-        return (
-            <Layout>
-                <GraphQLErrorList errors={errors} />
-            </Layout>
-        );
-    }
-
-    if (!content) {
-        throw new Error(`Brak treści na stronie ${content.pageName}.`);
-    }
-
+  if (errors) {
     return (
-        <Layout>
-            <SEO
-                title={content.pageName || "Untitled"}
-            // description={toPlainText(news._rawExcerpt)}
-            />
-            <ContentPage {...content} />
-        </Layout>
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
     );
+  }
+
+  if (!content) {
+    throw new Error(`Brak treści na stronie ${content.pageName}.`);
+  }
+
+  return (
+    <Layout>
+      <SEO
+        title={content.pageName || "Untitled"}
+      // description={toPlainText(news._rawExcerpt)}
+      />
+      <ContentPage {...content} />
+    </Layout>
+  );
 };
 
 export default ContactTemplate;

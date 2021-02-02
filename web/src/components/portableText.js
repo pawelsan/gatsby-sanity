@@ -32,11 +32,10 @@ const serializer = {
     },
     fileDocument: (props) => {
       return (
-        <span><b>{props.node.description}</b> można pobrać klikając{" "}<a href={`${props.node.asset.url}?dl=`}>tutaj</a>.</span>
+        <span><span className={styles.file_description}>{props.node.description}</span>{" "}jest do pobrania pod następującym{" "}<a href={`${props.node.asset.url}?dl=`}>linkiem</a>.</span>
       )
     },
     dataTable: (props) => {
-      console.log(props)
       const data = props.node.table.rows;
       const content = data.map((row, index) =>
         <tr className={styles.table_row} key={index}>{row.cells.map((cell, index) => <td key={index}>{cell}</td>)}</tr>

@@ -10,11 +10,11 @@ export const query = graphql`
   query TaskOfPCPRQuery($id: String!) {
     content: sanityTasksOfPcpr(id: { eq: $id }) {
       _id
-      _rawContent
-      _rawContent2
-      _rawContent3
-      _rawContent4
-      _rawContent5
+      _rawContent(resolveReferences: { maxDepth: 5 })
+      _rawContent2(resolveReferences: { maxDepth: 5 })
+      _rawContent3(resolveReferences: { maxDepth: 5 })
+      _rawContent4(resolveReferences: { maxDepth: 5 })
+      _rawContent5(resolveReferences: { maxDepth: 5 })
       contentTitle
       pageName
       slug {

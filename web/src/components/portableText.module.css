@@ -7,21 +7,39 @@
      max-width: 100%;
  }
 
+ .file_description {
+     font-style: italic;
+ }
+
  .table {
-    width: 100%;
-    margin: 0 auto;
+    min-width: 100%;
+    margin: 20px auto;
     border-collapse: collapse;
  }
 
  .table_row {
-    /* background-color: var(--light-gray); */
-    border-bottom: 2px solid var(--color-font);
+    border-top: 2px solid var(--color-font);
     height: 50px;
  }
- .table_row:last-child {
+ /* .table_row:last-child {
      border-bottom: none;
- }
+ } */
  .table_row > td {
     text-align: center;
-    font-size: var(--medium);
+    font-size: var(--small);
  }
+
+ @media (max-width: 991px) {
+    .table_row {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 528px) {
+    .table_row {
+        height: 100px;
+    }
+}

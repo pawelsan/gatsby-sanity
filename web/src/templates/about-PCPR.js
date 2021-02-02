@@ -10,9 +10,9 @@ export const query = graphql`
   query AboutPCPRQuery($id: String!) {
     content: sanityAboutPcpr(id: { eq: $id }) {
       _id
-      _rawContent
-      _rawContent2
-      _rawContent3
+      _rawContent(resolveReferences: { maxDepth: 5 })
+      _rawContent2(resolveReferences: { maxDepth: 5 })
+      _rawContent3(resolveReferences: { maxDepth: 5 })
       contentTitle
       pageName
       slug {
@@ -42,7 +42,7 @@ const AboutPCPRTemplate = (props) => {
     <Layout>
       <SEO
         title={content.pageName || "Untitled"}
-        // description={toPlainText(news._rawExcerpt)}
+      // description={toPlainText(news._rawExcerpt)}
       />
       <ContentPage {...content} />
     </Layout>
