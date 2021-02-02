@@ -36,8 +36,8 @@ export default {
                 name: 'item',
                 type: 'reference',
                 to: [
-                  { type: 'pageContent' },
-
+                  { type: 'aboutPCPR' },
+                  { type: 'contact' }
                 ]
               }
             ]

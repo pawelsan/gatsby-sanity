@@ -14,6 +14,12 @@ const serializer = {
       ) : (
           <a href={mark.href}>{children}</a>
         ),
+    internalLink: ({ mark, children }) => {
+      console.log(mark.item._ref)
+      const { slug = {} } = mark
+      const href = `/${slug.current}`
+      return <a href={href}>{children}</a>
+    }
   },
   types: {
     mainImage: (props) => {
@@ -32,18 +38,12 @@ const serializer = {
     dataTable: (props) => {
       console.log(props)
       const data = props.node.table.rows;
-      const tableHeaderItems = data[0].cells;
-      const tableContentItems = data.slice(1);
-      console.log(tableContentItems);
-      const header = <tr className={styles.table_header}>{tableHeaderItems.map((item, index) =>
-        <th key={index}>{item}</th>
-      )}</tr>
-      const content = tableContentItems.map((row, index) =>
+      const content = data.map((row, index) =>
         <tr className={styles.table_row} key={index}>{row.cells.map((cell, index) => <td key={index}>{cell}</td>)}</tr>
       );
 
       return (
-        <table className={styles.table}><tbody className={styles.table_body}>{header}{content}</tbody></table>
+        <table className={styles.table}><tbody className={styles.table_body}>{content}</tbody></table>
       )
     }
   },
