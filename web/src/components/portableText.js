@@ -2,6 +2,7 @@ import React from "react";
 import clientConfig from "../../client-config";
 import BasePortableText from "@sanity/block-content-to-react";
 import { imageUrlFor } from "../lib/image-url";
+import { buildImageObj } from "../lib/helpers";
 import styles from "./portableText.module.css";
 
 const serializer = {
@@ -22,11 +23,20 @@ const serializer = {
     }
   },
   types: {
-    mainImage: (props) => {
+    mainImage: ({ node }) => {
       return (
         <figure className={styles.figure}>
-          <img src={imageUrlFor(props.node.asset).fit("scale").url()} alt={props.node.alt} />
-          <figcaption>{props.node.caption}</figcaption>
+          <img
+            src={imageUrlFor(buildImageObj(node))
+              // .maxWidth(500)
+              .height(400)
+              .fit("crop")
+              .auto("format")
+              .url()}
+            alt={node.alt}
+          />
+          {/* <img src={imageUrlFor(node.asset).fit("scale").url()} alt={node.alt} /> */}
+          <figcaption>{node.caption}</figcaption>
         </figure>
       );
     },
