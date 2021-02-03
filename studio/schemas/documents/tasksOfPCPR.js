@@ -19,6 +19,11 @@ export default {
             }
         },
         {
+            name: 'mainImage',
+            type: 'mainImage',
+            title: 'Grafika główna'
+        },
+        {
             name: 'contentTitle',
             type: 'string',
             title: 'Nagłówek'
@@ -57,6 +62,24 @@ export default {
                 type: 'category'
             },
             validation: Rule => Rule.required().error('Ustawienie kategorii jest niezbędne dla właściwego funkcjonowania strony')
+        },
+        {
+            name: "order",
+            title: "Order",
+            type: "number",
+            hidden: true,
+        },
+    ],
+    preview: {
+        select: {
+            title: 'pageName',
+            media: 'mainImage'
+        },
+        prepare({ title = 'Brak tytułu', media }) {
+            return {
+                title,
+                media,
+            }
         }
-    ]
+    }
 }

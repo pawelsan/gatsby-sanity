@@ -16,6 +16,10 @@ export const query = graphql`
       _rawContent4(resolveReferences: { maxDepth: 5 })
       _rawContent5(resolveReferences: { maxDepth: 5 })
       contentTitle
+      mainImage {
+        ...SanityImage
+        alt
+      }
       pageName
       slug {
         current

@@ -17,6 +17,12 @@ export default {
                 source: 'title',
                 maxLength: 96
             }
-        }
+        },
+        {
+            name: "order",
+            title: "Order",
+            type: "number",
+            hidden: true,
+        },
     ]
 }

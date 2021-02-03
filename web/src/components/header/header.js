@@ -41,6 +41,11 @@ const Header = () => {
   data.allSanityCooperation.edges.map((item) => cooperationDropdownItems.push(item.node));
   data.allSanityContact.edges.map((item) => contactDropdownItems.push(item.node));
   aboutDropdownItems = sortNavItemsByOrder(aboutDropdownItems, "order");
+  tasksDropdownItems = sortNavItemsByOrder(tasksDropdownItems, "order");
+  projectsDropdownItems = sortNavItemsByOrder(projectsDropdownItems, "order");
+  cooperationDropdownItems = sortNavItemsByOrder(cooperationDropdownItems, "order");
+  contactDropdownItems = sortNavItemsByOrder(contactDropdownItems, "order");
+  taskCategories = sortNavItemsByOrder(taskCategories, "order");
 
   const [navIsShown, setNavIsShown] = useState(false);
 

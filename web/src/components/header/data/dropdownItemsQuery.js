@@ -17,6 +17,7 @@ const dropdownItemsQuery = () => {
             slug {
               current
             }
+            order
           }
         }
       }
@@ -27,6 +28,7 @@ const dropdownItemsQuery = () => {
             slug {
               current
             }
+            order
           }
         }
       }

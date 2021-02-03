@@ -1,6 +1,8 @@
 import React from "react";
 import PortableText from "../portableText";
 import Container from "../container";
+import { buildImageObj } from "../../lib/helpers";
+import { imageUrlFor } from "../../lib/image-url";
 import logo_blue from "../../images/logo_blue.png";
 import logo_green from "../../images/logo_green.png";
 import logo_orange from "../../images/logo_orange.png";
@@ -8,42 +10,55 @@ import logo_red from "../../images/logo_red.png";
 import styles from "./content-page.module.css";
 
 const ContentPage = (props) => {
-  let applicablePuzzle;
-  let altText;
-  let taskCategory = props.category ? props.category.slug.current : false
-  const logoMap = {
-    "orange": logo_orange,
-    "blue": logo_blue,
-    "green": logo_green,
-    "red": logo_red
-  }
-  console.log(logoMap["green"])
+  // let applicablePuzzle;
+  // let altText;
+  // let taskCategory = props.category ? props.category.slug.current : false
+  // const logoMap = {
+  //   "orange": logo_orange,
+  //   "blue": logo_blue,
+  //   "green": logo_green,
+  //   "red": logo_red
+  // }
+  // console.log(props)
 
-  switch (taskCategory) {
-    case "pomoc-spoleczna":
-      applicablePuzzle = "orange";
-      altText = "Pomarańczowa część loga PCPR"
-      break;
-    case "piecza-zastepcza":
-      applicablePuzzle = "blue";
-      altText = "Niebieska część loga PCPR"
-      break;
-    case "rehabilitacja-spoleczna":
-      applicablePuzzle = "green";
-      altText = "Zielona część loga PCPR"
-      break;
-    case false:
-      break;
-    default:
-      applicablePuzzle = "red";
-      altText = "Czerwona część loga PCPR"
-  }
+  // switch (taskCategory) {
+  //   case "pomoc-spoleczna":
+  //     applicablePuzzle = "orange";
+  //     altText = "Pomarańczowa część loga PCPR"
+  //     break;
+  //   case "piecza-zastepcza":
+  //     applicablePuzzle = "blue";
+  //     altText = "Niebieska część loga PCPR"
+  //     break;
+  //   case "rehabilitacja-spoleczna":
+  //     applicablePuzzle = "green";
+  //     altText = "Zielona część loga PCPR"
+  //     break;
+  //   case false:
+  //     break;
+  //   default:
+  //     applicablePuzzle = "red";
+  //     altText = "Czerwona część loga PCPR"
+  // }
   return (
     <>
       {props.category ? <div className={styles.page_header}>
-        <div>
+        {/* <div>
           <img src={logoMap[applicablePuzzle]} alt={altText} />
-        </div>
+        </div> */}
+        {props.mainImage && props.mainImage.asset && (
+          <div className={styles.main_image}>
+            <img
+              src={imageUrlFor(buildImageObj(props.mainImage))
+                // .width(150)
+                .height(100)
+                .fit("crop")
+                .auto("format")
+                .url()}
+              alt={props.mainImage.alt}
+            />
+          </div>
+        )}
         <h1 className={styles.content_title}>{props.contentTitle}</h1>
       </div> : <h1 className={styles.content_title}>{props.contentTitle}</h1>}
       <div className={styles.raw_content}>

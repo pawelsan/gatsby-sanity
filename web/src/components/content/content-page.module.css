@@ -24,6 +24,9 @@
 .content_title {
     text-transform: uppercase;
 }
+.main_image {
+    margin-right: 10px;
+}
 
 .raw_content {
     margin: 30px 0;

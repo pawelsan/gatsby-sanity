@@ -14,8 +14,8 @@ function NewsPostBanner(props) {
                     <img
                         className={styles.banner_image}
                         src={imageUrlFor(buildImageObj(props.mainImage))
-                            .width(80)
-                            .height(80)
+                            // .width(80)
+                            .height(100)
                             .auto("format")
                             .url()}
                         alt={props.mainImage.alt}
