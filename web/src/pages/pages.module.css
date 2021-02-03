@@ -96,7 +96,7 @@ li {
     }
 }
 
-@media (max-width: 529px) {
+@media (max-width: 567px) {
     li {
         flex-basis: 95%;
     }

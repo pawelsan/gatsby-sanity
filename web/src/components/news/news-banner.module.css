@@ -1,0 +1,35 @@
+.banner_link {
+    text-decoration: none;
+}
+
+.banner {
+    padding: 5px 0;
+    color: var(--color-font);
+    background-color: var(--light-gray);
+    border: 1px solid var(--color-font);
+    display: flex;
+    align-items: center;
+}
+
+.banner:hover {
+    background-color: var(--gray);
+    color: white;
+}
+
+.banner_image {
+    height: 100px;
+    padding: 5px;
+    margin: 0 10px;
+}
+
+.banner_lead {
+    font-size: var(--small);
+    text-decoration: underline;
+    font-style: italic;
+}
+
+@media (max-width: 567px) {
+    .banner_text {
+       display: none;
+    }
+}

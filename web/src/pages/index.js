@@ -6,7 +6,7 @@ import {
   filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
 import NewsPostPreviewContainer from "../components/news/news-post-preview-container";
-
+import NewsBannerContainer from "../components/news/news-banner-container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -62,6 +62,7 @@ export const query = graphql`
           slug {
             current
           }
+          switch
         }
       }
     }
@@ -85,6 +86,8 @@ const IndexPage = (props) => {
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : [];
+  const pinnedPostNodes = postNodes.filter(node => node.switch === true)
+  console.log(pinnedPostNodes)
 
   if (!site) {
     throw new Error(
@@ -95,6 +98,7 @@ const IndexPage = (props) => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <NewsBannerContainer postNodes={pinnedPostNodes} />
       <div className={styles.photo_title}>
         <img src={photo_title} alt="Zdjęcie dzieci w parku" />
         <h1>{site.subtitle}</h1>

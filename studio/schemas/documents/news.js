@@ -28,6 +28,12 @@ export default {
             description: 'Pole wymagane'
         },
         {
+            title: "Przypnij do strony głównej",
+            name: 'switch',
+            type: 'boolean',
+            description: 'Baner zawierający najważniejsze informacje i link do poniższej aktualności zostanie przypięty ponad nagłówkiem strony głównej'
+        },
+        {
             name: 'mainImage',
             type: 'mainImage',
             title: 'Grafika główna'
