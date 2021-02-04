@@ -20,7 +20,7 @@ const NewsPostPreviewContainer = ({ postNodes }) => {
             <ul className={styles.post_container}>
                 {newsToBeShownPerSelection &&
                     newsToBeShownPerSelection.map((node) => (
-                        <li key={node.id}>
+                        <li key={node.id} className={styles.post_item}>
                             <NewsPostPreview {...node} />
                         </li>
                     ))}

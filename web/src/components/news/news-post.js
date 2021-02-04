@@ -15,7 +15,7 @@ function NewsPost(props) {
           <div className={styles.news_image}>
             <img
               src={imageUrlFor(buildImageObj(mainImage))
-                .width(200)
+                // .width(200)
                 .height(200)
                 .fit("crop")
                 .auto("format")

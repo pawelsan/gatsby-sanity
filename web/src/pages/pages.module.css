@@ -52,12 +52,6 @@ h2 {
     padding: 10px;
 }
 
-li {
-    list-style: none;
-    flex-basis: 30%;
-    margin: 5px;
-}
-
 .content_title {
     text-transform: uppercase;
 }
@@ -81,9 +75,6 @@ li {
         font-size: 28px;
         letter-spacing: 0;
     }
-    li {
-        flex-basis: 45%;
-    }
 }
 
 @media (max-width: 767px) {
@@ -97,9 +88,6 @@ li {
 }
 
 @media (max-width: 567px) {
-    li {
-        flex-basis: 95%;
-    }
     .gdpr {
         text-align: left;
     }

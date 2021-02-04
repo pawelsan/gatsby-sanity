@@ -106,6 +106,7 @@ header {
     max-width: 1100px;
     min-height: 100px;
     display: flex;
+    justify-content: space-around;
 }
 .dropdown_container li {
     display: flex;
@@ -251,10 +252,7 @@ header {
     .dropdown_section {
         padding: 5px;
     }
-    .dropdown_container > li{
-        flex-basis: 30%;
-    }
-
+  
     .dropdown_section_title {
         height: 40px;
     }

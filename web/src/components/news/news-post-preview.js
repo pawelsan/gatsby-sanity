@@ -18,8 +18,8 @@ function NewsPostPreview(props) {
             <img
               className={styles.post_image}
               src={imageUrlFor(buildImageObj(props.mainImage))
-                .width(80)
-                .height(80)
+                // .width(90)
+                .height(70)
                 .auto("format")
                 .url()}
               alt={props.mainImage.alt}
