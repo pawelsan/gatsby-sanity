@@ -16,7 +16,8 @@ export default {
             options: {
                 source: 'pageName',
                 maxLength: 96
-            }
+            },
+            validation: Rule => Rule.required().error('Ustawienie końcówki adresu jest niezbędne dla właściwego funkcjonowania strony')
         },
         {
             name: 'mainImage',

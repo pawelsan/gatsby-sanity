@@ -5,6 +5,25 @@ import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 import styles from "./portableText.module.css";
 
+import { useStaticQuery, graphql } from "gatsby";
+
+const categoryQuery = () => {
+  const data = useStaticQuery(graphql`
+    query categoryQuery {
+      allSanityCategory {
+          nodes {
+            slug {
+              current
+            }
+            id
+          }
+      }
+    }
+  `);
+  return data;
+};
+
+
 const serializer = {
   marks: {
     link: ({ children, mark }) =>
@@ -16,9 +35,13 @@ const serializer = {
           <a href={mark.href}>{children}</a>
         ),
     internalLink: ({ mark, children }) => {
-      console.log(mark.item._ref)
-      const { slug = {} } = mark
-      const href = `/${slug.current}`
+      let categorySlug
+      if (mark.item.category) {
+        const data = categoryQuery();
+        categorySlug = data.allSanityCategory.nodes.find(node => node.id === mark.item.category._ref).slug
+      }
+      const { slug = {} } = mark.item
+      const href = mark.item.category ? `/${categorySlug.current}/${slug.current}` : `/${slug.current}`;
       return <a href={href}>{children}</a>
     }
   },

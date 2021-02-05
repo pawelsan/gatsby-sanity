@@ -37,7 +37,11 @@ export default {
                 type: 'reference',
                 to: [
                   { type: 'aboutPCPR' },
-                  { type: 'contact' }
+                  { type: 'tasksOfPCPR' },
+                  { type: 'projects' },
+                  { type: 'cooperation' },
+                  { type: 'contact' },
+                  { type: 'news' }
                 ]
               }
             ]

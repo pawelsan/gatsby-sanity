@@ -40,7 +40,7 @@ export default {
     { name: 'project-users', layout: { height: 'auto' } },
     {
       name: 'document-list',
-      options: { title: 'Najnowsze aktualności', order: '_createdAt asc', types: ['news'] },
+      options: { title: 'Najnowsze aktualności', order: '_createdAt desc', types: ['news'] },
       layout: { width: 'medium' }
     }
   ]
