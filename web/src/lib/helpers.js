@@ -17,8 +17,8 @@ export function filterOutDocsPublishedInTheFuture({ publishedAt }) {
   return !isFuture(publishedAt);
 }
 
-export function getNewsUrl(publishedAt, slug) {
-  return `/aktualnosci/${format(publishedAt, "DD/MM/YYYY")}/${slug.current || slug}/`;
+export function getNewsUrl(slug) {
+  return `/aktualnosci/${slug.current || slug}/`;
 }
 
 export function buildImageObj(source = { asset: {} }) {

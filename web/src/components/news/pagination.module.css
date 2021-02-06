@@ -6,6 +6,7 @@
 
 .pagination_item {
     display: inline-block;
+    margin: 0 5px;
 }
 
 .pagination_item_button {

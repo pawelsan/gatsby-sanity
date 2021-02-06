@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
@@ -48,6 +48,7 @@ export const query = graphql`
     news: allSanityNews(
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      limit: 6
     ) {
       edges {
         node {
@@ -104,6 +105,7 @@ const IndexPage = (props) => {
         <h1>{site.subtitle}</h1>
       </div>
       <NewsPostPreviewContainer postNodes={postNodes} />
+      <Link to="/aktualnosci">Wszystkie wiadomości</Link>
     </Layout>
   );
 };

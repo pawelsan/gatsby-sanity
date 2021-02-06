@@ -15,7 +15,7 @@ export default {
             name: 'slug',
             type: 'slug',
             title: 'Końcówka adresu podstrony, na której wiadomość będzie dostępna',
-            description: 'Pole wymagane',
+            description: 'Pole wymagane, ciąg znaków nie może być taki sam, jak przy innej wiadomości',
             options: {
                 source: 'title',
                 maxLength: 96
