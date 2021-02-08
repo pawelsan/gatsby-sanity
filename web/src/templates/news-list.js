@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
@@ -10,6 +10,7 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import Container from "../components/container";
+import NewsListPagination from "../components/news/news-list-pagination"
 
 export const query = graphql`
   query NewsListTemplateQuery($skip: Int!, $limit: Int!) {
@@ -38,14 +39,7 @@ export const query = graphql`
   }
 `;
 
-const NewsLsitPage = (props) => {
-  const { currentPage, numPages } = props.pageContext
-  const isFirst = currentPage === 1
-  const isLast = currentPage === numPages
-  const prevPage = currentPage - 1 === 1 ? "" : (currentPage - 1).toString()
-  const nextPage = (currentPage + 1).toString()
-
-  const { data, errors } = props;
+const NewsLsitPage = ({ data, errors, pageContext }) => {
 
   if (errors) {
     return (
@@ -61,27 +55,14 @@ const NewsLsitPage = (props) => {
       .filter(filterOutDocsPublishedInTheFuture)
     : [];
 
+  postNodes.splice(0, 6)
+
   return (
     <Layout>
-      <SEO title="Aktualności" description="Lista aktualności" />
+      <SEO title="Starsze wiadomości" description="Lista aktualności" />
+      <h2>Starsze wiadomości</h2>
       {postNodes && <NewsPostPreviewContainer postNodes={postNodes} />}
-      <div style={{ display: "flex", justifyContent: "space-around" }}>
-        {!isFirst && (
-          <Link to={`/aktualnosci/${prevPage}`} rel="prev" style={{ display: "block" }}>
-            ← Previous Page
-          </Link>
-        )}
-        {Array.from({ length: numPages }, (_, i) => (
-          <Link key={`pagination-number${i + 1}`} to={`/aktualnosci/${i === 0 ? "" : i + 1}`} style={{ display: "block" }}>
-            {i + 1}
-          </Link>
-        ))}
-        {!isLast && (
-          <Link to={`/aktualnosci/${nextPage}`} rel="next" style={{ display: "block" }}>
-            Next Page →
-          </Link>
-        )}
-      </div>
+      <NewsListPagination {...pageContext} />
     </Layout>
   );
 };

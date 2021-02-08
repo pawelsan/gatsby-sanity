@@ -1,13 +1,13 @@
 import { format, distanceInWords, differenceInDays } from "date-fns";
 import React from "react";
-import { Link } from "gatsby";
 import { buildImageObj } from "../../lib/helpers";
 import { imageUrlFor } from "../../lib/image-url";
 import PortableText from "../portableText";
+import NewsNavigation from "./news-navigation";
 import styles from "./news-post.module.css";
 
 function NewsPost(props) {
-  const { _rawBody, title, mainImage, publishedAt } = props;
+  const { _rawBody, title, mainImage, publishedAt, previous, next } = props;
   return (
     <article className={styles.news_article}>
       <div className={styles.news_header}>
@@ -39,7 +39,9 @@ function NewsPost(props) {
       <div className={styles.raw_content}>
         {_rawBody && <PortableText blocks={_rawBody} />}
       </div>
-      <div className={styles.news_footer}>Zespół PCPR<br /><Link to="/">Powrót na stronę główną</Link></div>
+      <div className={styles.news_footer}>Zespół PCPR<br />
+        <NewsNavigation previous={previous} next={next} />
+      </div>
     </article>
   );
 }

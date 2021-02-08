@@ -1,0 +1,9 @@
+.news_list_pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.news_list_pagination_home {
+    display: flex;
+    justify-content: flex-start;
+}

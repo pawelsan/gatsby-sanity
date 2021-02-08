@@ -10,7 +10,7 @@ import NewsBannerContainer from "../components/news/news-banner-container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
-
+import NewsNavigationLink from "../components/news/news-navigation-link";
 import photo_title from "../images/photo_title.png";
 
 import styles from "./pages.module.css";
@@ -104,8 +104,11 @@ const IndexPage = (props) => {
         <img src={photo_title} alt="Zdjęcie dzieci w parku" />
         <h1>{site.subtitle}</h1>
       </div>
+      <h2>Aktualności</h2>
       <NewsPostPreviewContainer postNodes={postNodes} />
-      <Link to="/aktualnosci">Wszystkie wiadomości</Link>
+      <div className={styles.archive_navigation}>
+        <NewsNavigationLink to="/aktualnosci" rel={null} text="Pozostałe wiadomości" />
+      </div>
     </Layout>
   );
 };

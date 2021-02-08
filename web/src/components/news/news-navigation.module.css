@@ -1,0 +1,9 @@
+.news_navigation {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.news_navigation_item {
+    list-style: none;
+}

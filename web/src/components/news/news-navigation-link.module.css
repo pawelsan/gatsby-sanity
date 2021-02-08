@@ -1,0 +1,19 @@
+.navigation_link {
+    display: block;
+    padding: 5px;
+    margin: 0 2px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-font);
+    border: 2px solid var(--color-font);
+}
+
+.navigation_link:hover {
+    background-color: var(--light-gray);
+}
+
+@media (max-width: 567px) {
+    .navigation_link {
+        font-size: var(--small);
+    }
+}

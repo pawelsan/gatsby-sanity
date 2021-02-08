@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import NewsPost from "../components/news/news-post";
@@ -28,8 +28,9 @@ export const query = graphql`
 
 const NewsTemplate = (props) => {
   console.log(props);
-  const { data, errors } = props;
+  const { data, errors, pageContext } = props;
   const news = data && data.news;
+
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
@@ -47,7 +48,7 @@ const NewsTemplate = (props) => {
         </Container>
       )}
 
-      {news && <NewsPost {...news} />}
+      {news && <NewsPost {...news} {...pageContext} />}
     </Layout>
   );
 };
