@@ -105,6 +105,7 @@ header {
 .dropdown_container {
     max-width: 1100px;
     min-height: 100px;
+    flex-grow: 1;
     display: flex;
     justify-content: space-around;
 }
@@ -306,7 +307,6 @@ header {
     .dropdown_section_title {
         height: auto;
         cursor: pointer;
-        /* border-bottom: 2px solid var(--color-font) */
     }
     .dropdown_section_title:after {
         content: "";
