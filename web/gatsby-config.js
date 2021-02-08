@@ -20,5 +20,11 @@ module.exports = {
         overlayDrafts: !isProd,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/images/logo-small.png`,
+      },
+    },
   ],
 };
