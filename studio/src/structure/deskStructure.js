@@ -1,7 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 import MdSettings from 'react-icons/lib/md/settings'
 import {
-  MdPerson,
   MdDescription,
   MdLocalOffer
 } from 'react-icons/lib/md'
@@ -22,7 +21,7 @@ export const getDefaultDocumentNode = props => {
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
   const { schemaType } = props
-  if (schemaType == 'post') {
+  if (schemaType == 'news') {
     return S.document().views([
       S.view.form(),
       S.view
@@ -93,26 +92,11 @@ export default () =>
         .icon(MdLocalOffer)
         .schemaType('category')
         .child(S.documentTypeList('category').title('Kategorie')),
-      S.listItem()
-        .title('Treść stron')
-        .icon(MdDescription)
-        .schemaType('pageContent')
-        .child(S.documentTypeList('pageContent').title('Treść stron')),
-      S.listItem()
-        .title('Blog posts')
-        .icon(MdDescription)
-        .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
-      S.listItem()
-        .title('Authors')
-        .icon(MdPerson)
-        .schemaType('author')
-        .child(S.documentTypeList('author').title('Authors')),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'author', 'post', 'news', 'pageContent', 'tasksOfPCPR', 'aboutPCPR', 'projects', 'cooperation', 'contact', 'siteSettings'].includes(listItem.getId())
+          !['category', 'news', 'tasksOfPCPR', 'aboutPCPR', 'projects', 'cooperation', 'contact', 'siteSettings'].includes(listItem.getId())
       )
     ])
