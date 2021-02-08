@@ -5,6 +5,7 @@
 }
 
 .post {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 250px;
@@ -31,6 +32,7 @@
 
 .post_content {
     margin-top: 10px;
+    margin-bottom: 20px;
     flex-grow: 1;
 }
 
@@ -46,10 +48,12 @@
 }
 
 .post_lead {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
     font-size: var(--small);
     text-decoration: underline;
     font-style: italic;
-    margin-top: 10px;
     display: block;
     text-align: right;
 }
