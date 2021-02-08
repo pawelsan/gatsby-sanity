@@ -1,8 +1,8 @@
 import { Link } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/header.module.css";
 
-const DropdownCategory = ({ items, title, styling }) => {
+const DropdownCategory = ({ items, title, category }) => {
   const dropdownItems = items.map((item, index) => (
     <li key={index}>
       <Link
@@ -17,7 +17,7 @@ const DropdownCategory = ({ items, title, styling }) => {
   ));
   let applicableStyle;
 
-  switch (styling) {
+  switch (category) {
     case "pomoc-spoleczna":
       applicableStyle = "orange";
       break;
@@ -31,10 +31,24 @@ const DropdownCategory = ({ items, title, styling }) => {
       applicableStyle = "red";
   }
 
+  const [openDropdown, setOpenDropdown] = useState(false);
+
+  const handleMouseOver = () => {
+    setOpenDropdown(true);
+  };
+  const handleMouseLeave = () => {
+    setTimeout(() => setOpenDropdown(false), 100);
+  };
+
   return (
-    <div className={`${styles.dropdown_section} ${styles[applicableStyle]}`}>
-      <span className={styles.dropdown_section_title}>{`${title}:`}</span>
-      <ul className={styles.dropdown_section_list}>{dropdownItems}</ul>
+    <div
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      className={`${styles.dropdown_section} ${styles[applicableStyle]}`}>
+      <div
+        className={!openDropdown ? `${styles.dropdown_section_title} ${styles.arrow_right}` : styles.dropdown_section_title}
+      >{`${title}`}</div>
+      <ul className={!openDropdown ? `${styles.dropdown_section_list} ${styles.none}` : styles.dropdown_section_list}>{dropdownItems}</ul>
     </div>
   );
 };
@@ -44,7 +58,7 @@ const DropdownPanelWithCategories = ({ items, categories }) => {
     <DropdownCategory
       key={index}
       items={items.filter((item) => item.category.title === category.title)}
-      styling={category.slug.current}
+      category={category.slug.current}
       title={category.title}
     />
   ));

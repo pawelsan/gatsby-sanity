@@ -46,6 +46,9 @@
 .post_content>p {
     font-size: var(--medium);
 }
+.post_content>img {
+    max-width: 105px;
+}
 
 .post_lead {
     position: absolute;
