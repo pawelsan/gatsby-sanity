@@ -4,8 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const createBlogPostPages = require("./staticSiteGeneration/createBlogPostPages");
-const createContentPages = require("./staticSiteGeneration/createContentPages");
 const createTasksOfPCPRPages = require("./staticSiteGeneration/createTasksOfPCPRPages");
 const createAboutfPCPRPages = require("./staticSiteGeneration/createAboutPCPRPages");
 const createContactPages = require("./staticSiteGeneration/createContactPages");
@@ -16,8 +14,6 @@ const createNewsPages = require("./staticSiteGeneration/createNewsPages");
 
 
 exports.createPages = async ({ graphql, actions }) => {
-  await createBlogPostPages(graphql, actions);
-  await createContentPages(graphql, actions);
   await createNewsPages(graphql, actions);
   await createTasksOfPCPRPages(graphql, actions);
   await createAboutfPCPRPages(graphql, actions);
