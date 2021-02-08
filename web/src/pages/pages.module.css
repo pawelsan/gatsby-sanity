@@ -61,10 +61,10 @@ h2 {
     text-align: justify;
 }
 
-.raw_content li {
+/* .raw_content > div > ul > li {
     list-style: initial;
-    margin-left: 20px;
-}
+    margin-left: 25px;
+} */
 
 .raw_content p {
     margin-top: 10px;
@@ -73,7 +73,7 @@ h2 {
 .archive_navigation {
     display: flex;
     justify-content: flex-end;
-    margin-right: 25px;
+    margin-right: 10px;
 }
 
 @media (max-width: 991px) {

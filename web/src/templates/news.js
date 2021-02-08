@@ -27,7 +27,6 @@ export const query = graphql`
 `;
 
 const NewsTemplate = (props) => {
-  console.log(props);
   const { data, errors, pageContext } = props;
   const news = data && data.news;
 

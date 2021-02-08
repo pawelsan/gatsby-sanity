@@ -45,6 +45,15 @@
     font-size: var(--medium);
 }
 
+.post_lead {
+    font-size: var(--small);
+    text-decoration: underline;
+    font-style: italic;
+    margin-top: 10px;
+    display: block;
+    text-align: right;
+}
+
 @media (max-width: 991px) {
     .post {
         min-height: auto;

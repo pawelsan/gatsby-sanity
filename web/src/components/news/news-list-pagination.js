@@ -10,17 +10,23 @@ const NewsListPagination = ({ currentPage, numPages }) => {
 
     return (
         <>
-            <div className={styles.news_list_pagination}>
+            <ul className={styles.news_list_pagination}>
                 {!isFirst && (
-                    <NewsNavigationLink to={`/aktualnosci/${prevPage}`} rel="prev" text={"←"} />
+                    <li>
+                        <NewsNavigationLink to={`/aktualnosci/${prevPage}`} rel="prev" text={"←"} />
+                    </li>
                 )}
                 {Array.from({ length: numPages }, (_, i) => (
-                    <NewsNavigationLink key={`pagination-number${i + 1}`} to={`/aktualnosci/${i === 0 ? "" : i + 1}`} rel={null} text={i + 1} />
+                    <li key={`pagination-number${i + 1}`}>
+                        <NewsNavigationLink to={`/aktualnosci/${i === 0 ? "" : i + 1}`} rel={null} text={i + 1} />
+                    </li>
                 ))}
                 {!isLast && (
-                    <NewsNavigationLink to={`/aktualnosci/${nextPage}`} rel="next" text={"→"} />
+                    <li>
+                        <NewsNavigationLink to={`/aktualnosci/${nextPage}`} rel="next" text={"→"} />
+                    </li>
                 )}
-            </div>
+            </ul>
             <div className={styles.news_list_pagination_home}>
                 <NewsNavigationLink to="/" rel={null} text="Strona główna" />
             </div>

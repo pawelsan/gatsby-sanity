@@ -8,13 +8,13 @@
 
 .post_item {
     list-style: none;
-    flex-basis: 30%;
+    flex-basis: 32%;
     margin: 5px;
 }
 
 @media (max-width: 991px) {
     .post_item {
-        flex-basis: 45%;
+        flex-basis: 48%;
     }
 }
 

@@ -33,9 +33,9 @@
     text-align: justify;
 }
 
-.raw_content li {
+.raw_content > div > ul > li {
     list-style: initial;
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 .raw_content p {

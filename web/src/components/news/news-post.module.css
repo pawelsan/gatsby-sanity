@@ -24,6 +24,11 @@
     display: flex;
 }
 
+.raw_content > div > ul > li {
+    list-style: initial;
+    margin-left: 25px;
+}
+
 .news_footer {
     font-style: italic;
 }

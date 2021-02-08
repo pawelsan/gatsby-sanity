@@ -20,6 +20,9 @@ a {
   color: var(--color-link)
 }
 
+li {
+  list-style: none;
+}
 
 @media (max-width: 991px) {
 * {

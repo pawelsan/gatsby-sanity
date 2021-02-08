@@ -35,13 +35,16 @@ const serializer = {
           <a href={mark.href}>{children}</a>
         ),
     internalLink: ({ mark, children }) => {
-      let categorySlug
+      console.log(mark.item)
+      let firstPartOfSlug
       if (mark.item.category) {
         const data = categoryQuery();
-        categorySlug = data.allSanityCategory.nodes.find(node => node.id === mark.item.category._ref).slug
+        firstPartOfSlug = data.allSanityCategory.nodes.find(node => node.id === mark.item.category._ref).slug.current
+      } else if (mark.item.internal.type === "SanityNews") {
+        firstPartOfSlug = "aktualnosci"
       }
       const { slug = {} } = mark.item
-      const href = mark.item.category ? `/${categorySlug.current}/${slug.current}` : `/${slug.current}`;
+      const href = firstPartOfSlug ? `/${firstPartOfSlug}/${slug.current}` : `/${slug.current}`;
       return <a href={href}>{children}</a>
     }
   },

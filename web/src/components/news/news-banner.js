@@ -8,7 +8,7 @@ import styles from "./news-banner.module.css";
 
 function NewsPostBanner(props) {
     return (
-        <Link to={getNewsUrl(props.publishedAt, props.slug.current)} className={styles.banner_link}>
+        <Link to={getNewsUrl(props.slug.current)} className={styles.banner_link}>
             <div className={styles.banner}>
                 {props.mainImage && props.mainImage.asset && (
                     <img

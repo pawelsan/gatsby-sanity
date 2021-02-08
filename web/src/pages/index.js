@@ -88,7 +88,6 @@ const IndexPage = (props) => {
       .filter(filterOutDocsPublishedInTheFuture)
     : [];
   const pinnedPostNodes = postNodes.filter(node => node.switch === true)
-  console.log(pinnedPostNodes)
 
   if (!site) {
     throw new Error(

@@ -26,6 +26,7 @@ function NewsPostPreview(props) {
             />
           )}
           {props._rawExcerpt && <PortableText blocks={props._rawExcerpt} />}
+          <span className={styles.post_lead}>Dowiedz się więcej &gt;</span>
         </div>
       </div>
     </Link>

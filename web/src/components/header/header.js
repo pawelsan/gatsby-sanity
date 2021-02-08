@@ -81,10 +81,10 @@ const Header = () => {
           </Link>
         </div>
         <div className={styles.rightside_wrapper}>
-          <a href="http://www.pcprzyrardow.naszbip.pl/">
+          <a href="http://www.pcprzyrardow.naszbip.pl/" rel="noopener noreferrer" target="_blank">
             <img src={bip} alt="Logo bip" />
           </a>
-          <a href="https://www.facebook.com/PowiatoweCentrumPomocyRodzinieZyrardow/">
+          <a href="https://www.facebook.com/PowiatoweCentrumPomocyRodzinieZyrardow/" rel="noopener noreferrer" target="_blank">
             <img src={facebook} alt="Logo facebook" />
           </a>
           <DarkModeToggler />

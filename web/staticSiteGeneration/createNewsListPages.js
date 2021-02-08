@@ -19,6 +19,7 @@ async function createNewsListPages(graphql, actions) {
   if (result.errors) throw result.errors;
 
   const newsEdges = (result.data.allSanityNews || {}).edges || [];
+  newsEdges.splice(0, 6)
   const newsPerPage = 12;
   const numPages = Math.ceil(newsEdges.length / newsPerPage);
 
