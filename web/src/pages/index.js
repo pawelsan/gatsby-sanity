@@ -14,7 +14,7 @@ import NewsNavigationLink from "../components/news/news-navigation-link";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
-import styles from "./pages.module.css";
+import styles from "./index.module.css";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {

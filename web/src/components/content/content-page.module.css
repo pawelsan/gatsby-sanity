@@ -35,38 +35,49 @@
 
 .raw_content > div > ul > li {
     list-style: initial;
-    margin-left: 25px;
+    list-style-position: inside;
+    margin: 5px 0;
+}
+
+.raw_content ol {
+    list-style: none;
+    counter-reset: number;
+}
+
+.raw_content ol > li > ol {
+    counter-reset: letter;
+}
+
+
+.raw_content ol > li {
+    counter-increment: number;
+    margin: 10px 0;
+}
+
+.raw_content ol li > ol > li {
+    padding-left: 32px;
+    margin: 10px 0;
+    counter-increment: letter;
+}
+
+.raw_content ol li:before {
+    content: counter(number) ". ";
+    color: var(--color-font);
+    font-weight: bold;
+}
+
+.raw_content ol > li > ol > li:before {
+    content: counter(letter, lower-alpha) ") ";
+    color: var(--color-font);
+    font-weight: bold;
 }
 
 .raw_content p {
     margin-top: 10px;
 }
 
-/* .figure {
-    float: right;
-    max-width: 50%;
-}
-
- .figure > img {
-     max-width: 100%;
- }
-
- .figure:nth-of-type(even) {
-    float: left;
- } */
-
- @media (max-width: 767px) {
-    .raw_content {
-        text-align: left;
-    }
-}
-
 @media (max-width: 529px) {
-    /* .figure {
-        float: none;
-        text-align: center;
-        width: 100%
-    } */
+
     .page_header {
         flex-direction: column;
         align-items: center;
@@ -74,7 +85,7 @@
     .content_title {
         text-align: center;
     }
-    .raw_content p {
-       /* text-align: center; */
+    .raw_content {
+        text-align: left;
     }
 }
