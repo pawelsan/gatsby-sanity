@@ -16,6 +16,11 @@ export default {
       description: 'Describe your blog for search engines and social media.'
     },
     {
+      name: 'mainImage',
+      type: 'mainImage',
+      title: 'Grafika główna'
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description',

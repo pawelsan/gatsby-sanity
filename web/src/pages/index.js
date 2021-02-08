@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
@@ -11,7 +11,8 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import NewsNavigationLink from "../components/news/news-navigation-link";
-import photo_title from "../images/photo_title.png";
+import { buildImageObj } from "../lib/helpers";
+import { imageUrlFor } from "../lib/image-url";
 
 import styles from "./pages.module.css";
 
@@ -44,6 +45,10 @@ export const query = graphql`
       subtitle
       description
       keywords
+      mainImage {
+        ...SanityImage
+        alt
+      }
     }
     news: allSanityNews(
       sort: { fields: [publishedAt], order: DESC }
@@ -99,10 +104,19 @@ const IndexPage = (props) => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <NewsBannerContainer postNodes={pinnedPostNodes} />
-      <div className={styles.photo_title}>
-        <img src={photo_title} alt="Zdjęcie dzieci w parku" />
-        <h1>{site.subtitle}</h1>
-      </div>
+      {site.mainImage && site.mainImage.asset && (
+        <div className={styles.photo_title}>
+          <img
+            src={imageUrlFor(buildImageObj(site.mainImage))
+              .height(300)
+              .fit("crop")
+              .auto("format")
+              .url()}
+            alt={site.mainImage.alt}
+          />
+          <h1>{site.subtitle}</h1>
+        </div>
+      )}
       <h2>Aktualności</h2>
       <NewsPostPreviewContainer postNodes={postNodes} />
       <div className={styles.archive_navigation}>

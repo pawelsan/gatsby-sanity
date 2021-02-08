@@ -3,10 +3,6 @@ import PortableText from "../portableText";
 import Container from "../container";
 import { buildImageObj } from "../../lib/helpers";
 import { imageUrlFor } from "../../lib/image-url";
-import logo_blue from "../../images/logo_blue.png";
-import logo_green from "../../images/logo_green.png";
-import logo_orange from "../../images/logo_orange.png";
-import logo_red from "../../images/logo_red.png";
 import styles from "./content-page.module.css";
 
 const ContentPage = (props) => {

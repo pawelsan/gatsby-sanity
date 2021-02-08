@@ -1,12 +1,12 @@
 import { Link } from "gatsby";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Toggler from "./components/toggler";
 import Navbar from "./components/navbar";
 import Home from "./components/home";
 import DropdownParent from "./components/dropdownParent";
 import DropdownPanel from "./components/dropdownPanel";
 import DropdownPanelWithCategories from "./components/dropdownPanelWithCategories";
-import logo from "../../images/logo.png";
+import logo from "../../images/logo-small.png";
 import facebook from "../../images/f_logo_RGB-Blue_58.png";
 import bip from "../../images/bip.png";
 import DarkModeToggler from "./components/darkmodetoggler"
