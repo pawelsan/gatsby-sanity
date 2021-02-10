@@ -1,11 +1,8 @@
-@import url("../../../styles/index.css");
-
- /* Customize the label */
+/* Customize the label */
 .container {
     display: block;
     position: relative;
     cursor: pointer;
-    /* font-size: 22px; */
     height: 30px;
     width: 30px;
     margin: 0 2px;
@@ -56,7 +53,6 @@
     background: linear-gradient(to bottom right, rgb(200, 200, 200), rgb(200, 200, 200) 58%, var(--color-font) 58%, var(--color-font) 62%, rgb(200, 200, 200) 62%, rgb(200, 200, 200));
 }
 
-
   /* Create the checkmark */
 .darkMode:before {
     content: "";
@@ -104,7 +100,6 @@
     display: block;
     left: 12px;
     top: 6px;
-
 }
 
 .container input:checked ~ .fontSize:before {
@@ -135,6 +130,7 @@
 .a11y {
     display: none
 }
+
 @media (max-width: 767px) {
     .container {
         margin: 0px

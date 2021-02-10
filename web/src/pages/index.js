@@ -13,7 +13,6 @@ import Layout from "../containers/layout";
 import NewsNavigationLink from "../components/news/news-navigation-link";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
-
 import styles from "./index.module.css";
 
 export const query = graphql`

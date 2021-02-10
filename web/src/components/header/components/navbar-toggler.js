@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/header.module.css";
-const Toggler = ({ handleShowNav, navIsShown }) => {
+const NavbarToggler = ({ handleShowNav, navIsShown }) => {
 
   return (
     <button className={styles.toggler} onClick={handleShowNav}>
@@ -11,4 +11,4 @@ const Toggler = ({ handleShowNav, navIsShown }) => {
   );
 };
 
-export default Toggler;
+export default NavbarToggler;

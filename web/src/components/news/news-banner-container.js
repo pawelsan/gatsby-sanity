@@ -1,6 +1,5 @@
 import React from 'react';
 import NewsBanner from "./news-banner";
-
 import styles from "./news-banner.module.css";
 
 const NewsPostBannerContainer = ({ postNodes }) => {

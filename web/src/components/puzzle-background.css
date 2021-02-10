@@ -1,5 +1,3 @@
-@import url("../styles/index.css");
-
 .background_container {
     height: 100%;
     width: 100%;
@@ -32,12 +30,9 @@
 /* CSS for default orange puzzle */
 .puzzle {
     position: relative;
-    /* top: 30px;
-    left: 30px; */
     width: 67px;
     height: 67px;
     background-color: var(--orange);
-    /* transform: rotate(45deg); */
 }
 
 .connector {

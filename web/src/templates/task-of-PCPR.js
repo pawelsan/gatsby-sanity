@@ -4,7 +4,6 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import ContentPage from "../components/content/content-page";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
-import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
   query TaskOfPCPRQuery($id: String!) {
@@ -53,7 +52,6 @@ const TaskOfPCPRTemplate = (props) => {
     <Layout>
       <SEO
         title={content.pageName || "Untitled"}
-      // description={toPlainText(news._rawExcerpt)}
       />
       <ContentPage {...content} />
     </Layout>

@@ -3,7 +3,6 @@ import React from "react";
 import { buildImageObj, getNewsUrl } from "../../lib/helpers";
 import { imageUrlFor } from "../../lib/image-url";
 import PortableText from "../portableText";
-
 import styles from "./news-banner.module.css";
 
 function NewsPostBanner(props) {
@@ -14,7 +13,6 @@ function NewsPostBanner(props) {
                     <img
                         className={styles.banner_image}
                         src={imageUrlFor(buildImageObj(props.mainImage))
-                            // .width(80)
                             .height(100)
                             .auto("format")
                             .url()}

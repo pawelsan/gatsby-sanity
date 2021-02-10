@@ -11,7 +11,6 @@ const DropdownParent = ({ title, children }) => {
     );
   }, []);
 
-  // handlers
   const handleMouseOver = () => {
     setOpenDropdown(true);
   };

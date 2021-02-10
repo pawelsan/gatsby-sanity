@@ -1,20 +1,22 @@
 import React from "react";
+import PuzzleBackground from "./puzzle-background";
 import Header from "./header/header";
-import Footer from "./footer";
-import Container from "./container";
-import Background from "./background";
 import styles from "./layout.module.css";
 
 const Layout = ({ children }) => {
   return (
-    <Container>
-      <Background />
+    <div className={styles.root}>
+      <PuzzleBackground />
       <Header />
       <main className={styles.main}>
         {children}
       </main>
-      <Footer />
-    </Container>
+      <footer>
+        <div className={styles.copyright}>
+          &copy; {new Date().getFullYear()} Powiatowe Centrum Pomocy Rodzinie w Żyrardowie
+        </div>
+      </footer>
+    </div>
   );
 };
 

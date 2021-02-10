@@ -3,10 +3,10 @@ import NewsNavigationLink from "./news-navigation-link";
 import styles from "./news-list-pagination.module.css";
 
 const NewsListPagination = ({ currentPage, numPages }) => {
-    const isFirst = currentPage === 1
-    const isLast = currentPage === numPages
-    const prevPage = currentPage - 1 === 1 ? "" : (currentPage - 1).toString()
-    const nextPage = (currentPage + 1).toString()
+    const isFirst = currentPage === 1;
+    const isLast = currentPage === numPages;
+    const prevPage = currentPage - 1 === 1 ? "" : (currentPage - 1).toString();
+    const nextPage = (currentPage + 1).toString();
 
     return (
         <>

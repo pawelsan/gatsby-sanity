@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { Link } from "gatsby";
 import React from "react";
-import { buildImageObj, cn, getNewsUrl } from "../../lib/helpers";
+import { buildImageObj, getNewsUrl } from "../../lib/helpers";
 import { imageUrlFor } from "../../lib/image-url";
 import PortableText from "../portableText";
 
@@ -18,7 +18,6 @@ function NewsPostPreview(props) {
             <img
               className={styles.post_image}
               src={imageUrlFor(buildImageObj(props.mainImage))
-                // .width(90)
                 .height(70)
                 .auto("format")
                 .url()}

@@ -1,17 +1,14 @@
 import { Link } from "gatsby";
 import React, { useState } from "react";
-import Toggler from "./components/toggler";
+import NavbarToggler from "./components/navbar-toggler";
 import Navbar from "./components/navbar";
 import Home from "./components/home";
-import DropdownParent from "./components/dropdownParent";
-import DropdownPanel from "./components/dropdownPanel";
-import DropdownPanelWithCategories from "./components/dropdownPanelWithCategories";
+import DropdownParent from "./components/dropdown-parent";
+import DropdownPanel from "./components/dropdown-panel";
+import DropdownPanelWithCategories from "./components/dropdown-panel-categories";
+import RightSideWrapper from "./components/rightside-wrapper";
 import logo from "../../images/logo-small.png";
-import facebook from "../../images/f_logo_RGB-Blue_58.png";
-import bip from "../../images/bip.png";
-import DarkModeToggler from "./components/darkmodetoggler"
-import LargeFontToggler from "./components/largefonttoggler"
-import dropdownItemsQuery from "./data/dropdownItemsQuery";
+import dropdownItemsQuery from "./data/dropdown-items-query";
 import { sortNavItemsByOrder } from "../../lib/helpers";
 import styles from "./styles/header.module.css";
 
@@ -56,7 +53,7 @@ const Header = () => {
   return (
     <header>
       <div className={styles.header_container}>
-        <Toggler handleShowNav={handleShowNav} navIsShown={navIsShown} />
+        <NavbarToggler handleShowNav={handleShowNav} navIsShown={navIsShown} />
         <Navbar navIsShown={navIsShown} >
           <Home title={navItems.main} handleShowNav={handleShowNav} />
           <DropdownParent title={navItems.about}>
@@ -80,16 +77,7 @@ const Header = () => {
             <img className={styles.logo} src={logo} alt="Logo PCPR" />
           </Link>
         </div>
-        <div className={styles.rightside_wrapper}>
-          <a href="http://www.pcprzyrardow.naszbip.pl/" rel="noopener noreferrer" target="_blank">
-            <img src={bip} alt="Logo bip" />
-          </a>
-          <a href="https://www.facebook.com/PowiatoweCentrumPomocyRodzinieZyrardow/" rel="noopener noreferrer" target="_blank">
-            <img src={facebook} alt="Logo facebook" />
-          </a>
-          <DarkModeToggler />
-          <LargeFontToggler />
-        </div>
+        <RightSideWrapper />
       </div>
     </header>
   );

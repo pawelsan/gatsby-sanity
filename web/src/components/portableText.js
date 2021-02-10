@@ -4,7 +4,6 @@ import BasePortableText from "@sanity/block-content-to-react";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 import styles from "./portableText.module.css";
-
 import { useStaticQuery, graphql } from "gatsby";
 
 const categoryQuery = () => {
@@ -23,7 +22,6 @@ const categoryQuery = () => {
   return data;
 };
 
-
 const serializer = {
   marks: {
     link: ({ children, mark }) =>
@@ -35,7 +33,6 @@ const serializer = {
           <a href={mark.href}>{children}</a>
         ),
     internalLink: ({ mark, children }) => {
-      console.log(mark.item)
       let firstPartOfSlug
       if (mark.item.category) {
         const data = categoryQuery();
@@ -54,14 +51,12 @@ const serializer = {
         <figure className={styles.figure}>
           <img
             src={imageUrlFor(buildImageObj(node))
-              // .maxWidth(500)
               .height(400)
               .fit("crop")
               .auto("format")
               .url()}
             alt={node.alt}
           />
-          {/* <img src={imageUrlFor(node.asset).fit("scale").url()} alt={node.alt} /> */}
           <figcaption>{node.caption}</figcaption>
         </figure>
       );
@@ -87,9 +82,5 @@ const serializer = {
 const PortableText = ({ blocks }) => {
   return <BasePortableText blocks={blocks} {...clientConfig.sanity} serializers={serializer} />;
 };
-
-// const PortableText = ({ blocks }) => (
-//   <BasePortableText blocks={blocks} {...clientConfig.sanity} />
-// )
 
 export default PortableText;

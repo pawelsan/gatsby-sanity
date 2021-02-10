@@ -1,6 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
-import Container from "../components/container";
+import { graphql } from "gatsby";
 import GraphQLErrorList from "../components/graphql-error-list";
 import NewsPost from "../components/news/news-post";
 import SEO from "../components/seo";
@@ -40,13 +39,7 @@ const NewsTemplate = (props) => {
           image={news.mainImage}
         />
       )}
-
-      {errors && (
-        <Container>
-          <GraphQLErrorList errors={errors} />
-        </Container>
-      )}
-
+      {errors && (<GraphQLErrorList errors={errors} />)}
       {news && <NewsPost {...news} {...pageContext} />}
     </Layout>
   );

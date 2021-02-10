@@ -9,7 +9,6 @@ import NewsPostPreviewContainer from "../components/news/news-post-preview-conta
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
-import Container from "../components/container";
 import NewsListPagination from "../components/news/news-list-pagination"
 
 export const query = graphql`
@@ -43,9 +42,9 @@ const NewsLsitPage = ({ data, errors, pageContext }) => {
 
   if (errors) {
     return (
-      <Container>
+      <Layout>
         <GraphQLErrorList errors={errors} />
-      </Container>
+      </Layout>
     );
   }
 
